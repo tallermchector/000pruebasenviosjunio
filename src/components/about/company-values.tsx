@@ -72,7 +72,7 @@ export function CompanyValues() {
                   <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform duration-500", value.bg, "border border-white/5")}>
                     <IconComponent className={cn("w-8 h-8", value.color)} />
                   </div>
-                  <h3 className="font-display text-xl font-bold text-white mb-4 uppercase tracking-tight">{value.title}</h3>
+                  <h3 className="font-display text-xl font-black italic uppercase text-white mb-4 uppercase tracking-tight">{value.title}</h3>
                   <p className="text-gray-400 leading-relaxed font-sans text-sm">{value.description}</p>
                 </div>
               </motion.div>

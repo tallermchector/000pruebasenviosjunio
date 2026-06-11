@@ -72,9 +72,9 @@ export function CompanyStory() {
                     <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300", index % 2 === 0 ? "bg-primary/10 border border-primary/20 text-primary" : "bg-secondary/10 border border-secondary/20 text-secondary")}>
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className={cn("text-2xl font-bold font-display italic", index % 2 === 0 ? "text-primary" : "text-secondary")}>{milestone.year}</span>
+                    <span className={cn("text-2xl font-black italic uppercase font-display italic", index % 2 === 0 ? "text-primary" : "text-secondary")}>{milestone.year}</span>
                   </div>
-                  <h3 className="font-display text-xl font-bold text-white mb-3 uppercase tracking-tight">{milestone.title}</h3>
+                  <h3 className="font-display text-xl font-black italic uppercase text-white mb-3 uppercase tracking-tight">{milestone.title}</h3>
                   <p className="text-gray-400 leading-relaxed font-sans text-sm">{milestone.description}</p>
                 </div>
               </motion.div>

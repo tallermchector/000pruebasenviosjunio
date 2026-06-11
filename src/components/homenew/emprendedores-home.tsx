@@ -143,7 +143,7 @@ export const EmprendedoresHome = () => {
                   <solution.icon size={24} />
                 </div>
 
-                <h3 className="text-headline-md text-white mb-3 uppercase tracking-wide">
+                <h3 className="text-headline-md italic font-black text-white mb-3 uppercase tracking-wide">
                   {solution.title}
                 </h3>
 

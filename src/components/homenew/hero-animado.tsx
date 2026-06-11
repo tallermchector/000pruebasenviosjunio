@@ -69,7 +69,7 @@ export default function HeroAnimado() {
             <Link
               href="/cotizar/express"
               aria-label="Solicitar Servicio de mensajería desde el héroe"
-              className="group relative px-10 py-4.5 bg-primary hover:bg-blue-600 text-white font-display text-xs font-black rounded-none border-4 border-blue-900 transition-all shadow-md uppercase overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 active:translate-y-0 active:translate-x-0 active:shadow-md"
+              className="group relative px-10 py-4.5 bg-primary hover:bg-blue-600 text-white font-display text-xs font-black rounded-xl border-4 border-blue-900 transition-all shadow-md uppercase overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 active:translate-y-0 active:translate-x-0 active:shadow-md"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Solicitar Servicio <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -82,7 +82,7 @@ export default function HeroAnimado() {
               aria-label="Ver todos los servicios de envíos"
               className="flex items-center gap-4 group text-white font-display text-xs font-black hover:text-primary transition-colors py-2 uppercase tracking-wider"
             >
-              <div className="w-14 h-14 rounded-none bg-white/5 border-4 border-white/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:-translate-y-1 group-hover:-translate-x-1 hover:shadow-md" aria-hidden="true">
+              <div className="w-14 h-14 rounded-xl bg-white/5 border-4 border-white/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:-translate-y-1 group-hover:-translate-x-1 hover:shadow-md" aria-hidden="true">
                 <Play className="fill-white text-white ml-1" size={18} />
               </div>
               <span>Ver Servicios</span>

@@ -29,7 +29,7 @@ export function ExpressContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> SOLUCIONES PREMIUM
             </div>
-            <h2 className="font-display text-5xl md:text-7xl font-black italic leading-[1] mb-10 uppercase text-foreground tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic uppercase leading-[1] mb-10 uppercase text-foreground tracking-tighter">
               ENTREGAS RÁPIDAS Y <br />
               <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">EFICIENTES</span>
             </h2>

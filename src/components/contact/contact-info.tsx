@@ -130,7 +130,7 @@ export function ContactInfo() {
                       <div className={cn("w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 transform group-hover:scale-110 transition-transform duration-300", method.iconBg)}>
                         {IconComponent && <IconComponent className={cn("w-7 h-7 sm:w-8 sm:h-8", method.iconColor)} />}
                       </div>
-                      <h3 className="font-display text-xl font-bold text-white mb-2 uppercase tracking-tight">{method.title}</h3>
+                      <h3 className="font-display text-xl font-black italic uppercase text-white mb-2 uppercase tracking-tight">{method.title}</h3>
                       <p className="text-gray-400 text-sm leading-relaxed font-sans mb-6 flex-grow">{method.description}</p>
                       <Button
                         onClick={method.onClick}

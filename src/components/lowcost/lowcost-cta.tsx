@@ -28,7 +28,7 @@ export function LowcostCta() {
              ECONOMÍA Y ESCALA <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           </div>
 
-          <h2 className="font-display text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
+          <h2 className="font-display text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-tight mb-8 uppercase text-white">
             ¿LISTO PARA BAJAR TUS <br />
             COSTOS <span className="text-secondary drop-shadow-[0_0_15px_rgba(255,230,0,0.2)]">LOGÍSTICOS?</span>
           </h2>

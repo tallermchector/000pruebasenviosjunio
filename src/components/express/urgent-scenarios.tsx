@@ -44,7 +44,7 @@ export function UrgentScenarios() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-5xl md:text-7xl font-black italic mb-6 uppercase text-white tracking-tighter leading-none">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic uppercase mb-6 uppercase text-white tracking-tighter leading-none">
               ¿CUÁNDO NECESITAS <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">EXPRESS?</span>
             </h2>
             <div className="w-24 h-1.5 bg-secondary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(234,179,8,0.5)]" />

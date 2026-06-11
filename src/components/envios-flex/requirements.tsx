@@ -40,7 +40,7 @@ export function Requirements() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter leading-none">
+            <h2 className="font-display text-4xl md:text-5xl font-black italic uppercase mb-6 uppercase text-white tracking-tighter leading-none">
               ¿QUÉ <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">NECESITAS?</span>
             </h2>
             <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
@@ -73,7 +73,7 @@ export function Requirements() {
                 )}>
                    <req.icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-lg font-bold mb-3 uppercase text-white tracking-tight">{req.title}</h3>
+                <h3 className="font-display text-lg font-black italic uppercase mb-3 uppercase text-white tracking-tight">{req.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed font-sans">{req.desc}</p>
               </div>
             </motion.div>

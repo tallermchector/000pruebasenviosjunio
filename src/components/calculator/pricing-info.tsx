@@ -11,7 +11,7 @@ export default function PricingInfo() {
           <Badge variant="outline" className="mb-3 md:mb-4 text-xs sm:text-sm py-1 px-3 font-sans">
             Transparencia de Precios
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-6 font-display">
+          <h2 className="text-3xl md:text-4xl font-black italic uppercase text-primary mb-4 md:mb-6 font-display">
             ¿Cómo Calculamos el Precio?
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 font-sans">

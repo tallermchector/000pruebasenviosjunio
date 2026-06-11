@@ -45,7 +45,7 @@ export function MissionVision() {
                 <div className={cn("w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8 transition-transform duration-500 group-hover:scale-110", item.iconBg, "border border-white/5")}>
                   <IconComponent className={cn("w-10 h-10", item.iconColor)} />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-white mb-6 uppercase tracking-tight">{item.title}</h3>
+                <h3 className="font-display text-2xl font-black italic uppercase text-white mb-6 uppercase tracking-tight">{item.title}</h3>
                 <p className="text-gray-400 leading-relaxed font-sans text-sm">{item.desc}</p>
               </div>
             )

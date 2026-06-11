@@ -47,7 +47,7 @@ export function EnviosFlexContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-6 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> MERCADOLIBRE EXPERTS
             </div>
-            <h2 className="font-display text-5xl md:text-7xl font-black italic leading-[1] mb-8 uppercase text-foreground tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic uppercase leading-[1] mb-8 uppercase text-foreground tracking-tighter">
               DOMINÁ TUS VENTAS <br />
               <span className="text-secondary drop-shadow-[0_0_20px_rgba(234,179,8,0.4)]">CON ENVÍOS FLEX</span>
             </h2>

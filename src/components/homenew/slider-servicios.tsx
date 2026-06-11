@@ -96,7 +96,7 @@ export default function SliderServicios() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -12, scale: 1.02 }}
-              className="group p-6 md:p-10 rounded-[30px] md:rounded-[40px] bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden flex flex-col min-h-[440px] h-auto backdrop-blur-xl shadow-2xl"
+              className="group p-6 md:p-10 rounded-[30px] md:rounded-[40px] bg-white/[0.03] border border-white/5 border-l-4 border-l-primary hover:border-white/20 transition-all duration-700 relative overflow-hidden flex flex-col min-h-[440px] h-auto backdrop-blur-xl shadow-2xl"
             >
               {/* Internal Accent Light */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] blur-[40px] rounded-full group-hover:bg-primary/10 transition-all duration-700" />
@@ -113,7 +113,7 @@ export default function SliderServicios() {
                   <span className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em]">{service.badge}</span>
                   <div className="h-px w-6 bg-white/10" />
                 </div>
-                <h3 className="font-display text-orbitron text-2xl font-black text-white mb-1 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
+                <h3 className="font-display text-orbitron text-2xl font-black italic text-white mb-1 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
                   {service.title}
                 </h3>
                 <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-4" style={{ color: service.color }}>

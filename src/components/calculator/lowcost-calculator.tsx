@@ -79,7 +79,7 @@ export default function LowCostCalculator() {
   return (
     <section className="w-full py-12 md:py-16 bg-background font-sans">
       <div className="container mx-auto px-4 md:px-6 max-w-2xl lg:max-w-3xl">
-        <Card className="shadow-2xl bg-[#0a0d16]/60 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden">
+        <Card className="shadow-2xl bg-[#0a0d16]/60 border-white/10 border-l-4 border-l-primary backdrop-blur-md rounded-3xl overflow-hidden">
           <CardHeader className="pt-8">
             <CardTitle className="text-headline-lg text-primary font-display">Calculá tu Envío Low Cost</CardTitle>
             <CardDescription className="font-sans text-body-md mt-1 text-gray-400">
@@ -133,7 +133,7 @@ export default function LowCostCalculator() {
             )}
 
             {quoteDetails && !isCalculating && (
-              <Card className="mt-8 bg-primary/10 border-primary/20 rounded-2xl overflow-hidden backdrop-blur-sm">
+              <Card className="mt-8 bg-primary/10 border-primary/20 border-l-4 border-l-secondary rounded-2xl overflow-hidden backdrop-blur-sm">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-headline-lg-mobile text-primary flex items-center font-display uppercase tracking-tight">
                     <PackageCheck className="mr-3 h-7 w-7" />

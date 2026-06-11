@@ -39,7 +39,7 @@ export const VisionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-secondary/10 border-4 border-secondary text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary/10 border-4 border-secondary text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
               <span className="w-2 h-2 bg-secondary animate-pulse" /> Partner Logístico Especializado
             </div>
 
@@ -57,7 +57,7 @@ export const VisionSection = () => {
                 <motion.div
                   key={i}
                   className={cn(
-                    "flex items-start gap-5 p-5 rounded-none border-4 transition-all duration-300 group hover:-translate-y-1 hover:-translate-x-1 hover:shadow-md",
+                    "flex items-start gap-5 p-5 rounded-xl border-l-4 border-l-primary border-4 transition-all duration-300 group hover:-translate-y-1 hover:-translate-x-1 hover:shadow-md",
                     i === 0 
                       ? "bg-background border-secondary hover:border-primary"
                       : "bg-background border-primary hover:border-secondary"
@@ -66,7 +66,7 @@ export const VisionSection = () => {
                   transition={{ duration: 0.2 }}
                 >
                   <div className={cn(
-                    "w-12 h-12 rounded-none border-4 flex items-center justify-center shrink-0 transition-transform duration-300",
+                    "w-12 h-12 rounded-xl border-4 flex items-center justify-center shrink-0 transition-transform duration-300",
                     i === 0 
                       ? "bg-secondary border-yellow-700 text-primary"
                       : "bg-primary border-blue-900 text-white"
@@ -95,7 +95,7 @@ export const VisionSection = () => {
 
               <motion.div
                 whileHover={{ rotate: 90 }}
-                className="hidden md:flex ml-auto w-16 h-16 rounded-none border-4 border-white/20 items-center justify-center text-white/10 opacity-40"
+                className="hidden md:flex ml-auto w-16 h-16 rounded-xl border-4 border-white/20 items-center justify-center text-white/10 opacity-40"
               >
                 <Globe size={24} />
               </motion.div>
@@ -107,7 +107,7 @@ export const VisionSection = () => {
             style={{ scale, y }}
           >
             {/* Visual Frame */}
-            <div className="relative aspect-[4/5] rounded-none overflow-hidden group border-8 border-primary shadow-lg">
+            <div className="relative aspect-[4/5] rounded-xl overflow-hidden group border-8 border-primary shadow-lg">
               <Image
                 src="/hero/mapa_background.jpeg"
                 alt="Vanguardia Logística"
@@ -118,7 +118,7 @@ export const VisionSection = () => {
               <div className="absolute inset-0 bg-black/40" />
 
               {/* Floating Interactive Hub */}
-              <div className="absolute bottom-6 left-6 right-6 p-6 rounded-none bg-background border-4 border-white flex items-center justify-between transition-all duration-500 shadow-md">
+              <div className="absolute bottom-6 left-6 right-6 p-6 rounded-xl bg-background border-4 border-white flex items-center justify-between transition-all duration-500 shadow-md">
                 <div>
                   <h3 className="font-display text-lg font-black text-white uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
                   <div className="flex items-center gap-3 text-xxs text-blue-400 font-black tracking-[0.2em] uppercase">
@@ -129,7 +129,7 @@ export const VisionSection = () => {
                   whileHover={{ scale: 1, x: -4, y: -4 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Ir a página sobre nosotros"
-                  className="w-14 h-14 rounded-none bg-primary flex items-center justify-center text-white hover:shadow-md transition-all border-4 border-blue-900"
+                  className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center text-white hover:shadow-md transition-all border-4 border-blue-900"
                   onClick={() => window.location.href = '/nosotros/sobre-nosotros'}
                 >
                   <Play size={20} fill="currentColor" className="ml-1" aria-hidden="true" />
@@ -138,7 +138,7 @@ export const VisionSection = () => {
 
               {/* Holographic Status */}
               <div className="absolute top-10 right-10 flex flex-col items-end gap-3">
-                <div className="px-3 py-1.5 rounded-none bg-primary border-4 border-blue-900 text-[9px] font-black text-white uppercase tracking-widest flex items-center gap-2">
+                <div className="px-3 py-1.5 rounded-xl bg-primary border-4 border-blue-900 text-[9px] font-black text-white uppercase tracking-widest flex items-center gap-2">
                   <span className="w-2 h-2 bg-white animate-pulse" />
                   EN LÍNEA
                 </div>

@@ -5,6 +5,7 @@ import { motion, Variants } from 'framer-motion';
 import { Zap, Package, Truck, ChevronRight, Clock, MousePointer2 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from "@/lib/utils";
+import { motionVariants } from '@/components/ui/animations';
 
 // Definición de tipos para la tematización semántica
 type ServiceTheme = {
@@ -111,24 +112,6 @@ export const ServicesOverview = () => {
     }
   ];
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-    }
-  };
-
-  const itemVariants: Variants = {
-    hidden: { y: 20, opacity: 0, scale: 0.98 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-    }
-  };
-
   return (
     <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-transparent overflow-hidden">
       {/* Ambient background glow */}
@@ -170,7 +153,7 @@ export const ServicesOverview = () => {
 
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-4 lg:gap-6 h-auto"
-          variants={containerVariants}
+          variants={motionVariants.bentoGridEntrance}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
@@ -180,10 +163,14 @@ export const ServicesOverview = () => {
             return (
               <motion.div
                 key={idx}
-                variants={itemVariants}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                variants={{
+                  hidden: motionVariants.bentoItemEntrance.hidden,
+                  visible: motionVariants.bentoItemEntrance.visible,
+                  hover: motionVariants.cardHoverDepth.hover,
+                }}
+                whileHover="hover"
                 className={cn(
-                  "group p-6 lg:p-10 rounded-[32px] lg:rounded-[40px] glass-card transition-all duration-500 flex flex-col justify-between relative overflow-hidden",
+                  "group p-6 lg:p-10 rounded-[32px] lg:rounded-[40px] glass-card flex flex-col justify-between relative overflow-hidden",
                   theme.card,
                   service.className
                 )}

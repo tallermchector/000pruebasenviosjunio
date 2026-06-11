@@ -29,6 +29,9 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
+    --blur-sm: 4px;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 214.3 31.8% 91.4%;
   }
 
   .dark {
@@ -51,11 +54,22 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 217.2 91.2% 59.8%;
+    --blur-sm: 4px;
+    --glass-bg: 225 57% 3.9%;
+    --glass-border: 217.2 32.6% 17.5%;
   }
 
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+  }
+
+  .glass-card {
+    background: hsl(var(--glass-bg) / 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
   }
 }
 

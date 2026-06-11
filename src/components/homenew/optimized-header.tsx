@@ -31,8 +31,8 @@ export const OptimizedHeader = () => {
 
       {/* Desktop Navigation - RSC & Client Components for Interaction */}
       <nav className="hidden lg:flex items-center space-x-2 bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl p-1.5 shadow-2xl">
-        <ActiveLink 
-          href="/" 
+        <ActiveLink
+          href="/"
           className="text-gray-300 hover:text-white hover:bg-white/10"
           activeClassName="bg-primary/20 text-blue-400 border border-primary/30 shadow-lg"
         >
@@ -44,8 +44,8 @@ export const OptimizedHeader = () => {
           <NavDropdown key={group.label} group={group} />
         ))}
 
-        <ActiveLink 
-          href="/contacto" 
+        <ActiveLink
+          href="/contacto"
           className="text-gray-300 hover:text-white hover:bg-white/10"
           activeClassName="bg-primary/20 text-blue-400 border border-primary/30 shadow-lg"
         >
@@ -70,7 +70,7 @@ export const OptimizedHeader = () => {
       {/* Right side Hub - RSC & Client Components */}
       <div className="flex items-center gap-4">
         <a href="tel:+5492236602699" aria-label="Llamar al +54 223 660-2699" className="hidden xl:flex items-center gap-3 px-5 py-2.5 rounded-full glass-card text-white text-xxs font-black tracking-[0.2em] hover:text-primary hover:bg-white/10 transition-all uppercase">
-          <Phone size={14} className="text-secondary animate-pulse" aria-hidden="true" /> +54 223 660-2699
+          <Phone size={14} className="text-secondary animate-pulse" aria-hidden="true" />2236602699
         </a>
 
         <MobileMenu navGroups={navGroups} />

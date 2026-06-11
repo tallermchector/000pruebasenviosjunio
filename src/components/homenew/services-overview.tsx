@@ -22,7 +22,7 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-surface-glass border-red-500/20 hover:border-red-500/40 shadow-elevation",
+    card: "bg-surface-glass border-red-500/20 hover:border-red-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(239,68,68,0.15)] transition-all duration-300",
     icon: "bg-red-500/10 border border-red-500/20 text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.4)]",
     accent: "text-red-400",
     text: "text-white",
@@ -30,10 +30,10 @@ const THEMES: Record<string, ServiceTheme> = {
     button: "text-gray-300 hover:text-white group-hover:text-red-400",
     badge: "bg-red-500/10 text-red-400 border-red-500/20",
     accentColor: "red-400",
-    glowColor: "rgba(239,68,68,0.1)"
+    glowColor: "rgba(239,68,68,0.12)"
   },
   lowcost: {
-    card: "bg-surface-glass border-cyan-500/20 hover:border-cyan-500/40 shadow-elevation",
+    card: "bg-surface-glass border-cyan-500/20 hover:border-cyan-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all duration-300",
     icon: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
     accent: "text-cyan-400",
     text: "text-white",
@@ -41,10 +41,10 @@ const THEMES: Record<string, ServiceTheme> = {
     button: "text-gray-300 hover:text-white group-hover:text-cyan-400",
     badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     accentColor: "cyan-400",
-    glowColor: "rgba(6,182,212,0.1)"
+    glowColor: "rgba(6,182,212,0.12)"
   },
   meli: {
-    card: "bg-surface-glass border-yellow-500/20 hover:border-yellow-500/40 shadow-elevation",
+    card: "bg-surface-glass border-yellow-500/20 hover:border-yellow-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all duration-300",
     icon: "bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]",
     accent: "text-yellow-400",
     text: "text-white",
@@ -52,10 +52,10 @@ const THEMES: Record<string, ServiceTheme> = {
     button: "text-gray-300 hover:text-white group-hover:text-yellow-400",
     badge: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
     accentColor: "yellow-400",
-    glowColor: "rgba(234,179,8,0.1)"
+    glowColor: "rgba(234,179,8,0.12)"
   },
   ecommerce: {
-    card: "bg-surface-glass border-emerald-500/20 hover:border-emerald-500/40 shadow-elevation",
+    card: "bg-surface-glass border-emerald-500/20 hover:border-emerald-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all duration-300",
     icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]",
     accent: "text-emerald-400",
     text: "text-white",
@@ -63,7 +63,7 @@ const THEMES: Record<string, ServiceTheme> = {
     button: "text-gray-300 hover:text-white group-hover:text-emerald-400",
     badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     accentColor: "emerald-500",
-    glowColor: "rgba(16,185,129,0.1)"
+    glowColor: "rgba(16,185,129,0.12)"
   }
 };
 
@@ -170,7 +170,7 @@ export const ServicesOverview = () => {
                 }}
                 whileHover="hover"
                 className={cn(
-                  "group p-6 lg:p-10 rounded-[32px] lg:rounded-[40px] glass-card flex flex-col justify-between relative overflow-hidden",
+                  "group p-6 lg:p-10 rounded-xl glass-card flex flex-col justify-between relative overflow-hidden",
                   theme.card,
                   service.className
                 )}
@@ -183,19 +183,19 @@ export const ServicesOverview = () => {
 
                 <div className="relative z-10">
                   <div className={cn(
-                    "w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
+                    "w-12 h-12 lg:w-16 lg:h-16 rounded-md lg:rounded-lg flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
                     theme.icon
                   )}>
                     {React.cloneElement(service.icon as React.ReactElement<any>, { size: 28 })}
                   </div>
 
-                  <h3 className={cn("text-headline-md mb-1 uppercase", theme.text)}>
+                  <h3 className={cn("text-headline-md mb-1 uppercase tracking-wide transition-all duration-300 group-hover:tracking-wider", theme.text)}>
                     {service.title}
                   </h3>
-                  <p className={cn("text-label-sm uppercase mb-4", theme.accent)}>
+                  <p className={cn("text-label-sm uppercase mb-4 tracking-widest transition-all duration-300 group-hover:text-white", theme.accent)}>
                     {service.bajada}
                   </p>
-                  <div className={cn("text-body-md mb-6 max-w-[320px]", theme.desc)}>
+                  <div className={cn("text-body-md mb-6 max-w-[320px] leading-relaxed transition-colors duration-300 group-hover:text-gray-300", theme.desc)}>
                     {service.desc}
                   </div>
                 </div>
@@ -203,13 +203,13 @@ export const ServicesOverview = () => {
                 <div className="relative z-10 flex items-center justify-between">
                   <Link
                     href={service.href}
-                    className={cn("flex items-center gap-3 text-label-md transition-all", theme.button)}
+                    className={cn("flex items-center gap-2 text-label-md transition-all duration-300 group-hover:gap-3", theme.button)}
                   >
-                    {service.buttonText} <ChevronRight size={16} />
+                    {service.buttonText} <ChevronRight size={16} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
                   </Link>
 
                   {service.badge && (
-                    <div className={cn("hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-[9px] font-black tracking-widest uppercase border", theme.badge)}>
+                    <div className={cn("hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full font-display text-[9px] font-black tracking-[0.2em] uppercase border", theme.badge)}>
                       {service.badge}
                     </div>
                   )}

@@ -151,6 +151,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}
+        suppressHydrationWarning
       >
         {children}
         <WhatsAppReviewButton />

@@ -1,0 +1,46 @@
+# /.aiexclude - Gemini Code Assist Exclusion Rules
+# Optimización de ventana de contexto: Ignorar ruido técnico sin bloquear el core.
+
+# 1. Bloqueo de Artefactos de Compilación y Runtime
+node_modules/
+.next/
+dist/
+build/
+out/
+.vercel/
+.turbo/
+*.log
+*.lockb
+pnpm-lock.yaml
+
+# 2. Archivos de Configuración de Herramientas (Meta-data redundante para lógica)
+.vscode/
+.idx/
+.git/
+.modified
+apphosting.yaml
+components.json
+postcss.config.mjs
+tailwind.config.ts
+tsconfig.json
+
+# 3. Datos Generados y Prisma (Evitar inundación de esquemas/datos pesados)
+prisma/migrations/
+prisma/datos/*.json
+generated/
+
+# 4. Binarios y Media
+public/fonts/
+public/images/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.webp
+*.ico
+
+# 5. Documentación de Soporte (Mantener solo AGENTS.md y GEMINI.md)
+docs/
+README.md
+BUILD_ERRORS.md
+jules_agente.md

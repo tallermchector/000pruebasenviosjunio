@@ -1,0 +1,12 @@
+[
+  {
+    "id": 2,
+    "name": "General",
+    "phone": "2236602699",
+    "vehicleType": "Moto",
+    "licensePlate": "ABC 1234",
+    "isActive": true,
+    "createdAt": "2025-11-02T05:51:09.594Z",
+    "updatedAt": "2025-11-02T05:51:09.594Z"
+  }
+]

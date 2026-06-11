@@ -1,0 +1,40 @@
+[
+  {
+    "id": 2,
+    "orderNumber": "EXP-1762063176147",
+    "tipoEnvio": "EXPRESS",
+    "remitenteNombre": "Matias",
+    "remitenteDireccion": "Libertad 1234",
+    "remitenteNotas": "",
+    "destinatarioNombre": "Prueba",
+    "destinatarioDireccion": "Colon 1234",
+    "destinatarioTelefono": "22222222222",
+    "montoACobrar": "4500",
+    "destinatarioNotas": "",
+    "status": "PENDIENTE",
+    "createdAt": "2025-11-02T05:59:36.254Z",
+    "updatedAt": "2025-11-02T06:00:08.395Z",
+    "deliveryStartTime": "09:00",
+    "deliveryEndTime": "11:00",
+    "repartidorId": null
+  },
+  {
+    "id": 1,
+    "orderNumber": "LOW-1762063144024",
+    "tipoEnvio": "LOW_COST",
+    "remitenteNombre": "Matias",
+    "remitenteDireccion": "Colon 1234",
+    "remitenteNotas": "",
+    "destinatarioNombre": "Prueba",
+    "destinatarioDireccion": "Libertad 1234",
+    "destinatarioTelefono": "22222222222",
+    "montoACobrar": "3500",
+    "destinatarioNotas": "",
+    "status": "ENTREGADA",
+    "createdAt": "2025-11-02T05:59:04.131Z",
+    "updatedAt": "2025-11-02T07:21:22.173Z",
+    "deliveryStartTime": null,
+    "deliveryEndTime": null,
+    "repartidorId": 2
+  }
+]

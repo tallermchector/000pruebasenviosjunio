@@ -37,7 +37,7 @@ export default function HeroAnimado() {
           {/* Badge - Animation with Framer Motion */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] backdrop-blur-md border border-white/10 text-blue-400 text-xxs font-black tracking-[0.3em] mb-8 uppercase"
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-glass backdrop-blur-md border border-border-glass text-blue-400 text-xxs font-black tracking-[0.3em] mb-8 uppercase shadow-elevation"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -80,7 +80,7 @@ export default function HeroAnimado() {
               aria-label="Ver todos los servicios de envíos"
               className="flex items-center gap-4 group text-white text-label-md hover:text-primary transition-colors py-2"
             >
-              <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:scale-110 shadow-xl backdrop-blur-sm" aria-hidden="true">
+              <div className="w-14 h-14 rounded-full bg-surface-glass border border-border-glass flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:scale-110 shadow-lg backdrop-blur-md" aria-hidden="true">
                 <Play className="fill-white text-white ml-1" size={18} />
               </div>
               <span className="text-xs uppercase">Ver Servicios</span>

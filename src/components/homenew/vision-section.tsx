@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Zap, ShieldCheck, CheckCircle2, Play, Globe, ArrowRight, MousePointer2 } from 'lucide-react';
+import { Zap, ShieldCheck, CheckCircle2, Play, Globe, MousePointer2 } from 'lucide-react';
 import Image from 'next/image';
 
 export const VisionSection = () => {
@@ -59,7 +59,7 @@ export const VisionSection = () => {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/[0.08] group-hover:border-primary/50 transition-all shadow-xl backdrop-blur-sm">
+                  <div className="w-14 h-14 rounded-2xl bg-surface-glass border border-border-glass flex items-center justify-center shrink-0 group-hover:bg-white/[0.08] group-hover:border-primary/50 transition-all shadow-lg backdrop-blur-md">
                     {React.cloneElement(item.icon, { size: 28 })}
                   </div>
                   <div>
@@ -96,7 +96,7 @@ export const VisionSection = () => {
             style={{ scale, y }}
           >
             {/* Visual Glass Frame */}
-            <div className="relative aspect-[4/5] rounded-[60px] overflow-hidden group border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]">
+            <div className="relative aspect-[4/5] rounded-[60px] overflow-hidden group border border-border-glass shadow-elevation">
               <Image
                 src="/hero/mapa_background.jpeg"
                 alt="Vanguardia Logística"
@@ -110,7 +110,7 @@ export const VisionSection = () => {
               <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               {/* Floating Interactive Hub */}
-              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-[40px] bg-[#0a0d16]/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-[#0a0d16]/60 transition-all duration-700 shadow-2xl">
+              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-[40px] bg-surface-glass backdrop-blur-lg border border-border-glass flex items-center justify-between group-hover:bg-surface-glass/60 transition-all duration-700 shadow-lg">
                 <div>
                   <h3 className="font-display text-orbitron text-2xl font-black text-white uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
                   <div className="flex items-center gap-3 text-xxs text-blue-400 font-black tracking-[0.2em] uppercase">

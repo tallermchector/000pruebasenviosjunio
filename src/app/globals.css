@@ -30,8 +30,15 @@
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
     --blur-sm: 4px;
+    --blur-md: 12px;
+    --blur-lg: 24px;
     --glass-bg: 0 0% 100%;
     --glass-border: 214.3 31.8% 91.4%;
+    --shadow-elevation: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --surface-glass: 0 0% 100%;
+    --border-glass: 214.3 31.8% 91.4%;
   }
 
   .dark {
@@ -55,8 +62,15 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 217.2 91.2% 59.8%;
     --blur-sm: 4px;
+    --blur-md: 12px;
+    --blur-lg: 24px;
     --glass-bg: 225 57% 3.9%;
     --glass-border: 217.2 32.6% 17.5%;
+    --shadow-elevation: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --surface-glass: 225 57% 3.9%;
+    --border-glass: 217.2 32.6% 17.5%;
   }
 
   body {
@@ -65,11 +79,11 @@
   }
 
   .glass-card {
-    background: hsl(var(--glass-bg) / 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--glass-border) / 0.3);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+    background: hsl(var(--surface-glass) / 0.45);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
+    border: 1px solid hsl(var(--border-glass) / 0.3);
+    box-shadow: var(--shadow-elevation);
   }
 }
 

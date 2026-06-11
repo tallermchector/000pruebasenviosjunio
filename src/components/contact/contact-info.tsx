@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Home, Mail, Share2 as Facebook, Camera as Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
@@ -86,28 +85,26 @@ export function ContactInfo() {
             viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="mb-8 sm:mb-10 shadow-2xl border border-white/10 backdrop-blur-md bg-[#0a0d16]/60 hover:border-primary/30 transition-all duration-500 rounded-2xl">
-              <CardContent className="p-6 sm:p-8 text-center">
-                <div className="flex items-center justify-center mb-2 sm:mb-3">
-                    <Home className="w-7 h-7 sm:w-8 sm:h-8 text-primary mr-2 sm:mr-3" />
-                    <h2 className="text-headline-lg-mobile sm:text-headline-lg md:text-display-md font-bold text-primary font-display uppercase tracking-wider mb-2">Envios DosRuedas</h2>
-                </div>
-                <p className="text-label-md text-gray-400 mb-4 sm:mb-6 uppercase">Mensajería y Delivery</p>
+            <div className="mb-8 sm:mb-10 p-6 sm:p-8 text-center rounded-xl bg-card border-l-4 border-l-primary shadow-2xl relative overflow-hidden transition-all duration-300 hover:border-l-secondary">
+              <div className="flex items-center justify-center mb-2 sm:mb-3">
+                  <Home className="w-7 h-7 sm:w-8 sm:h-8 text-primary mr-2 sm:mr-3" />
+                  <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black italic uppercase text-primary tracking-tighter leading-none mb-2">Envios DosRuedas</h2>
+              </div>
+              <p className="text-xxs font-black tracking-[0.2em] text-gray-400 mb-4 sm:mb-6 uppercase">Mensajería y Delivery</p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6 gap-2 sm:gap-3">
-                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  <span className="text-headline-lg-mobile sm:text-headline-lg md:text-display-md font-bold text-white font-display tracking-wider">223-660-2699</span>
-                </div>
+              <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6 gap-2 sm:gap-3">
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <span className="font-display text-3xl sm:text-4xl md:text-5xl font-black italic text-white tracking-tighter leading-none">223-660-2699</span>
+              </div>
 
-                <Button
-                  onClick={handleWhatsAppClick}
-                  className="bg-[#25D366] hover:bg-[#25D366]/90 text-slate-900 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold font-display text-orbitron tracking-wider rounded-xl shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105 uppercase"
-                >
-                  <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                  Contactar por WhatsApp
-                </Button>
-              </CardContent>
-            </Card>
+              <Button
+                onClick={handleWhatsAppClick}
+                className="bg-[#25D366] hover:bg-[#25D366]/90 text-slate-900 px-6 py-4 font-display font-black tracking-tight rounded-xl shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105 uppercase h-auto inline-flex items-center justify-center"
+              >
+                <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                Contactar por WhatsApp
+              </Button>
+            </div>
           </motion.div>
 
           {/* Contact Methods Grid */}
@@ -123,19 +120,24 @@ export function ContactInfo() {
                   viewport={{ once: true, amount: 0.2 }}
                   variants={cardVariants}
                 >
-                  <Card className="hover:shadow-2xl hover:-translate-y-1.5 h-full flex flex-col border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md hover:border-primary/30 rounded-2xl transition-all duration-500">
-                    <CardContent className="p-6 text-center flex flex-col items-center flex-grow">
+                  <div className={cn(
+                    "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300 flex flex-col p-8 shadow-lg hover:-translate-y-1.5",
+                    index % 2 === 0
+                      ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                      : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                  )}>
+                    <div className="text-center flex flex-col items-center flex-grow">
                       <div className={cn("w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 transform group-hover:scale-110 transition-transform duration-300", method.iconBg)}>
                         {IconComponent && <IconComponent className={cn("w-7 h-7 sm:w-8 sm:h-8", method.iconColor)} />}
                       </div>
-                      <h3 className="text-headline-lg font-bold text-white mb-2 uppercase">{method.title}</h3>
-                      <p className="text-body-md text-gray-400 mb-6 flex-grow">{method.description}</p>
+                      <h3 className="font-display text-xl font-bold text-white mb-2 uppercase tracking-tight">{method.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed font-sans mb-6 flex-grow">{method.description}</p>
                       <Button
                         onClick={method.onClick}
                         asChild={!!method.href}
                         variant="outline"
                         size="sm"
-                        className={cn("mt-auto transition-all duration-300 w-full text-xs sm:text-sm font-display text-orbitron font-bold tracking-wider rounded-xl uppercase py-2.5", method.colorClasses)}
+                        className={cn("mt-auto transition-all duration-300 w-full text-xs sm:text-sm font-display font-bold tracking-tight rounded-xl uppercase py-2.5 h-auto", method.colorClasses)}
                       >
                         {method.href ? (
                           <a href={method.href} target={method.href.startsWith("mailto:") ? "_self" : "_blank"} rel="noopener noreferrer">
@@ -145,8 +147,8 @@ export function ContactInfo() {
                           <span>{method.actionText}</span>
                         )}
                       </Button>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}

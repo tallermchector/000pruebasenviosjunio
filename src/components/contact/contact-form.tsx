@@ -7,7 +7,6 @@ import { useForm, type FieldErrors } from "react-hook-form"
 import * as z from "zod"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -35,7 +34,7 @@ const initialState: ContactFormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-secondary hover:bg-yellow-400 text-black py-4 uppercase font-display font-black text-orbitron tracking-wider rounded-xl transition-all duration-300 transform active:scale-95 text-base h-auto" size="lg">
+    <Button type="submit" disabled={pending} className="w-full bg-secondary hover:bg-yellow-400 text-black py-4 uppercase font-display font-black tracking-tight rounded-xl transition-all duration-300 transform active:scale-95 text-base h-auto" size="lg">
       {pending ? (
         <>
           <Loader2 className="mr-2 h-5 w-5 animate-spin" />
@@ -103,20 +102,17 @@ export function ContactForm() {
   if (state?.message && state.timestamp && state.timestamp > (initialState.timestamp ?? 0)) {
     return (
        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <Card className="max-w-2xl mx-auto shadow-lg border-green-300 bg-green-50 dark:bg-green-900/20">
-            <CardContent className="p-8 text-center">
-            <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-green-700 dark:text-green-400 mb-2 font-display">¡Mensaje Enviado!</h3>
-            <p className="text-green-600 dark:text-green-300 font-sans">{state.message}</p>
-            </CardContent>
-        </Card>
+        <div className="max-w-2xl mx-auto rounded-xl bg-card border-l-4 border-l-emerald-500 p-8 text-center shadow-lg">
+            <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-white mb-2 font-display uppercase tracking-tight">¡Mensaje Enviado!</h3>
+            <p className="text-gray-400 font-sans">{state.message}</p>
+        </div>
       </motion.div>
     );
   }
 
   return (
-    <Card className="max-w-2xl mx-auto shadow-2xl border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md hover:border-primary/30 transition-all duration-500 rounded-2xl">
-      <CardContent className="p-6 sm:p-8">
+    <div className="max-w-2xl mx-auto rounded-xl bg-card border-l-4 border-l-primary p-6 sm:p-8 shadow-2xl relative overflow-hidden transition-all duration-300 hover:border-l-secondary">
         <Form {...form}>
             <form action={formAction} className="space-y-5 sm:space-y-6">
             
@@ -171,7 +167,6 @@ export function ContactForm() {
             </div>
           </form>
         </Form>
-      </CardContent>
-    </Card>
+    </div>
   )
 }

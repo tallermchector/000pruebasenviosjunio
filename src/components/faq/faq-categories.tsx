@@ -125,11 +125,11 @@ export function FaqCategories() {
   const activeFaq = faqData.find((faq) => faq.category === activeCategory)
 
   return (
-    <section className="py-16 px-4 bg-[#030710]">
+    <section className="py-16 px-4 bg-transparent">
       <div className="container mx-auto max-w-6xl">
         {/* Category Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
-          {categories.map((category) => {
+          {categories.map((category, index) => {
             const IconComponent = category.icon
             const isActive = activeCategory === category.id
 
@@ -139,17 +139,17 @@ export function FaqCategories() {
                 onClick={() => setActiveCategory(category.id)}
                 variant={isActive ? "default" : "outline"}
                 className={cn(
-                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-display rounded-xl",
+                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-display rounded-xl bg-card border-l-4 shadow-md",
                   isActive
-                    ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl scale-105 border-primary"
-                    : "bg-[#0a0d16]/60 backdrop-blur-sm border-white/10 hover:bg-white/5 hover:border-primary/50 text-muted-foreground"
+                    ? "border-l-primary hover:border-l-primary text-white scale-105"
+                    : "border-l-transparent hover:border-l-secondary hover:text-white text-gray-400"
                 )}
               >
                 <div className={cn(
                   "p-3 rounded-full",
-                  isActive ? "bg-primary-foreground/10" : "bg-primary/5"
+                  isActive ? "bg-primary/10 border border-primary/20 text-primary" : "bg-white/5 border border-white/10 text-gray-400"
                 )}>
-                  <IconComponent className={cn("w-6 h-6", isActive ? "text-primary-foreground" : "text-primary")} />
+                  <IconComponent className="w-6 h-6" />
                 </div>
                 <span className="text-base font-bold uppercase tracking-wider">{category.label}</span>
               </Button>
@@ -160,10 +160,10 @@ export function FaqCategories() {
         {/* FAQ Items */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-display-md text-foreground font-display">
+            <h2 className="font-display text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter leading-none text-center">
               {categories.find((cat) => cat.id === activeCategory)?.label}
             </h2>
-            <div className="w-16 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+            <div className="w-16 h-1.5 bg-primary mx-auto mt-4 rounded-full"></div>
           </div>
 
           <div className="space-y-4">

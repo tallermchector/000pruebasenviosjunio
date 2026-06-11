@@ -44,8 +44,8 @@ export function ContactPageClient() {
       >
         <div className="container mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-headline-lg-mobile md:text-display-md italic uppercase text-white mb-4">¿Tenés alguna consulta?</h2>
-            <p className="text-gray-400 text-body-lg max-w-xl mx-auto">Completá el formulario y te responderemos a la brevedad.</p>
+            <h2 className="font-display text-4xl md:text-5xl font-black italic uppercase text-white tracking-tighter leading-none mb-4">¿Tenés alguna consulta?</h2>
+            <p className="text-gray-400 text-lg max-w-xl mx-auto font-sans">Completá el formulario y te responderemos a la brevedad.</p>
           </div>
           <ContactForm />
         </div>

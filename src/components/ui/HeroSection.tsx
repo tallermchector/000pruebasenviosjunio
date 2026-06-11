@@ -164,7 +164,7 @@ export function HeroSection({
                   variant={button.variant || 'default'}
                   asChild
                   className={cn(
-                    'px-10 py-5 font-sans font-bold rounded-none transition-all uppercase tracking-tight h-auto',
+                    'px-10 py-5 font-sans font-bold rounded-xl transition-all uppercase tracking-tight h-auto',
                     isYellowButton
                       ? "bg-secondary hover:bg-[#d97706] text-black shadow-lg"
                       : "bg-slate-900 border border-slate-800 text-white hover:bg-slate-800",

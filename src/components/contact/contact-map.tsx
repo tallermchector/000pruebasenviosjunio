@@ -23,10 +23,10 @@ export function ContactMap() {
             <MapPin className="w-5 h-5 text-primary mr-2" />
             <span className="text-xs font-bold text-primary uppercase tracking-wider font-sans">Ubicación</span>
           </motion.div>
-          <h2 className="text-headline-lg-mobile md:text-display-md italic uppercase text-white mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-black italic uppercase text-white tracking-tighter leading-none mb-4 animate-fade-in-up">
             Nuestra Zona de Cobertura
           </h2>
-          <p className="text-gray-400 text-body-lg max-w-xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-xl mx-auto font-sans">
             Operamos en toda la ciudad de Mar del Plata, listos para llegar a donde nos necesites.
           </p>
         </div>
@@ -34,7 +34,7 @@ export function ContactMap() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative h-[450px] md:h-[550px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md"
+          className="relative h-[450px] md:h-[550px] w-full rounded-xl overflow-hidden shadow-2xl border-l-4 border-l-primary bg-card"
         >
           <iframe 
             src="https://www.openstreetmap.org/export/embed.html?bbox=-57.8,-38.15,-57.4,-37.85&layer=mapnik"
@@ -49,7 +49,7 @@ export function ContactMap() {
           ></iframe>
         </motion.div>
         <div className="text-center mt-8">
-          <Button onClick={openInOSM} variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black font-display font-black text-orbitron tracking-wider rounded-xl uppercase py-4 h-auto">
+          <Button onClick={openInOSM} variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black font-display font-black tracking-tight rounded-xl uppercase py-4 h-auto">
             <ExternalLink className="mr-2 h-4 w-4" />
             Ver en OpenStreetMap
           </Button>

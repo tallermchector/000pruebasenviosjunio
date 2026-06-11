@@ -6,7 +6,6 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { BusinessHours } from "@/components/contact/business-hours";
 import { ContactMap } from "@/components/contact/contact-map";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -41,6 +40,7 @@ export function ContactPageClient() {
         viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
         className="py-12 md:py-16 px-4 bg-transparent border-t border-white/5"
+        id="contacto-formulario"
       >
         <div className="container mx-auto">
           <div className="text-center mb-10 md:mb-12">

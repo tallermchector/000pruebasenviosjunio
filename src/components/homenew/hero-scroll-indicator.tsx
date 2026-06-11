@@ -1,12 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export function HeroScrollIndicator() {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <motion.div
-      animate={{ y: [0, 12, 0] }}
-      transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+      animate={shouldReduceMotion ? { y: 0 } : { y: [0, 12, 0] }}
+      transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
       className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-20 hover:opacity-50 transition-opacity cursor-pointer"
       onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
     >

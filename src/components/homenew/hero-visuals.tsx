@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useMotionValue, useReducedMotion } from 'framer-motion';
 import RotatingCard from '@/components/homenew/rotating-card';
 import { MousePointer2, ShieldCheck } from 'lucide-react';
 
@@ -9,6 +9,9 @@ export function HeroVisuals() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const y2 = useTransform(scrollY, [0, 500], [0, -50]);
+
+  // Accessibility Check
+  const shouldReduceMotion = useReducedMotion();
 
   // Mouse Parallax Effect
   const x = useMotionValue(0);
@@ -22,6 +25,7 @@ export function HeroVisuals() {
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current || typeof window === 'undefined') return;
+    if (shouldReduceMotion) return; // Disable parallax on mouse move
     if (window.innerWidth > 1024) {
       const rect = containerRef.current.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
@@ -51,9 +55,9 @@ export function HeroVisuals() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         style={{
-          y: y2,
-          rotateX,
-          rotateY,
+          y: shouldReduceMotion ? 0 : y2,
+          rotateX: shouldReduceMotion ? "0deg" : rotateX,
+          rotateY: shouldReduceMotion ? "0deg" : rotateY,
           transformStyle: "preserve-3d"
         }}
       >
@@ -62,7 +66,7 @@ export function HeroVisuals() {
 
           <motion.div
             className="w-full h-full relative z-10"
-            whileHover={{ scale: 1.05 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
             transition={{ type: "spring", stiffness: 200, damping: 25 }}
           >
             <RotatingCard 
@@ -71,8 +75,8 @@ export function HeroVisuals() {
             />
 
             <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              animate={shouldReduceMotion ? { y: 0 } : { y: [0, -15, 0] }}
+              transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 4, ease: "easeInOut" }}
               className="absolute -top-8 -right-8 px-5 py-4 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
               <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/20">
@@ -85,8 +89,8 @@ export function HeroVisuals() {
             </motion.div>
 
             <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.5 }}
+              animate={shouldReduceMotion ? { y: 0 } : { y: [0, 15, 0] }}
+              transition={shouldReduceMotion ? {} : { repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.5 }}
               className="absolute -bottom-10 -left-6 px-5 py-4 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
               <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary border border-secondary/20">

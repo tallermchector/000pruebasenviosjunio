@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística y Envíos E-commerce | Envíos DosRuedas (Brutalist Edition)</title>
+    <meta name="description" content="Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL. Variante Brutalista.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#fef3c7', // Warm Amber 100
+                        foreground: '#000000',
+                        primary: '#2563eb', // Royal Blue
+                        secondary: '#f97316', // Orange
+                        highlighter: '#facc15', // Yellow 400
+                        border: '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefef5;
+            color: #000000;
+        }
+
+        .font-display {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Brutalist Hard Outlines & Hard Shadows */
+        .brutalist-card {
+            border: 3px solid #000000;
+            background-color: #ffffff;
+            box-shadow: 6px 6px 0px 0px #000000;
+            transition: all 0.15s ease;
+        }
+
+        .brutalist-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+
+        .brutalist-btn {
+            border: 3px solid #000000;
+            box-shadow: 4px 4px 0px 0px #000000;
+            transition: all 0.1s ease;
+        }
+
+        .brutalist-btn:hover {
+            transform: translate(1px, 1px);
+            box-shadow: 3px 3px 0px 0px #000000;
+        }
+
+        .brutalist-btn:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #000000;
+        }
+
+        /* Continuous Horizontal Scroll */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="selection:bg-highlighter selection:text-black flex flex-col min-h-screen">
+
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1.5 bg-primary z-50 border-b border-black" style="width: 0%;"></div>
+
+    <!-- Header / Navbar (Brutalist Outlines) -->
+    <header class="sticky top-0 left-0 right-0 z-40 bg-white border-b-4 border-black">
+        <div class="max-w-[1200px] mx-auto px-4 h-20 flex items-center justify-between">
+            <!-- Brand -->
+            <a href="#" class="flex items-center gap-2 group">
+                <span class="font-display font-black text-xl tracking-tight uppercase text-black border-2 border-black bg-highlighter px-3 py-1">
+                    DOS<span class="text-primary">RUEDAS</span>
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 font-display text-xs font-bold uppercase">
+                <a href="#hero" class="text-black hover:bg-highlighter px-2 py-1 transition-colors">INICIO</a>
+                <a href="#servicios" class="text-black hover:bg-highlighter px-2 py-1 transition-colors">SERVICIOS</a>
+                <a href="#vision" class="text-black hover:bg-highlighter px-2 py-1 transition-colors">VISIÓN</a>
+                <a href="#pyme" class="text-black hover:bg-highlighter px-2 py-1 transition-colors">PYMES</a>
+                <a href="#contacto" class="text-black hover:bg-highlighter px-2 py-1 transition-colors">CONTACTO</a>
+            </nav>
+
+            <!-- Quick Action Hub -->
+            <div class="hidden md:flex items-center gap-6 font-display text-xs font-bold">
+                <a href="tel:+5492236602699" class="hover:underline">TEL: 223 660 2699</a>
+                <a href="https://wa.me/5492236602699" target="_blank" class="brutalist-btn bg-secondary text-white px-5 py-2.5 uppercase font-bold">
+                    COTIZAR ENVÍO
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-black focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer (Brutalist Outlines) -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/40 opacity-0 pointer-events-none transition-all duration-200 md:hidden">
+        <div id="mobile-drawer-content" class="absolute top-0 right-0 w-[270px] h-full bg-white border-l-4 border-black p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-200">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b-2 border-black">
+                    <span class="font-display font-black text-sm uppercase">DOS RUEDAS</span>
+                    <button id="close-drawer-btn" class="text-black hover:text-secondary">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4 mt-8 font-display text-xs font-bold uppercase">
+                    <a href="#hero" class="py-1.5 hover:bg-highlighter px-2 block">INICIO</a>
+                    <a href="#servicios" class="py-1.5 hover:bg-highlighter px-2 block">SERVICIOS</a>
+                    <a href="#vision" class="py-1.5 hover:bg-highlighter px-2 block">VISIÓN</a>
+                    <a href="#pyme" class="py-1.5 hover:bg-highlighter px-2 block">PYMES</a>
+                    <a href="#contacto" class="py-1.5 hover:bg-highlighter px-2 block">CONTACTO</a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-4 border-t-2 border-black pt-6 font-display text-xs">
+                <a href="https://wa.me/5492236602699" target="_blank" class="w-full text-center brutalist-btn bg-secondary text-white py-3.5 font-bold uppercase">
+                    COTIZAR ENVÍO
+                </a>
+                <a href="tel:+5492236602699" class="text-center font-bold">TEL: 223 660 2699</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        
+        <!-- Hero Section (Asymmetric Brutalist Blocks) -->
+        <section id="hero" class="py-20 border-b-4 border-black bg-amber-50">
+            <div class="max-w-[1200px] mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Content -->
+                    <div class="lg:col-span-7 flex flex-col gap-6">
+                        <span class="font-display font-black text-xs text-white bg-primary border-2 border-black px-3 py-1 w-fit uppercase">
+                            LOGÍSTICA EXTREMA // MAR DEL PLATA
+                        </span>
+                        
+                        <h1 class="font-display font-black text-4xl sm:text-6xl tracking-tighter uppercase leading-[0.95] text-black">
+                            Mensajería y Logística <span class="bg-highlighter border-2 border-black px-2 py-0.5 inline-block my-1 text-black">E-Commerce</span> en Mar del Plata
+                        </h1>
+                        
+                        <p class="text-black text-md font-medium leading-relaxed border-2 border-black p-4 bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Soluciones rápidas, seguras y económicas para todas tus necesidades de envío.
+                        </p>
+
+                        <!-- Actions -->
+                        <div class="flex flex-wrap items-center gap-4 mt-2">
+                            <a href="https://wa.me/5492236602699" target="_blank" class="brutalist-btn bg-secondary text-white font-display font-black text-xs tracking-wider uppercase px-7 py-4">
+                                SOLICITAR SERVICIO &rarr;
+                            </a>
+                            <a href="#servicios" class="brutalist-btn bg-white text-black font-display font-black text-xs tracking-wider uppercase px-6 py-4">
+                                VER SERVICIOS
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Technical Widget -->
+                    <div class="lg:col-span-5 brutalist-card p-6 flex flex-col gap-6">
+                        <div class="flex items-center justify-between border-b-2 border-black pb-3">
+                            <span class="font-display font-black text-xs text-primary">[ ESTATUS: ONLINE ]</span>
+                            <i data-lucide="package" class="w-5 h-5 text-black"></i>
+                        </div>
+                        <div class="flex flex-col gap-4 font-display text-xs">
+                            <div>
+                                <span class="block text-slate-500 font-bold">[ CÓDIGO DE SEGUIMIENTO ]</span>
+                                <span class="block font-black text-md tracking-wider text-black">DR-7922-MDP</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 border-t-2 border-black pt-4">
+                                <div>
+                                    <span class="block text-slate-500 font-bold">[ ORIGEN ]</span>
+                                    <span class="block font-black">MICROCENTRO</span>
+                                </div>
+                                <div>
+                                    <span class="block text-slate-500 font-bold">[ DESTINO ]</span>
+                                    <span class="block font-black">PUERTO MDP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 border-t-2 border-black pt-4 text-xs font-semibold text-slate-700">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-secondary"></i>
+                            <span>ENTREGA DE ÚLTIMA MILLA VERIFICADA</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Services Section (Strict Outlined Asymmetric Cells) -->
+        <section id="servicios" class="py-20 border-b-4 border-black">
+            <div class="max-w-[1200px] mx-auto px-4">
+                
+                <!-- Section Headings -->
+                <div class="flex flex-col gap-4 mb-16 border-b-2 border-black pb-8">
+                    <span class="font-display font-black text-xs text-white bg-secondary border-2 border-black px-3 py-1 w-fit uppercase">Nuestras Soluciones</span>
+                    <h2 class="font-display font-black text-3xl tracking-tighter uppercase text-black">
+                        Nuestra Gama de Soluciones
+                    </h2>
+                    <p class="text-slate-600 text-sm max-w-md">
+                        Infraestructura moderna para negocios que no se detienen. Inteligencia aplicada a cada kilómetro.
+                    </p>
+                </div>
+
+                <!-- Asymmetric Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    
+                    <!-- Card 1: Express (Size 7 cols, Highlighter BG) -->
+                    <div class="md:col-span-7 brutalist-card bg-highlighter p-8 flex flex-col justify-between min-h-[300px]">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                                <span class="font-display font-black text-[8px] tracking-wider text-white bg-black border-2 border-black px-2 py-0.5">ALTA PRIORIDAD</span>
+                            </div>
+                            <h3 class="font-display font-black text-xl text-black mb-1">Envíos Express</h3>
+                            <h4 class="text-xs font-bold text-slate-800 uppercase mb-3">VOS ELEGÍS LA HORA CON 2 HORAS DE ANTICIPACIÓN</h4>
+                            <p class="text-black text-xs leading-relaxed max-w-lg mb-6">
+                                Diseñado para operaciones de alta criticidad horaria. Vos elegís el rango exacto de entrega con solo 2 horas de anticipación. Garantizamos precisión en el tiempo de tu cliente final.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/5492236602699?text=Solicito%20Express" class="font-display font-black text-[10px] tracking-wider text-black hover:underline uppercase block mt-auto">&rarr; SOLICITAR EXPRESS</a>
+                    </div>
+
+                    <!-- Card 2: LowCost (Size 5 cols, White BG) -->
+                    <div class="md:col-span-5 brutalist-card bg-white p-8 flex flex-col justify-between min-h-[300px]">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i data-lucide="clock" class="w-5 h-5"></i></div>
+                                <span class="font-display font-black text-[8px] tracking-wider text-white bg-black border-2 border-black px-2 py-0.5">RENTABILIDAD</span>
+                            </div>
+                            <h3 class="font-display font-black text-xl text-black mb-1">Envíos LowCost</h3>
+                            <h4 class="text-xs font-bold text-slate-800 uppercase mb-3">PEDIDOS ANTES DE LAS 13:00 / ENTREGA EN EL DÍA</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-6">
+                                Variabilizá tus costos logísticos. Ingresá tus pedidos antes de las 13:00 hs y garantizamos entrega en el día antes de las 19:00 hs.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/5492236602699?text=Solicito%20LowCost" class="font-display font-black text-[10px] tracking-wider text-black hover:underline uppercase block mt-auto">&rarr; AHORRÁ CON LOWCOST</a>
+                    </div>
+
+                    <!-- Card 3: Flex (Size 5 cols, White BG) -->
+                    <div class="md:col-span-5 brutalist-card bg-white p-8 flex flex-col justify-between min-h-[300px]">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i data-lucide="package" class="w-5 h-5"></i></div>
+                                <span class="font-display font-black text-[8px] tracking-wider text-white bg-black border-2 border-black px-2 py-0.5">MERCADOLIBRE FLEX</span>
+                            </div>
+                            <h3 class="font-display font-black text-xl text-black mb-1">Envíos Flex</h3>
+                            <h4 class="text-xs font-bold text-slate-800 uppercase mb-3">DESPACHÁ HASTA LAS 15:00 / MANTENÉ REPUTACIÓN VERDE</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-6">
+                                Somos expertos en MercadoLibre. Despachá hasta las 15:00 hs y nosotros cumplimos tus acuerdos de nivel de servicio (SLAs) Same-Day para que tu termómetro siempre esté en verde.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/5492236602699?text=Solicito%20Flex" class="font-display font-black text-[10px] tracking-wider text-black hover:underline uppercase block mt-auto">&rarr; ACTIVAR ENVÍOS FLEX</a>
+                    </div>
+
+                    <!-- Card 4: E-Commerce (Size 7 cols, Primary Blue BG, white text) -->
+                    <div class="md:col-span-7 brutalist-card bg-primary p-8 flex flex-col justify-between min-h-[300px] text-white">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="w-10 h-10 bg-white border-2 border-black flex items-center justify-center text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"><i data-lucide="building-2" class="w-5 h-5"></i></div>
+                                <span class="font-display font-black text-[8px] tracking-wider text-black bg-highlighter border-2 border-black px-2 py-0.5">LOGÍSTICA PyME</span>
+                            </div>
+                            <h3 class="font-display font-black text-xl text-white mb-1">E-Commerce & 3PL</h3>
+                            <h4 class="text-xs font-bold text-yellow-300 uppercase mb-3">DEPÓSITO, CONTROL Y CUENTA CORRIENTE MENSUALIZADA</h4>
+                            <p class="text-blue-100 text-xs leading-relaxed max-w-lg mb-6">
+                                Más que un envío, somos tu depósito y tu equipo. Soluciones escalables para PyMEs y plataformas digitales, con facturación mensual centralizada.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/5492236602699?text=Solicito%20Plan%203PL" class="font-display font-black text-[10px] tracking-wider text-white hover:underline uppercase block mt-auto">&rarr; HABLAR CON UN ASESOR</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Vision Section (Authority Blocks) -->
+        <section id="vision" class="py-20 border-b-4 border-black">
+            <div class="max-w-[1200px] mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left: Description and Values -->
+                    <div class="flex flex-col gap-6">
+                        <span class="font-display font-black text-xs text-white bg-primary border-2 border-black px-3 py-1 w-fit uppercase">Nuestra Visión</span>
+                        <h2 class="font-display font-black text-3xl tracking-tighter uppercase text-black">Nuestra Visión Logística</h2>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Transformamos tus costos fijos en soluciones flexibles que acompañan el crecimiento de tu negocio.
+                        </p>
+                        
+                        <div class="flex flex-col gap-4 mt-2">
+                            <div class="flex items-center gap-4 border-b-2 border-black pb-4">
+                                <span class="font-display font-black text-3xl text-secondary">+5.000</span>
+                                <span class="font-display text-xs text-slate-700 uppercase">Envios locales entregados de manera segura</span>
+                            </div>
+                            <div class="flex items-center gap-4 border-b-2 border-black pb-4">
+                                <span class="font-display font-black text-3xl text-black">7 Años</span>
+                                <span class="font-display text-xs text-slate-700 uppercase">Innovación y cobertura en última milla</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Brutalist Info Blocks -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="brutalist-card p-6">
+                            <div class="w-8 h-8 bg-black text-white flex items-center justify-center font-display font-bold text-xs mb-4">01</div>
+                            <h4 class="font-display font-black text-md uppercase">Puntualidad</h4>
+                            <p class="text-slate-600 text-xs mt-1 leading-relaxed">Entregas a tiempo garantizadas en cada franja horaria.</p>
+                        </div>
+                        <div class="brutalist-card p-6">
+                            <div class="w-8 h-8 bg-secondary text-white flex items-center justify-center font-display font-bold text-xs mb-4">02</div>
+                            <h4 class="font-display font-black text-md uppercase">Seguridad</h4>
+                            <p class="text-slate-600 text-xs mt-1 leading-relaxed">Protección y seguimiento total de todos tus despachos.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PyMEs / Corporate (Brutalist Triple Column) -->
+        <section id="pyme" class="py-20 border-b-4 border-black">
+            <div class="max-w-[1200px] mx-auto px-4">
+                
+                <!-- Section Headings -->
+                <div class="flex flex-col items-center text-center gap-3 mb-16 border-b-2 border-black pb-8">
+                    <span class="font-display font-black text-xs text-white bg-primary border-2 border-black px-3 py-1 w-fit uppercase">Cuentas Especiales</span>
+                    <h2 class="font-display font-black text-3xl tracking-tighter uppercase text-black">
+                        Potencia tu Logística con DosRuedas
+                    </h2>
+                    <p class="text-slate-600 text-sm max-w-lg">
+                        Última milla corporativa con Cuenta Corriente Flexible y beneficios de escala para PyMEs de Mar del Plata.
+                    </p>
+                </div>
+
+                <!-- 3 Columns -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="brutalist-card p-8 flex flex-col justify-between min-h-[420px]">
+                        <div>
+                            <div class="flex items-center justify-between border-b-2 border-black pb-4 mb-6">
+                                <h3 class="font-display font-black text-lg uppercase">Corporativo</h3>
+                                <i data-lucide="building-2" class="w-5 h-5 text-black"></i>
+                            </div>
+                            <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+                                Cuenta Corriente Flexible y facturación simplificada mensualizada para grandes volúmenes.
+                            </p>
+                            <ul class="flex flex-col gap-2 font-display text-[10px] text-black">
+                                <li>&bull; CUENTA CORRIENTE FLEXIBLE</li>
+                                <li>&bull; FACTURACIÓN MENSUALIZADA</li>
+                                <li>&bull; GESTIÓN MULTI-USUARIO</li>
+                                <li>&bull; REPORTES DE IMPACTO</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5492236602699" target="_blank" class="w-full text-center brutalist-btn bg-black text-white font-display font-black text-[10px] py-3.5 block transition-colors mt-8">
+                            CONFIGURAR PLAN
+                        </a>
+                    </div>
+
+                    <!-- Card 2 (Highlighter BG) -->
+                    <div class="brutalist-card bg-highlighter p-8 flex flex-col justify-between min-h-[420px]">
+                        <div>
+                            <div class="flex items-center justify-between border-b-2 border-black pb-4 mb-6">
+                                <h3 class="font-display font-black text-lg uppercase">MercadoLibre</h3>
+                                <i data-lucide="zap" class="w-5 h-5 text-black"></i>
+                            </div>
+                            <p class="text-xs text-black mb-6 leading-relaxed">
+                                Socio logístico Flex homologado para entregar todas tus ventas en el mismo día y sostener tu termómetro verde.
+                            </p>
+                            <ul class="flex flex-col gap-2 font-display text-[10px] text-black">
+                                <li>&bull; CUMPLIMIENTO ESTRICTO SLA</li>
+                                <li>&bull; MEJORA TU REPUTACIÓN</li>
+                                <li>&bull; TARIFAS COMPETITIVAS</li>
+                                <li>&bull; SOPORTE FLEX DEDICADO</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5492236602699" target="_blank" class="w-full text-center brutalist-btn bg-secondary text-white font-display font-black text-[10px] py-3.5 block transition-colors mt-8">
+                            CONFIGURAR PLAN
+                        </a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="brutalist-card p-8 flex flex-col justify-between min-h-[420px]">
+                        <div>
+                            <div class="flex items-center justify-between border-b-2 border-black pb-4 mb-6">
+                                <h3 class="font-display font-black text-lg uppercase">E-Commerce</h3>
+                                <i data-lucide="globe" class="w-5 h-5 text-black"></i>
+                            </div>
+                            <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+                                Logística integral de última milla para PyMEs en pleno crecimiento. Nos integramos con tu e-shop.
+                            </p>
+                            <ul class="flex flex-col gap-2 font-display text-[10px] text-black">
+                                <li>&bull; INTEGRACIÓN TECNOLÓGICA</li>
+                                <li>&bull; RUTAS OPTIMIZADAS</li>
+                                <li>&bull; FLOTA MOTORIZADA DEDICADA</li>
+                                <li>&bull; SEGUIMIENTO REAL-TIME</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/5492236602699" target="_blank" class="w-full text-center brutalist-btn bg-black text-white font-display font-black text-[10px] py-3.5 block transition-colors mt-8">
+                            CONFIGURAR PLAN
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Call to Action (Solid Brutalist Card) -->
+        <section class="py-20">
+            <div class="max-w-[1200px] mx-auto px-4">
+                
+                <div class="brutalist-card p-8 md:p-16 bg-white flex flex-col items-center text-center gap-8 relative overflow-hidden">
+                    <span class="font-display font-black text-xs text-white bg-primary border-2 border-black px-3 py-1 w-fit uppercase">EMPEZAR HOY</span>
+                    
+                    <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tighter uppercase text-black max-w-3xl leading-none">
+                        ¿Listo para escalar la logística de tu E-Commerce?
+                    </h2>
+                    
+                    <p class="text-slate-600 text-sm max-w-xl font-normal leading-relaxed">
+                        Olvidate de la gestión de paquetes y enfocate en vender más. Dejá la distribución urbana en manos de expertos.
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center gap-4 justify-center w-full">
+                        <a href="https://wa.me/5492236602699" target="_blank" class="brutalist-btn bg-secondary text-white font-display font-black text-xs uppercase px-8 py-4">
+                            CONTACTANOS POR WHATSAPP &rarr;
+                        </a>
+                        <a href="#servicios" class="brutalist-btn bg-white text-black font-display font-black text-xs uppercase px-8 py-4">
+                            VER TARIFAS 2026
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Strict Grid) -->
+    <footer id="contacto" class="border-t-4 border-black bg-white pt-16 pb-8">
+        <div class="max-w-[1200px] mx-auto px-4">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b-2 border-black">
+                
+                <div class="flex flex-col gap-4">
+                    <span class="font-display font-black text-xl uppercase">ENVIOS DOSRUEDAS</span>
+                    <span class="font-display font-black text-[9px] text-secondary uppercase">[ TU SOCIO DE ÚLTIMA MILLA ]</span>
+                    <p class="text-xs text-slate-500 leading-relaxed font-normal">
+                        Tu solución confiable para mensajería y delivery en Mar del Plata. Servicios rápidos, seguros y económicos para potenciar tu negocio local.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-4 font-display text-xs">
+                    <span class="font-bold border-l-2 border-primary pl-2 uppercase">[ SERVICIOS ]</span>
+                    <nav class="flex flex-col gap-2 text-slate-500">
+                        <a href="#servicios" class="hover:text-black">&bull; Envíos Express</a>
+                        <a href="#servicios" class="hover:text-black">&bull; Envíos LowCost</a>
+                        <a href="#servicios" class="hover:text-black">&bull; Envíos Flex</a>
+                        <a href="#pyme" class="hover:text-black">&bull; E-Commerce & 3PL</a>
+                    </nav>
+                </div>
+
+                <div class="flex flex-col gap-4 font-display text-xs">
+                    <span class="font-bold border-l-2 border-black pl-2 uppercase">[ NOSOTROS ]</span>
+                    <nav class="flex flex-col gap-2 text-slate-500">
+                        <a href="#vision" class="hover:text-black">&bull; Sobre Nosotros</a>
+                        <a href="#" class="hover:text-black">&bull; Preguntas Frecuentes</a>
+                        <a href="#" class="hover:text-black">&bull; Nuestras Redes</a>
+                    </nav>
+                </div>
+
+                <div class="flex flex-col gap-4 text-xs font-display">
+                    <span class="font-bold border-l-2 border-secondary pl-2 uppercase">[ CONTACTO ]</span>
+                    <div class="flex flex-col gap-2.5 text-slate-500">
+                        <div class="flex items-start gap-1.5">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-black shrink-0 mt-0.5"></i>
+                            <span>Friuli 1972, Mar del Plata</span>
+                        </div>
+                        <a href="tel:+542236602699" class="flex items-center gap-1.5 hover:text-black">
+                            <i data-lucide="phone" class="w-3.5 h-3.5 text-black shrink-0"></i>
+                            <span>+54 223 660-2699</span>
+                        </a>
+                        <a href="mailto:matiascejas@enviosdosruedas.com" class="flex items-center gap-1.5 hover:text-black">
+                            <i data-lucide="mail" class="w-3.5 h-3.5 text-black shrink-0"></i>
+                            <span class="break-all">matiascejas@enviosdosruedas.com</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-400 pt-6 font-display">
+                <span>&copy; 2026 ENVIOS DOSRUEDAS. TODOS LOS DERECHOS RESERVADOS.</span>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-black">PRIVACIDAD</a>
+                    <span>/</span>
+                    <a href="#" class="hover:text-black">TÉRMINOS</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script>
+        // Init Lucide
+        lucide.createIcons();
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scroll-progress').style.width = scrolled + '%';
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeDrawerBtn = document.getElementById('close-drawer-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const mobileDrawerContent = document.getElementById('mobile-drawer-content');
+
+        function openDrawer() {
+            mobileDrawer.classList.remove('opacity-0', 'pointer-events-none');
+            mobileDrawerContent.classList.remove('translate-x-full');
+        }
+
+        function closeDrawer() {
+            mobileDrawer.classList.add('opacity-0', 'pointer-events-none');
+            mobileDrawerContent.classList.add('translate-x-full');
+        }
+
+        mobileMenuBtn.addEventListener('click', openDrawer);
+        closeDrawerBtn.addEventListener('click', closeDrawer);
+        mobileDrawer.addEventListener('click', (e) => {
+            if (e.target === mobileDrawer) closeDrawer();
+        });
+    </script>
+</body>
+</html>

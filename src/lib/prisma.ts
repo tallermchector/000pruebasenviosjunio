@@ -15,7 +15,8 @@ declare global {
   var pgPool: undefined | pg.Pool;
 }
 
-const pool = globalThis.pgPool ?? new pg.Pool({ connectionString: process.env.DIRECT_URL });
+const connectionString = process.env.DIRECT_URL || process.env.ENVIOS_PRISMA_DATABASE_URL || process.env.DATABASE_URL;
+const pool = globalThis.pgPool ?? new pg.Pool({ connectionString });
 if (process.env.NODE_ENV !== "production") {
   globalThis.pgPool = pool;
 }

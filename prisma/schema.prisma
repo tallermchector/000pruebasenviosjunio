@@ -1,10 +1,34 @@
 generator client {
   provider = "prisma-client"
-  output   = "./generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model Post {
+  id        String   @id
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User     @relation(fields: [authorId], references: [id])
+}
+
+model PriceRange {
+  id             Int             @id @default(autoincrement())
+  serviceType    ServiceTypeEnum
+  distanciaMinKm Decimal         @db.Decimal(10, 2)
+  distanciaMaxKm Decimal         @db.Decimal(10, 2)
+  precioRango    Decimal         @db.Decimal(10, 2)
+  isActive       Boolean         @default(true)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@unique([serviceType, distanciaMinKm, distanciaMaxKm])
 }
 
 model SocialPost {
@@ -23,36 +47,12 @@ model SocialPost {
   timestamp  DateTime           @default(now())
 }
 
-model PriceRange {
-  id             Int             @id @default(autoincrement())
-  serviceType    ServiceTypeEnum
-  distanciaMinKm Decimal         @db.Decimal(10, 2)
-  distanciaMaxKm Decimal         @db.Decimal(10, 2)
-  precioRango    Decimal         @db.Decimal(10, 2)
-  isActive       Boolean         @default(true)
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
-
-  @@unique([serviceType, distanciaMinKm, distanciaMaxKm])
-}
-
-model Post {
-  id        String   @id
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime
-  User      User     @relation(fields: [authorId], references: [id])
-}
-
 model User {
   id        String   @id
   email     String   @unique
   name      String?
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
   Post      Post[]
 }
 

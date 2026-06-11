@@ -6,7 +6,7 @@ import { motion, Variants, HTMLMotionProps } from 'framer-motion';
 /**
  * Easing estándar de Google Material Design para aceleración/desaceleración fluida
  */
-export const materialEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+export const materialEase: [number, number, number, number] = [0.68, -0.55, 0.265, 1.55];
 
 
 /**
@@ -44,6 +44,7 @@ export const motionVariants = {
     initial: {
       scale: 1,
       y: 0,
+      x: 0,
       boxShadow: 'var(--shadow-md)',
       transition: {
         duration: 0.3,
@@ -51,8 +52,9 @@ export const motionVariants = {
       },
     },
     hover: {
-      scale: 1.015,
-      y: -4,
+      scale: 1,
+      y: -6,
+      x: -6,
       boxShadow: 'var(--shadow-lg)',
       transition: {
         duration: 0.3,
@@ -77,22 +79,18 @@ export const motionVariants = {
   // Glassmorphism effect transition applying backdrop-blur
   glassmorphismEffect: {
     initial: {
-      backdropFilter: 'blur(0px)',
-      WebkitBackdropFilter: 'blur(0px)',
       backgroundColor: 'hsl(var(--card) / 0)',
       borderColor: 'hsl(var(--border) / 0)',
       transition: {
-        duration: 0.4,
+        duration: 0.2,
         ease: materialEase,
       },
     },
     active: {
-      backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)',
-      backgroundColor: 'hsl(var(--card) / 0.45)',
-      borderColor: 'hsl(var(--border) / 0.3)',
+      backgroundColor: 'hsl(var(--card))',
+      borderColor: 'hsl(var(--border))',
       transition: {
-        duration: 0.4,
+        duration: 0.2,
         ease: materialEase,
       },
     },

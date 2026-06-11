@@ -22,48 +22,48 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-card border-l-4 border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
-    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.4)]",
+    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
+    icon: "bg-primary border-4 border-blue-900 text-white rounded-none",
     accent: "text-primary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-primary",
-    badge: "bg-primary/10 text-primary border-primary/20",
+    badge: "bg-primary text-white border-primary border-2 rounded-none",
     accentColor: "blue-400",
-    glowColor: "rgba(59,130,246,0.12)"
+    glowColor: "transparent"
   },
   lowcost: {
-    card: "bg-card border-l-4 border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
-    icon: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.4)]",
+    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
+    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-none",
     accent: "text-secondary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-secondary",
-    badge: "bg-secondary/10 text-secondary border-secondary/20",
+    badge: "bg-secondary text-primary border-secondary border-2 rounded-none",
     accentColor: "yellow-400",
-    glowColor: "rgba(234,179,8,0.12)"
+    glowColor: "transparent"
   },
   meli: {
-    card: "bg-card border-l-4 border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
-    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.4)]",
+    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
+    icon: "bg-primary border-4 border-blue-900 text-white rounded-none",
     accent: "text-primary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-primary",
-    badge: "bg-primary/10 text-primary border-primary/20",
+    badge: "bg-primary text-white border-primary border-2 rounded-none",
     accentColor: "blue-400",
-    glowColor: "rgba(59,130,246,0.12)"
+    glowColor: "transparent"
   },
   ecommerce: {
-    card: "bg-card border-l-4 border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
-    icon: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.4)]",
+    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
+    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-none",
     accent: "text-secondary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-secondary",
-    badge: "bg-secondary/10 text-secondary border-secondary/20",
+    badge: "bg-secondary text-primary border-secondary border-2 rounded-none",
     accentColor: "yellow-400",
-    glowColor: "rgba(234,179,8,0.12)"
+    glowColor: "transparent"
   }
 };
 
@@ -129,12 +129,12 @@ export const ServicesOverview = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> SERVICIOS EXCLUSIVOS
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-secondary/10 border-4 border-secondary text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
+              <span className="w-2 h-2 bg-secondary animate-pulse" /> SERVICIOS EXCLUSIVOS
             </div>
             <h2 className="text-5xl md:text-7xl font-display font-black italic uppercase text-white tracking-tighter leading-none">
               NUESTRA GAMA DE <br />
-              <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">SOLUCIONES</span>
+              <span className="text-primary">SOLUCIONES</span>
             </h2>
           </motion.div>
 
@@ -170,20 +170,15 @@ export const ServicesOverview = () => {
                 }}
                 whileHover="hover"
                 className={cn(
-                  "group p-6 lg:p-10 rounded-xl flex flex-col justify-between relative overflow-hidden",
+                  "group p-6 lg:p-10 flex flex-col justify-between relative overflow-hidden",
                   theme.card,
                   service.className
                 )}
               >
-                {/* Background Highlight on Hover */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
-                  style={{ background: `radial-gradient(circle at top right, ${theme.glowColor}, transparent)` }}
-                />
 
                 <div className="relative z-10">
                   <div className={cn(
-                    "w-12 h-12 lg:w-16 lg:h-16 rounded-md lg:rounded-lg flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
+                    "w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:-translate-y-1 group-hover:-translate-x-1 hover:shadow-md",
                     theme.icon
                   )}>
                     {React.cloneElement(service.icon as React.ReactElement<any>, { size: 28 })}

@@ -45,27 +45,27 @@ export default function LowCostCalculator() {
     setQuoteDetails(null);
 
     const result = await quoteShipment({
-        originAddress: origin,
-        destinationAddress: destination,
-        serviceType: ServiceTypeEnum.LOW_COST,
+      originAddress: origin,
+      destinationAddress: destination,
+      serviceType: ServiceTypeEnum.LOW_COST,
     });
 
     setIsCalculating(false);
 
     if (result.success && result.data) {
-        setQuoteDetails(result.data);
-        const priceText = result.data.price !== null ? `$${result.data.price.toLocaleString('es-AR')}` : "Consultar";
-        toast({
-            title: "Cotización Exitosa",
-            description: `Distancia: ${result.data.distanceText}. Precio: ${priceText}`,
-            variant: "default",
-        });
+      setQuoteDetails(result.data);
+      const priceText = result.data.price !== null ? `$${result.data.price.toLocaleString('es-AR')}` : "Consultar";
+      toast({
+        title: "Cotización Exitosa",
+        description: `Distancia: ${result.data.distanceText}. Precio: ${priceText}`,
+        variant: "default",
+      });
     } else {
-        toast({
-            variant: "destructive",
-            title: "Error de Cálculo",
-            description: result.error || "No se pudo calcular la ruta o el precio. Verifica las direcciones o inténtalo más tarde.",
-        });
+      toast({
+        variant: "destructive",
+        title: "Error de Cálculo",
+        description: result.error || "No se pudo calcular la ruta o el precio. Verifica las direcciones o inténtalo más tarde.",
+      });
     }
   };
 
@@ -131,7 +131,7 @@ export default function LowCostCalculator() {
                 destination={mapCoordinates.destination}
               />
             )}
-            
+
             {quoteDetails && !isCalculating && (
               <Card className="mt-8 bg-primary/10 border-primary/20 rounded-2xl overflow-hidden backdrop-blur-sm">
                 <CardHeader className="pb-4">
@@ -168,8 +168,8 @@ export default function LowCostCalculator() {
                   )}
                 </CardContent>
                 <CardFooter className="flex flex-col sm:flex-row gap-3 pt-4 md:pt-6 font-sans">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-slate-900 font-display font-bold uppercase tracking-tight text-label-md rounded-xl"
                     disabled={quoteDetails.price === null}
                     onClick={() => alert('Funcionalidad "Confirmar Envío Low Cost" pendiente de implementación.')}

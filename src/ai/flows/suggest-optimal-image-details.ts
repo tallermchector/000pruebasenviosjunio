@@ -8,10 +8,12 @@ import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import companyProfile from '@/lib/empresa.json';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SuggestOptimalImageDetailsInputSchema = z.object({
   serviceContext: z.any().describe("The detailed JSON context of the service."),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SuggestOptimalImageDetailsOutputSchema = z.object({
     backgroundSuggestions: z.array(z.string()).describe("A list of 3-5 creative and contextually relevant suggestions for the image background."),
     contentSuggestions: z.array(z.string()).describe("A list of 3-5 creative and detailed suggestions for the main subject and action of the image."),

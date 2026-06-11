@@ -1,8 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+
 import { Coins, ArrowRightCircle } from "lucide-react";
-import Image from "next/image";
+
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { PriceRange } from '../../../generated/prisma/client/client';

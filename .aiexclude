@@ -28,6 +28,9 @@ tsconfig.json
 prisma/migrations/
 prisma/datos/*.json
 generated/
+.agent/skills/ui-ux-pro-max/data/
+.agent/skills/ui-ux-pro-max/scripts/
+scripts/respuestas/
 
 # 4. Binarios y Media
 public/fonts/

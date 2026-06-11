@@ -52,8 +52,8 @@ export default function HomePage() {
   return (
     <div className="dark min-h-screen bg-background text-foreground selection:bg-primary/30 flex flex-col">
       <OptimizedHeader />
-      <main className="flex-grow">
-        <div className="bg-gradient-to-b from-background via-slate-950/20 to-slate-950">
+      <main className="flex-grow flex flex-col gap-lg">
+        <div className="bg-gradient-to-b from-background via-surface-glass to-background">
           {/* Above the fold (LCP Critical) - Renderizado estático inicial para performance extrema */}
           <HeroAnimado />
 
@@ -61,12 +61,12 @@ export default function HomePage() {
           <VisionSection />
         </div>
 
-        <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+        <div className="bg-gradient-to-b from-background via-surface-glass to-background">
           <ServicesOverview />
           <CtaSection />
         </div>
 
-        <div className="bg-gradient-to-b from-background via-slate-950 to-background">
+        <div className="bg-gradient-to-b from-background via-surface-glass to-background">
           <EmprendedoresHome />
           <SliderServicios />
           <CarruselRedes />

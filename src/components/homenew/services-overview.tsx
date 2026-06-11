@@ -22,7 +22,7 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-[#0a0d16]/80 border-red-500/20 hover:border-red-500/40 shadow-2xl backdrop-blur-md",
+    card: "bg-surface-glass border-red-500/20 hover:border-red-500/40 shadow-elevation",
     icon: "bg-red-500/10 border border-red-500/20 text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.4)]",
     accent: "text-red-400",
     text: "text-white",
@@ -33,7 +33,7 @@ const THEMES: Record<string, ServiceTheme> = {
     glowColor: "rgba(239,68,68,0.1)"
   },
   lowcost: {
-    card: "bg-[#0a0d16]/80 border-cyan-500/20 hover:border-cyan-500/40 shadow-2xl backdrop-blur-md",
+    card: "bg-surface-glass border-cyan-500/20 hover:border-cyan-500/40 shadow-elevation",
     icon: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
     accent: "text-cyan-400",
     text: "text-white",
@@ -44,7 +44,7 @@ const THEMES: Record<string, ServiceTheme> = {
     glowColor: "rgba(6,182,212,0.1)"
   },
   meli: {
-    card: "bg-[#0a0d16]/80 border-yellow-500/20 hover:border-yellow-500/40 shadow-2xl backdrop-blur-md",
+    card: "bg-surface-glass border-yellow-500/20 hover:border-yellow-500/40 shadow-elevation",
     icon: "bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]",
     accent: "text-yellow-400",
     text: "text-white",
@@ -55,7 +55,7 @@ const THEMES: Record<string, ServiceTheme> = {
     glowColor: "rgba(234,179,8,0.1)"
   },
   ecommerce: {
-    card: "bg-[#0a0d16]/80 border-emerald-500/20 hover:border-emerald-500/40 shadow-2xl backdrop-blur-md",
+    card: "bg-surface-glass border-emerald-500/20 hover:border-emerald-500/40 shadow-elevation",
     icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]",
     accent: "text-emerald-400",
     text: "text-white",
@@ -129,7 +129,7 @@ export const ServicesOverview = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full glass-card border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.2em] mb-8 uppercase">
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-glass backdrop-blur-md border border-border-glass text-blue-400 text-xxs font-black tracking-[0.2em] mb-8 uppercase shadow-elevation">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
             </div>
             <h2 className="text-headline-lg-mobile md:text-display-lg italic uppercase text-white">

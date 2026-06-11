@@ -52,6 +52,17 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "surface-glass": "hsl(var(--surface-glass))",
+        "border-glass": "hsl(var(--border-glass))",
+      },
+      boxShadow: {
+        elevation: "var(--shadow-elevation)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+      },
+      blur: {
+        md: "var(--blur-md)",
+        lg: "var(--blur-lg)",
       },
       borderRadius: {
         xl: "1.5rem",
@@ -102,6 +113,10 @@ const config: Config = {
           "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "reveal": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -111,6 +126,7 @@ const config: Config = {
         "spin-slow": "spin-slow 8s linear infinite",
         "fade-up": "fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards",
         "scale-in": "scale-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        reveal: "reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards",
       },
       fontFamily: {
         sans: ["var(--font-roboto)", "sans-serif"],

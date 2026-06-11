@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 import dynamic from "next/dynamic"
 import { OptimizedHeader } from "@/components/homenew/optimized-header"
 import HeroAnimado from "@/components/homenew/hero-animado"
+import { ScrollProgress } from "@/components/ui/scroll-progress"
 
 // Paso 2: Lazy Loading de Componentes (Code Splitting)
 // Implementamos next/dynamic para componentes Below the Fold para reducir el Script Evaluation inicial.
@@ -51,8 +52,9 @@ const Footer = dynamic(() => import("@/components/homenew/footer").then(mod => m
 export default function HomePage() {
   return (
     <div className="dark min-h-screen bg-background text-foreground selection:bg-primary/30 flex flex-col">
+      <ScrollProgress />
       <OptimizedHeader />
-      <main className="flex-grow flex flex-col gap-lg">
+      <main className="flex-grow">
         <div className="bg-gradient-to-b from-background via-surface-glass to-background">
           {/* Above the fold (LCP Critical) - Renderizado estático inicial para performance extrema */}
           <HeroAnimado />

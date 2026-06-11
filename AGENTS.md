@@ -1,113 +1,71 @@
-# Catálogo Técnico de Agentes y Flujos de Inteligencia Artificial
+# Guía de Lógica Cognitiva de los Agentes y Flujos de IA
 
-Los flujos cognitivos de IA (Genkit Flows) se definen en el directorio `src/ai/flows/` y encapsulan tareas específicas ejecutadas a través de prompts estructurados. A continuación se detalla el catálogo de todos los flujos registrados en el proyecto:
-
----
-
-## 1. Módulo de Resumen e Información del Negocio
-
-### `summarizeTestimonialsFlow`
-*   **Archivo:** `summarize-testimonials.ts`
-*   **Propósito:** Sintetiza un conjunto de testimonios o comentarios de clientes, identificando los puntos de dolor, fortalezas y el sentimiento predominante de manera concisa.
-*   **Esquema de Entrada (`input`):**
-    *   `testimonials` (string): Los testimonios textuales a resumir.
-*   **Esquema de Salida (`output`):**
-    *   `summary` (string): Resumen ejecutivo destacando las opiniones y sentimientos clave.
-
-### `summarizeServicePageFlow`
-*   **Archivo:** `summarize-service-page.ts`
-*   **Propósito:** Analiza el archivo de contexto estático JSON de una página de servicio de Next.js y genera un resumen estructurado legible listo para inyectarse como contexto en prompts de otros agentes.
-*   **Esquema de Entrada (`input`):**
-    *   `relativePath` (string): Ruta relativa del archivo de página (ej. `src/app/servicios/envios-express/page.tsx`).
-*   **Esquema de Salida (`output`):**
-    *   `summary` (string): Resumen detallado y organizado por secciones del servicio correspondiente.
+Este documento describe la arquitectura cognitiva, las reglas de generación de prompts y la lógica de negocio detrás de los agentes de Inteligencia Artificial de la plataforma. La IA del sistema actúa como un asistente especializado en enriquecer la propuesta de valor comercial de **Envíos DosRuedas**, automatizar el marketing visual de la marca y acelerar la ingeniería de software de la aplicación.
 
 ---
 
-## 2. Módulo Creativo de Generación de Prompts para Imágenes
+## 🎯 Estrategia de Razonamiento y Asignación de Modelos
 
-### `suggestImageParamsFlow`
-*   **Archivo:** `suggest-image-params.ts`
-*   **Propósito:** Procesa el perfil de una imagen de referencia (descripción y tags) o el contexto de un servicio para sugerir parámetros óptimos para crear una imagen promocional mejorada.
-*   **Esquema de Entrada (`input`):**
-    *   `description` (string, opcional): Descripción de la imagen de inspiración.
-    *   `tags` (array de strings, opcional): Etiquetas asociadas a la imagen de inspiración.
-    *   `serviceContext` (string, opcional): Contexto del servicio para inspirar la imagen.
-*   **Esquema de Salida (`output`):**
-    *   `sectionType` (string): Tipo sugerido de sección (ej: 'Hero', 'Card', 'Banner').
-    *   `serviceName` (string): Nombre del servicio asociado.
-    *   `aspectRatio` (string): Relación de aspecto sugerida (ej: '16:9', '1:1').
-    *   `style` (string): Estilo visual sugerido ('Fotografía Realista', 'Ilustración Digital', 'Arte 3D').
-    *   `background` (string): Sugerencia concisa de fondo profesional.
-    *   `details` (string): Escena central recomendada (fuerza el uso de cascos en repartidores).
+El sistema optimiza el uso de modelos generativos (Google Gemini) asignándolos jerárquicamente de acuerdo al costo computacional y profundidad de razonamiento requerida por cada flujo de negocio:
 
-### `suggestServiceImageDetailsFlow`
-*   **Archivo:** `suggest-service-image-details.ts`
-*   **Propósito:** Analiza el contexto específico de un servicio de mensajería y propone ideas creativas y consistentes con la marca (Mar del Plata, azul primario y amarillo secundario) para el fondo y la acción del sujeto.
-*   **Esquema de Entrada (`input`):**
-    *   `serviceContext` (any): Datos en JSON con el contexto de negocio del servicio.
-*   **Esquema de Salida (`output`):**
-    *   `backgroundDetails` (string): Propuesta de fondo contextualizada.
-    *   `contentDetails` (string): Propuesta de acción/sujeto principal del gráfico promocional.
-
-### `suggestOptimalImageDetailsFlow`
-*   **Archivo:** `suggest-optimal-image-details.ts`
-*   **Propósito:** Variante avanzada que genera múltiples opciones creativas (entre 3 y 5) separadas tanto para el fondo como para el sujeto de la imagen promocional.
-*   **Esquema de Entrada (`input`):**
-    *   `serviceContext` (any): Contexto del servicio en JSON.
-*   **Esquema de Salida (`output`):**
-    *   `backgroundSuggestions` (array de strings): Lista de 3 a 5 sugerencias de fondo.
-    *   `contentSuggestions` (array de strings): Lista de 3 a 5 sugerencias de sujeto/acción.
-
-### `generateImagePromptFlow`
-*   **Archivo:** `generate-image-prompt.ts`
-*   **Propósito:** Crea un prompt detallado en inglés optimizado para modelos como Google Imagen basados en una fórmula de 5 Pilares (`[Subject + Adjectives] doing [Action] in [Location/Context]. [Composition/Camera Angle]. [Lighting/Atmosphere]. [Style/Medium]. [Text Constraint]`), inyectando el branding de Envíos DosRuedas y la identidad costera.
-*   **Esquema de Entrada (`input`):**
-    *   `sectionType` (string), `serviceName` (string), `serviceContext` (string, opcional), `aspectRatio` (string), `style` (string), `background` (string, opcional), `additionalDetails` (string, opcional), `inspirationImageName` (string, opcional), `textToInclude` (string, opcional).
-*   **Esquema de Salida (`output`):**
-    *   `prompt` (string): Prompt final estructurado.
-
-### `generateServiceImagePromptFlow`
-*   **Archivo:** `generate-service-image-prompt.ts`
-*   **Propósito:** Genera el prompt descriptivo en inglés de 5 Pilares a partir de los detalles creativos preseleccionados específicos de un servicio y las preferencias de incluir texto de la marca.
-*   **Esquema de Entrada (`input`):**
-    *   `serviceName` (string), `serviceContext` (string), `sectionType` (string), `visualStyle` (string), `backgroundDetails` (string), `contentDetails` (string), `includeText` (boolean), `includeBrand` (boolean), `additionalDetails` (string, opcional).
-*   **Esquema de Salida (`output`):**
-    *   `prompt` (string): El prompt optimizado resultante.
-
-### `generateOptimalImagePromptFlow`
-*   **Archivo:** `generate-optimal-image-prompt.ts`
-*   **Propósito:** Genera el prompt descriptivo final integrando además fuentes personalizadas, textos publicitarios y logotipos, manteniendo la coherencia de los 5 pilares tipográficos y cromáticos.
-*   **Esquema de Entrada (`input`):**
-    *   Campos idénticos a `generateServiceImagePrompt` más `fontToInclude` (string, opcional) y parámetros adicionales del usuario.
-*   **Esquema de Salida (`output`):**
-    *   `prompt` (string): Prompt consolidado final.
+1.  **Nivel de Latencia y Creatividad (`gemini-2.5-flash`):**
+    *   **Uso:** Análisis de sentimientos rápidos, resúmenes cortos de testimonios y lluvia de ideas creativas de imágenes (backgrounds, aspectos, acciones).
+    *   **Propósito:** Proporcionar respuestas casi instantáneas y eficientes para interacciones comerciales frecuentes.
+2.  **Nivel de Razonamiento Profundo (`gemini-2.5-pro`):**
+    *   **Uso:** Comprensión de código fuente estructurado, resolución de dependencias entre componentes y generación de instrucciones técnicas complejas (meta-prompting).
+    *   **Propósito:** Procesar contextos extensos de programación sin pérdida de precisión ni alucinaciones lógicas.
 
 ---
 
-## 3. Módulo de Replicación de Componentes y Código (Meta-Prompting)
+## 📂 Lógica y Flujo Operativo de los Agentes
 
-### `generateReplicationPromptFlow`
-*   **Archivo:** `generate-replication-prompt.ts`
-*   **Propósito:** Genera instrucciones técnicas detalladas dirigidas a otro asistente de IA para recrear la estructura inicial de una página o implementar componentes específicos en base a su código fuente original.
-*   **Esquema de Entrada (`input`):**
-    *   `pagePath` (string), `componentPaths` (array de strings, opcional), `mainComponentContent` (string, opcional), `filesContent` (array de objetos con path/content/name, opcional), `componentsData` (array de objetos con path/name, opcional).
-*   **Esquema de Salida (`output`):**
-    *   `structurePrompt` (string, opcional): Instrucciones para orquestar la página y loaders.
-    *   `componentPrompt` (string, opcional): Instrucciones para refactorizar componentes con TypeScript y ShadCN.
+La plataforma organiza sus flujos cognitivos en tres módulos funcionales en el directorio `src/ai/flows/`:
 
-### `generateReplicationFlowV2`
-*   **Archivo:** `generate-replication-prompt-v2.ts`
-*   **Propósito:** Versión refinada del flujo de replicación. Soporta meta-prompting avanzado dividiendo de forma limpia la reconstrucción de la arquitectura en base a Server Components, Client Components y Server Actions de Next.js.
-*   **Esquema de Entrada (`input`):**
-    *   `pagePath` (string), `app_components` (array de strings, opcional), `ui_components` (array de strings, opcional), `actions` (array de strings, opcional), `filesContent` (array de objetos con path/content/name, opcional).
-*   **Esquema de Salida (`output`):**
-    *   `structurePrompt` (string, opcional), `componentPrompt` (string, opcional).
+```mermaid
+graph TD
+    SA[Server Actions / UI] -->|Invoca Flujo| F[Genkit Flows]
+    F -->|1. Módulo Comercial| MC[Resumen de Páginas e Información]
+    F -->|2. Módulo Creativo| MV[Prompts de Imagen - 5 Pilares]
+    F -->|3. Módulo Software| MS[Meta-Prompting de Replicación]
+    MC -->|Usa| Flash1[Gemini 2.5 Flash]
+    MV -->|Usa| Flash2[Gemini 2.5 Flash]
+    MS -->|Usa| Pro1[Gemini 2.5 Pro]
+```
 
-### `generateComponentPromptFlow`
-*   **Archivo:** `generate-component-prompt.ts`
-*   **Propósito:** Crea un prompt de desarrollo enfocado exclusivamente en la migración de un conjunto específico de componentes y sus dependencias internas.
-*   **Esquema de Entrada (`input`):**
-    *   `pagePath` (string), `filesContent` (array de objetos con path/content/name).
-*   **Esquema de Salida (`output`):**
-    *   `componentPrompt` (string): El prompt listo para ser inyectado en un editor inteligente o chat de desarrollo de IA.
+### 1. Módulo de Resumen e Información Comercial
+Este módulo analiza datos del negocio para sintetizar información clave:
+*   **Análisis de Testimonios** ([summarize-testimonials.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/summarize-testimonials.ts)): Procesa textos y valoraciones de clientes para clasificar el sentimiento predominante, identificar fortalezas operativas (ej: velocidad de entrega) y detectar áreas de mejora.
+*   **Resumen de Páginas de Servicios** ([summarize-service-page.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/summarize-service-page.ts)): Examina el código y contexto de un servicio de Next.js (como envíos Express o Low Cost) y sintetiza su propuesta de valor. Este resumen es inyectado dinámicamente como contexto en el sistema de prompts de otros agentes para asegurar consistencia en la comunicación de la marca.
+
+---
+
+### 2. Módulo Creativo y Prompts de Imagen (Fórmula de los 5 Pilares & Branding)
+Diseñado para automatizar la creación de material visual publicitario de la marca de mensajería **Envíos DosRuedas** (identidad costera y urbana de Mar del Plata).
+
+#### Lógica del Prompting de Imagen:
+Para obtener imágenes de alta calidad (mediante modelos como Google Imagen), el sistema utiliza una estructura de **5 Pilares**:
+`[Sujeto + Adjetivos] haciendo [Acción] en [Ubicación/Contexto]. [Composición/Ángulo de Cámara]. [Iluminación/Atmósfera]. [Estilo/Medio Visual]. [Restricciones de Texto/Branding].`
+
+#### Restricciones de Identidad de Marca Inyectadas:
+*   **Colores de Marca:** Azul marino primario y Amarillo secundario en elementos decorativos, bolsos y vehículos.
+*   **Seguridad Vial:** Obligatoriedad de cascos de protección profesionales para todos los repartidores que aparezcan en escena.
+*   **Contexto Geográfico:** Ubicación costera urbana basada en Mar del Plata (costanera, tránsito ágil, mar de fondo).
+
+#### Flujos del Módulo:
+*   **Lluvia de Ideas de Detalles** ([suggest-image-params.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/suggest-image-params.ts), [suggest-service-image-details.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/suggest-service-image-details.ts), [suggest-optimal-image-details.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/suggest-optimal-image-details.ts)): Analizan el tipo de servicio y proponen de 3 a 5 variaciones creativas para el fondo (ej: calles de Mar del Plata mojadas al amanecer) y la acción del repartidor.
+*   **Compilador de Prompts** ([generate-image-prompt.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/generate-image-prompt.ts), [generate-service-image-prompt.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/generate-service-image-prompt.ts), [generate-optimal-image-prompt.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/generate-optimal-image-prompt.ts)): Toma las ideas seleccionadas de fondos, acciones y estilos visuales, y ensambla el prompt final en inglés respetando los 5 Pilares e inyectando las directrices de marca.
+
+---
+
+### 3. Módulo de Replicación de Software (Meta-Prompting)
+Este módulo automatiza la generación de instrucciones técnicas detalladas orientadas a que otros asistentes de IA puedan clonar, migrar o reconstruir páginas y componentes del proyecto sin perder contexto.
+
+#### Reglas de Separación de Responsabilidades en Next.js (Lógica de Arquitectura):
+El agente de replicación analiza la estructura del código y divide las instrucciones del prompt según la arquitectura moderna de Next.js App Router:
+*   **Server Components:** Instrucciones para layouts, loaders estáticos iniciales de LCP, y páginas que solo leen datos (SSR).
+*   **Client Components:** Instrucciones de interactividad del lado del usuario (formularios reactivos, menús con estados Radix/ShadCN, y animaciones suaves con Framer Motion).
+*   **Server Actions:** Lógicas de mutación de base de datos a desacoplar del cliente (APIs, consultas Prisma).
+
+#### Flujos del Módulo:
+*   **Replicación Estructural** ([generate-replication-prompt.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/generate-replication-prompt.ts), [generate-replication-prompt-v2.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/generate-replication-prompt-v2.ts)): Analiza páginas completas y genera las directrices arquitectónicas para recrear loaders, layouts y orquestar subcomponentes.
+*   **Replicación de Componentes** ([generate-component-prompt.ts](file:///E:/proyectos/000pruebasenviosjunio/src/ai/flows/generate-component-prompt.ts)): Se enfoca específicamente en aislar la lógica de un conjunto de componentes interactivos y sus dependencias de diseño para recrearlos de manera limpia con TypeScript y Tailwind CSS.

@@ -7,8 +7,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Handshake } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones",
+  title: "Términos y Condiciones | Envíos DosRuedas",
   description: "Lee los términos y condiciones del servicio de Envios DosRuedas. Al utilizar nuestros servicios, aceptas nuestras políticas y procedimientos.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/terminos-y-condiciones' },
+  openGraph: {
+    title: "Términos y Condiciones | Envíos DosRuedas",
+    description: "Lee los términos y condiciones del servicio de Envios DosRuedas. Al utilizar nuestros servicios, aceptas nuestras políticas y procedimientos.",
+    url: 'https://www.enviosdosruedas.com/terminos-y-condiciones',
+    images: [{ url: '/og-image.jpg' }],
+  },
   robots: {
     index: true,
     follow: true,

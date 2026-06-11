@@ -65,7 +65,7 @@ export const CtaSection = () => {
               </Link>
 
               <Link
-                href="/tarifas"
+                href="/cotizar/express"
                 className="group w-full sm:w-auto px-8 py-4 bg-primary/10 border border-primary/20 text-foreground font-display text-label-md rounded-md transition-all duration-200 flex items-center justify-center gap-3 hover:bg-primary/20 uppercase font-bold shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Ver Tarifas 2026 <Calculator size={18} className="group-hover:scale-105 transition-transform duration-200" />

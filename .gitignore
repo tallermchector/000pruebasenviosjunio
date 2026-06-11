@@ -46,3 +46,4 @@ firestore-debug.log
 /generated/
 scripts/respuestas/
 .agent/skills/ui-ux-pro-max/scripts/__pycache__/
+.prisma/

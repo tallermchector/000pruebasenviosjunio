@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card"
 import { TrendingUp, ShieldCheck, Clock, MapPin, Smartphone, UserCheck } from "lucide-react"
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils";
 
 function ReputationThermometer() {
   return (
@@ -12,7 +12,7 @@ function ReputationThermometer() {
         <span>Reputación</span>
         <span className="text-green-500">MercadoLíder Platinum</span>
       </div>
-      <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden border border-white/10 flex">
+      <div className="h-4 w-full bg-card rounded-full overflow-hidden border border-white/10 flex">
         <div className="h-full w-1/5 bg-red-500/50" />
         <div className="h-full w-1/5 bg-orange-500/50" />
         <div className="h-full w-1/5 bg-yellow-500/50" />
@@ -63,8 +63,8 @@ export function MercadoLibreBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FFF159]/5 rounded-full blur-[150px] pointer-events-none" />
+    <section className="py-24 px-4 bg-transparent relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
@@ -74,10 +74,10 @@ export function MercadoLibreBenefits() {
             viewport={{ once: true }}
           >
             <ReputationThermometer />
-            <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
-              BENEFICIOS <span className="text-[#FFF159]">PARA VENDEDORES</span>
+            <h2 className="font-display text-5xl md:text-7xl font-black italic mb-6 uppercase text-foreground tracking-tighter leading-none">
+              BENEFICIOS <span className="text-secondary drop-shadow-[0_0_20px_rgba(234,179,8,0.4)]">PARA VENDEDORES</span>
             </h2>
-            <div className="w-24 h-2 bg-[#FFF159] mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-1.5 bg-secondary mx-auto mb-8 rounded-full" />
             <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
               La solución definitiva para llevar tu tienda de MercadoLibre al siguiente nivel de competitividad.
             </p>
@@ -90,24 +90,31 @@ export function MercadoLibreBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05, y: -10 }}
+                whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
               >
-                <Card className="h-full bg-[#0a0d16]/60 border-white/10 hover:border-[#FFF159]/50 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden relative">
-                   <div className="absolute top-0 left-0 w-full h-1 bg-[#FFF159] opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-[#FFF159]/5 transition-colors" />
-
-                    <div className="w-16 h-16 rounded-2xl bg-[#FFF159]/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
-                      <IconComponent className="w-8 h-8 text-[#FFF159]" />
+                <div className={cn(
+                  "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300 p-10 flex flex-col justify-between shadow-lg",
+                  index % 2 === 0
+                    ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                    : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                )}>
+                  <div>
+                    <div className={cn(
+                      "w-12 h-12 rounded-lg flex items-center justify-center mb-8 transition-transform group-hover:scale-110",
+                      index % 2 === 0
+                        ? "bg-primary/10 border border-primary/20 text-primary"
+                        : "bg-secondary/10 border border-secondary/20 text-secondary"
+                    )}>
+                      <IconComponent size={24} />
                     </div>
-                    <h3 className="font-display text-headline-lg font-bold mb-4 uppercase text-foreground tracking-tight">{benefit.title}</h3>
+                    <h3 className="font-display text-headline-lg font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
                     <p className="text-gray-400 text-body-md leading-relaxed font-sans">{benefit.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             )
           })}

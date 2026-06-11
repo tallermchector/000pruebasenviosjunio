@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react"
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils";
 
 export function EnviosFlexContent() {
   const features = [
@@ -30,8 +31,8 @@ export function EnviosFlexContent() {
   };
 
   return (
-    <section className="py-24 px-4 bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFF159]/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-24 px-4 bg-transparent relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
@@ -43,12 +44,12 @@ export function EnviosFlexContent() {
         >
           {/* Left Content */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF159]/10 border border-[#FFF159]/20 text-[#FFF159] text-label-sm font-bold tracking-widest mb-6 uppercase">
-              MERCADOLIBRE EXPERTS
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-6 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> MERCADOLIBRE EXPERTS
             </div>
-            <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic leading-[1] mb-8 uppercase text-foreground tracking-tighter">
               DOMINÁ TUS VENTAS <br />
-              <span className="text-[#FFF159] italic">CON ENVÍOS FLEX</span>
+              <span className="text-secondary drop-shadow-[0_0_20px_rgba(234,179,8,0.4)]">CON ENVÍOS FLEX</span>
             </h2>
             <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
               Somos el aliado estratégico para vendedores de MercadoLibre con Cobertura MDP total. Optimizamos tus Envíos Same-Day Mar del Plata para que vos solo te preocupes por vender más.
@@ -63,8 +64,8 @@ export function EnviosFlexContent() {
                   custom={index}
                   variants={itemVariants}
                 >
-                  <div className="w-6 h-6 bg-[#FFF159]/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-[#FFF159]/30">
-                    <Check className="w-3.5 h-3.5 text-[#FFF159]" />
+                  <div className="w-6 h-6 bg-secondary/10 border border-secondary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                    <Check className="w-3.5 h-3.5 text-secondary" />
                   </div>
                   <div>
                     <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-display uppercase tracking-tight">{feature.title}</h3>
@@ -85,7 +86,7 @@ export function EnviosFlexContent() {
                 <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-display tracking-tighter leading-none">
                   FLEX
                 </div>
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-[#FFF159] font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-secondary font-display tracking-tighter leading-none">
                   SAME-DAY
                 </div>
               </div>

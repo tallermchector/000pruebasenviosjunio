@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card"
 import { Package, ShieldCheck, CreditCard, BarChart, Truck, Users } from "lucide-react"
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 function SuccessMetrics() {
   const metrics = [
@@ -20,12 +20,15 @@ function SuccessMetrics() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 }}
-          className="text-center p-8 bg-[#0a0d16]/60 rounded-3xl border border-white/10 backdrop-blur-sm"
+          className={cn(
+            "text-center p-8 bg-card border-l-4 rounded-xl transition-all duration-300 shadow-lg",
+            index % 2 === 0 ? "border-l-primary" : "border-l-secondary"
+          )}
         >
-          <div className="text-display-md font-black text-primary font-display mb-2 italic">
+          <div className="text-4xl md:text-5xl font-black text-primary font-display mb-2 italic drop-shadow-[0_0_20px_rgba(59,130,246,0.3)]">
             {metric.value}
           </div>
-          <div className="text-label-sm font-bold uppercase tracking-widest text-gray-500">
+          <div className="text-xxs font-bold uppercase tracking-[0.2em] text-gray-400">
             {metric.label}
           </div>
         </motion.div>
@@ -69,7 +72,7 @@ export function EntrepreneurBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-background relative overflow-hidden">
+    <section className="py-24 px-4 bg-transparent relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -80,11 +83,11 @@ export function EntrepreneurBenefits() {
             viewport={{ once: true }}
           >
             <SuccessMetrics />
-            <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
-              BENEFICIOS <span className="text-primary">PARA NEGOCIOS</span>
+            <h2 className="font-display text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter leading-none">
+              BENEFICIOS <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">PARA NEGOCIOS</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
-            <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
+            <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-sans">
               Potenciamos tu capacidad operativa con soluciones logísticas de clase mundial.
             </p>
           </motion.div>
@@ -96,23 +99,28 @@ export function EntrepreneurBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05, y: -10 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Card className="h-full bg-[#0a0d16]/60 border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden">
-                  <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
-
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
-                      <IconComponent className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="font-display text-headline-lg font-bold mb-4 uppercase text-foreground tracking-tight">{benefit.title}</h3>
-                    <p className="text-gray-400 text-body-md leading-relaxed font-sans">{benefit.description}</p>
-                  </CardContent>
-                </Card>
+                <div className={cn(
+                  "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300 flex flex-col p-10 shadow-lg hover:-translate-y-1",
+                  index % 2 === 0
+                    ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                    : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                )}>
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110",
+                    index % 2 === 0
+                      ? "bg-primary/10 border border-primary/20 text-primary"
+                      : "bg-secondary/10 border border-secondary/20 text-secondary"
+                  )}>
+                    <IconComponent className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-display text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
+                  <p className="text-gray-400 text-body-md leading-relaxed font-sans">{benefit.description}</p>
+                </div>
               </motion.div>
             )
           })}

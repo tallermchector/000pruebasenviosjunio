@@ -1,11 +1,10 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, ArrowRightCircle } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import type { PriceRange } from '../../../generated/prisma/client/client';
 
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {
@@ -51,7 +50,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
   };
 
   return (
-    <section id="pricing-comparison" className="py-24 px-4 bg-background relative overflow-hidden">
+    <section id="pricing-comparison" className="py-24 px-4 bg-transparent relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -61,17 +60,18 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
-              TARIFAS 2026 <span className="text-primary">ENVÍOS LOWCOST</span>
+            <h2 className="font-display text-5xl md:text-7xl font-black italic mb-6 uppercase text-foreground tracking-tighter leading-none">
+              TARIFAS 2026 <br />
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">ENVÍOS LOWCOST</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
             <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
               Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos antes de las 13:00 hs.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {displayedPriceRanges.map((range, index) => (
             <motion.div
               key={range.id}
@@ -80,40 +80,58 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="relative bg-[#0a0d16]/60 border-white/10 backdrop-blur-md hover:border-primary/50 transition-all duration-300 rounded-3xl overflow-hidden h-full flex flex-col group">
-                <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-full text-xxs font-bold uppercase tracking-widest">
+              <div className={cn(
+                "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300 flex flex-col p-8 shadow-lg",
+                index % 2 === 0
+                  ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                  : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+              )}>
+                <span className={cn(
+                  "absolute top-0 right-0 border-b border-l text-[9px] font-black uppercase tracking-widest py-1 px-3 shadow",
+                  index % 2 === 0
+                    ? "bg-primary/10 border-primary/20 text-primary"
+                    : "bg-secondary/10 border-secondary/20 text-secondary"
+                )}>
                   Tarifa 2026
-                </Badge>
+                </span>
 
-                <CardHeader className="text-center pt-12 pb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <MapPin className="w-8 h-8 text-primary" />
+                <div className="text-center pt-8 pb-6">
+                  <div className={cn(
+                    "w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-6 transition-all duration-500 group-hover:scale-110",
+                    index % 2 === 0
+                      ? "bg-primary/10 border border-primary/20 text-primary"
+                      : "bg-secondary/10 border border-secondary/20 text-secondary"
+                  )}>
+                    <MapPin className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="font-display text-headline-lg font-bold text-foreground uppercase tracking-tight">
+                  <h3 className="font-display text-headline-lg font-bold text-foreground uppercase tracking-tight">
                     {range.nombreZona || `Zona ${index + 1}`}
-                  </CardTitle>
-                  <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">
+                  </h3>
+                  <p className={cn(
+                    "text-xs font-bold uppercase tracking-widest mt-1",
+                    index % 2 === 0 ? "text-primary" : "text-secondary"
+                  )}>
                     {index === 0 ? "Radio céntrico" : index === 1 ? "Periferia cercana" : index === 2 ? "Zonas alejadas" : "Límites de ciudad"}
                   </p>
                   <div className="text-4xl font-black text-foreground mt-6 font-display italic tracking-tighter">
                     ${range.precioRango.toLocaleString('es-AR')}
                   </div>
-                </CardHeader>
+                </div>
 
-                <CardContent className="flex-grow pb-12">
-                  <p className="text-gray-400 mb-8 text-center text-body-md font-sans leading-relaxed">
+                <div className="flex-grow pb-4">
+                  <p className="text-gray-400 mb-6 text-center text-body-md font-sans leading-relaxed font-sans">
                     {staticData[index]?.description || "Eficiencia en ruteo masivo"}
                   </p>
                   <ul className="space-y-4 font-sans">
                     {(staticData[index]?.features || ["Eficiencia en ruteo", "Corte 13:00 hs", "Entrega antes 19:00 hs"]).map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-gray-300 text-body-md">
-                        <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
+                        <ArrowRightCircle className={cn("w-4 h-4 mr-3 flex-shrink-0", index % 2 === 0 ? "text-primary" : "text-secondary")} />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -124,11 +142,11 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
            viewport={{ once: true }}
            className="mt-12"
         >
-          <Card className="bg-[#0a0d16]/60 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden p-8 md:p-12">
+          <div className="bg-card border-l-4 border-l-primary rounded-xl overflow-hidden p-8 md:p-12 shadow-2xl relative">
              <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase">
-                    COTIZACIÓN ESPECIAL
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-6 uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> COTIZACIÓN ESPECIAL
                   </div>
                   <h3 className="font-display text-display-md font-black text-foreground uppercase tracking-tighter mb-4 italic">
                     ZONA 5: <span className="text-secondary">$700 / KM</span>
@@ -140,14 +158,14 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
                 <div className="flex justify-center md:justify-end">
                    <Button
                     onClick={handleWhatsAppClick}
-                    className="bg-secondary hover:bg-yellow-400 text-black font-display font-black px-10 py-6 rounded-xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-label-md"
+                    className="bg-secondary hover:bg-yellow-500 text-black font-display font-black px-10 py-5 rounded-xl transition-all uppercase tracking-tight shadow-[0_10px_20px_rgba(234,179,8,0.2)] border border-secondary/20 active:scale-95 h-auto text-label-md"
                   >
-                    <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-6 h-6 mr-3" />
+                    <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-5 h-5 mr-3" />
                     CONSULTAR POR WHATSAPP
                   </Button>
                 </div>
              </div>
-          </Card>
+          </div>
         </motion.div>
       </div>
     </section>

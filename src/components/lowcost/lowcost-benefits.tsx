@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card"
 import { DollarSign, Clock, MapPin, TrendingDown, Users, Globe, CheckCircle2 } from "lucide-react"
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils";
 
 export function LowcostBenefits() {
   const benefits = [
@@ -40,7 +40,7 @@ export function LowcostBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-slate-950 relative overflow-hidden">
+    <section className="py-24 px-4 bg-transparent relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -50,11 +50,11 @@ export function LowcostBenefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic mb-6 uppercase text-white tracking-tighter leading-none">
               BENEFICIOS <span className="text-secondary drop-shadow-[0_0_15px_rgba(255,230,0,0.35)]">LOWCOST</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+            <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]" />
+            <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
               La combinación perfecta entre economía y eficiencia logística para tu negocio.
             </p>
           </motion.div>
@@ -66,34 +66,41 @@ export function LowcostBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05, y: -10 }}
+                whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="h-full"
               >
-                <Card className="h-full bg-white/5 border-white/10 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(37,99,235,0.1)] transition-all duration-300 group backdrop-blur-md rounded-3xl overflow-hidden relative">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors duration-300" />
-
+                <div className={cn(
+                  "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300 p-10 flex flex-col justify-between shadow-lg",
+                  index % 2 === 0
+                    ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                    : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                )}>
+                  <div>
                     <div className="flex justify-between items-start mb-8">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-transform relative">
-                        <IconComponent className="w-8 h-8 text-primary group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.8)] transition-all" />
+                      <div className={cn(
+                        "w-12 h-12 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110",
+                        index % 2 === 0
+                          ? "bg-primary/10 border border-primary/20 text-primary"
+                          : "bg-secondary/10 border border-secondary/20 text-secondary"
+                      )}>
+                        <IconComponent size={24} />
                       </div>
                       <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.2 + 0.5 }}
+                        transition={{ delay: index * 0.2 + 0.3 }}
                       >
-                        <CheckCircle2 className="w-6 h-6 text-green-500/80 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]" />
+                        <CheckCircle2 className="w-5 h-5 text-green-500/80 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]" />
                       </motion.div>
                     </div>
-                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>
-                  </CardContent>
-                </Card>
+                    <h3 className="font-display text-headline-lg font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed font-sans">{benefit.description}</p>
+                  </div>
+                </div>
               </motion.div>
             )
           })}

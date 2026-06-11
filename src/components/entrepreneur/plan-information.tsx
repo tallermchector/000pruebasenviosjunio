@@ -43,12 +43,12 @@ export function PlanInformation() {
         >
           {/* Left Content */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-label-sm font-bold tracking-widest mb-6 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xxs font-black tracking-[0.2em] mb-6 uppercase">
               SOLUCIONES CORPORATIVAS
             </div>
-            <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
+            <h2 className="font-display text-4xl md:text-6xl font-black italic leading-none mb-8 uppercase text-white tracking-tighter">
               LOGÍSTICA 3PL <br />
-              <span className="text-primary italic">PARA EMPRENDEDORES</span>
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">PARA EMPRENDEDORES</span>
             </h2>
             <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
               Somos más que una empresa de envíos; nos convertimos en tu departamento de logística. Delegá el almacenamiento y la distribución en expertos y enfocate en hacer crecer tu negocio.
@@ -63,7 +63,7 @@ export function PlanInformation() {
                   custom={index}
                   variants={itemVariants}
                 >
-                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-primary/30">
+                  <div className="w-6 h-6 bg-primary/10 border border-primary/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
                     <Check className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div>
@@ -82,7 +82,7 @@ export function PlanInformation() {
           >
             <div className="text-center lg:text-right select-none opacity-20">
               <div className="space-y-2">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-white font-display tracking-tighter leading-none">
                   CORE
                 </div>
                 <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-display tracking-tighter leading-none">

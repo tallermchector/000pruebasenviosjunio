@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from "framer-motion"
 import { PackageSearch, Truck, CheckSquare, Star } from "lucide-react"
+import { cn } from "@/lib/utils";
 
 export function HowItWorks() {
   const steps = [
@@ -29,7 +30,7 @@ export function HowItWorks() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
+    <section className="py-24 px-4 bg-transparent relative overflow-hidden">
        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -39,11 +40,11 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
-              LOGÍSTICA <span className="text-primary">SIN FRICCIONES</span>
+            <h2 className="font-display text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter leading-none">
+              LOGÍSTICA <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">SIN FRICCIONES</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+            <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-sans">
               Integramos tu flujo de ventas con nuestra red de distribución en tiempo real.
             </p>
           </motion.div>
@@ -57,13 +58,24 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm"
             >
-              <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                 <step.icon className="w-7 h-7 text-primary" />
+              <div className={cn(
+                "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300 flex flex-col p-8 shadow-lg hover:-translate-y-1",
+                index % 2 === 0
+                  ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                  : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+              )}>
+                <div className={cn(
+                  "w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110",
+                  index % 2 === 0
+                    ? "bg-primary/10 border border-primary/20 text-primary"
+                    : "bg-secondary/10 border border-secondary/20 text-secondary"
+                )}>
+                   <step.icon className="w-7 h-7" />
+                </div>
+                <h3 className="font-display text-xl font-bold mb-4 uppercase text-white tracking-tight">{step.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed font-sans">{step.description}</p>
               </div>
-              <h3 className="font-[family-name:var(--font-orbitron)] text-xl font-bold mb-4 uppercase text-slate-900 tracking-tight">{step.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{step.description}</p>
             </motion.div>
           ))}
         </div>

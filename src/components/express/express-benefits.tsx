@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card"
-import { Zap, Shield, MapPin, Phone, Clock, Award } from "lucide-react"
+import { Zap, MapPin, Phone, Clock, Award } from "lucide-react"
 import { motion } from "framer-motion"
+import { cn } from "@/lib/utils";
 
 function UrgencyClock() {
   return (
@@ -55,7 +55,7 @@ export function ExpressBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#030710] relative overflow-hidden">
+    <section className="py-24 px-4 bg-transparent relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -66,10 +66,10 @@ export function ExpressBenefits() {
             viewport={{ once: true }}
           >
             <UrgencyClock />
-            <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic mb-6 uppercase text-foreground tracking-tighter leading-none">
               ¿POR QUÉ <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">ELEGIR EXPRESS?</span>
             </h2>
-            <div className="w-24 h-2 bg-secondary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
+            <div className="w-24 h-1.5 bg-secondary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
             <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
               Descubrí todas las ventajas de nuestro servicio premium de entregas rápidas.
             </p>
@@ -82,25 +82,32 @@ export function ExpressBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05, y: -10 }}
+                whileHover={{ scale: 1.02 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="h-full"
               >
-                <Card className="h-full bg-[#0a0d16]/60 border-white/10 hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all duration-300 group backdrop-blur-sm rounded-3xl overflow-hidden relative">
-                   <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-secondary/5 transition-colors duration-300" />
-
-                    <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative border border-secondary/20 group-hover:border-secondary/50">
-                      <IconComponent className="w-8 h-8 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.8)] transition-all" />
+                <div className={cn(
+                  "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300 p-10 flex flex-col justify-between",
+                  index % 2 === 0
+                    ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                    : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                )}>
+                  <div>
+                    <div className={cn(
+                      "w-12 h-12 rounded-lg flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
+                      index % 2 === 0
+                        ? "bg-primary/10 border border-primary/20 text-primary"
+                        : "bg-secondary/10 border border-secondary/20 text-secondary"
+                    )}>
+                      <IconComponent size={24} />
                     </div>
                     <h3 className="font-display text-headline-lg font-bold mb-4 uppercase text-foreground tracking-tight">{benefit.title}</h3>
                     <p className="text-gray-400 text-body-md leading-relaxed font-sans">{benefit.description}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             )
           })}

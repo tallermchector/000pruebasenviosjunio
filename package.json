@@ -19,7 +19,9 @@
 		"clean": "rm -rf .next node_modules bun.lockb pnpm-lock.yaml",
 		"reinstall": "pnpm run clean && pnpm install",
 		"build:clean": "pnpm run clean && pnpm run build",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"ui-ux:search": "python .agent/skills/ui-ux-pro-max/scripts/search.py",
+		"ui-ux:design-system": "python .agent/skills/ui-ux-pro-max/scripts/search.py \"SaaS Next.js App Router Prisma Tailwind shadcn\" --design-system --persist -f markdown"
 	},
 	"dependencies": {
 		"@ducanh2912/next-pwa": "^10.2.9",

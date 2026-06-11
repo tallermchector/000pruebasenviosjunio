@@ -1,6 +1,6 @@
 // prisma/script/subirtodo.ts
 
-import { Prisma } from '../../generated/prisma/client/client';
+import { Prisma } from '../../generated/prisma/client';
 import prisma from '../../src/lib/prisma';
 import fs from 'fs';
 import path from 'path';

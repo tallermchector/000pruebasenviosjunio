@@ -1,13 +1,10 @@
 import "dotenv/config";
-import { PrismaClient } from "../../generated/prisma/client/client";
+import { PrismaClient } from "../../generated/prisma/client";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
 
-const pool = new pg.Pool({ connectionString: process.env.DIRECT_URL });
-const adapter = new PrismaPg(pool);
-
-const prismaClientSingleton = () => {
+const prismaClientSingleton = (adapter: PrismaPg) => {
   return new PrismaClient({ adapter }).$extends(withAccelerate());
 };
 
@@ -15,9 +12,16 @@ type PrismaClientExtended = ReturnType<typeof prismaClientSingleton>;
 
 declare global {
   var prisma: undefined | PrismaClientExtended;
+  var pgPool: undefined | pg.Pool;
 }
 
-const prisma = globalThis.prisma ?? prismaClientSingleton();
+const pool = globalThis.pgPool ?? new pg.Pool({ connectionString: process.env.DIRECT_URL });
+if (process.env.NODE_ENV !== "production") {
+  globalThis.pgPool = pool;
+}
+const adapter = new PrismaPg(pool);
+
+const prisma = globalThis.prisma ?? prismaClientSingleton(adapter);
 
 export default prisma;
 

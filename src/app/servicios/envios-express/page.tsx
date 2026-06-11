@@ -4,7 +4,7 @@ import { CarruselRedes } from "@/components/homenew/carrusel-redes";
 import { Footer } from "@/components/homenew/footer";
 import { ExpressPageClient } from "@/components/express/express-page-client";
 import prisma from "@/lib/prisma";
-import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
+import { ServiceTypeEnum } from '../../../../generated/prisma/client';
 import type { PriceRangeClient } from "@/components/express/express-pricing-ranges";
 
 export const metadata: Metadata = {

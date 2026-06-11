@@ -5,7 +5,7 @@ import { Coins, ArrowRightCircle } from "lucide-react";
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import type { PriceRange } from '../../../generated/prisma/client/client';
+import type { PriceRange } from '../../../generated/prisma/client';
 
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {
   distanciaMinKm: number;

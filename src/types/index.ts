@@ -1,5 +1,5 @@
 // src/types/index.ts
-import type { Etiqueta as PrismaEtiqueta } from '../../generated/prisma/client/client';
+import type { Etiqueta as PrismaEtiqueta } from '../../generated/prisma/client';
 
 export interface Order {
   id: string;

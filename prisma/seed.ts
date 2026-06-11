@@ -13,9 +13,13 @@ if (process.env.DIRECT_URL) {
   process.env.DATABASE_URL = process.env.DIRECT_URL;
 }
 
-import { PrismaClient } from "../generated/prisma/client/index.js";
+import { PrismaClient } from "../generated/prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import pg from "pg";
 
-const prisma = new PrismaClient();
+const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("Iniciando el proceso de seeding...");
@@ -150,6 +154,7 @@ async function main() {
     console.error("Error durante el seeding:", error);
   } finally {
     await prisma.$disconnect();
+    await pool.end();
   }
 }
 

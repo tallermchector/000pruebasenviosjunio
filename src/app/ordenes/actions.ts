@@ -2,7 +2,7 @@
 'use server';
 
 import prisma from '@/lib/prisma';
-import { Prisma, ServiceTypeEnum as PrismaServiceTypeEnum, type Client, type Order as PrismaOrder } from '../../../generated/prisma/client/client';
+import { Prisma, ServiceTypeEnum as PrismaServiceTypeEnum, type Client, type Order as PrismaOrder } from '../../../generated/prisma/client';
 import { z } from 'zod';
 import type {
     ClientSearchInput, ClientSearchResult,

@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 import prisma from "../src/lib/prisma";
-import { ServiceTypeEnum } from "../generated/prisma/client/client";
+import { ServiceTypeEnum } from "../generated/prisma/client";
 
 async function main() {
   console.log("Iniciando la inyección de Km adicional en la base de datos...");

@@ -1,13 +1,14 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Rocket, CheckCircle2, ArrowRight, ShieldCheck, Zap, Globe, Package, Building2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from "@/lib/utils";
 
 export const EmprendedoresHome = () => {
+  const shouldReduceMotion = useReducedMotion();
   const solutions = [
     {
       title: "Soluciones Corporativas",
@@ -56,42 +57,42 @@ export const EmprendedoresHome = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-24 items-end">
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/40 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> Soluciones Corporativas y PyME
             </motion.div>
             <motion.h2
-              initial={{ opacity: 0, y: 30 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl md:text-7xl font-display font-black italic text-white uppercase tracking-tighter leading-none"
+              className="text-5xl md:text-7xl font-display font-black italic text-foreground uppercase tracking-tighter leading-none"
             >
-              Potencia tu <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">Logística</span> <br />
-              con <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">DosRuedas</span>
+              Potencia tu <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)] font-display">Logística</span> <br />
+              con <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)] font-display">DosRuedas</span>
             </motion.h2>
           </div>
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:border-l lg:border-white/10 lg:pl-12"
+            className="lg:border-l lg:border-border lg:pl-12"
           >
-            <p className="text-gray-400 text-body-lg mb-10">
+            <p className="text-muted-foreground text-body-lg mb-10 font-sans">
               Transformamos la última milla de tu empresa con una flota ágil y especializada de alta precisión. Beneficios exclusivos para clientes corporativos.
             </p>
-            <div className="flex gap-8">
+            <div className="flex gap-8 font-sans">
               <div className="flex flex-col gap-1">
                 <span className="text-secondary text-3xl font-display font-black italic uppercase">500+</span>
-                <span className="text-label-sm text-gray-500 uppercase">Empresas</span>
+                <span className="text-label-sm text-muted-foreground/80 uppercase">Empresas</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-secondary text-3xl font-display font-black italic uppercase">24/7</span>
-                <span className="text-label-sm text-gray-500 uppercase">Operativa</span>
+                <span className="text-label-sm text-muted-foreground/80 uppercase">Operativa</span>
               </div>
             </div>
           </motion.div>
@@ -101,11 +102,11 @@ export const EmprendedoresHome = () => {
           {solutions.map((solution, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 50 }}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -10, scale: 1.01 }}
+              whileHover={shouldReduceMotion ? {} : { y: -6 }}
               className={cn(
                 "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300",
                 idx % 2 === 0
@@ -120,12 +121,12 @@ export const EmprendedoresHome = () => {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover opacity-10 grayscale group-hover:grayscale-0 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d16] via-[#0a0d16]/90 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent" />
 
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="flex justify-between items-start mb-auto">
                   <span className={cn(
-                    "px-3 py-1 rounded border text-[9px] font-black uppercase tracking-[0.2em] shadow-lg",
+                    "px-3 py-1 rounded-full border text-[9px] font-black uppercase tracking-[0.2em] shadow-lg",
                     idx % 2 === 0
                       ? "bg-primary/10 border-primary/20 text-primary"
                       : "bg-secondary/10 border-secondary/20 text-secondary"
@@ -135,32 +136,32 @@ export const EmprendedoresHome = () => {
                 </div>
 
                 <div className={cn(
-                  "w-12 h-12 rounded-lg flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
+                  "w-12 h-12 rounded-md flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
                   idx % 2 === 0
-                    ? "bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-slate-950"
-                    : "bg-secondary/10 border border-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-slate-950"
+                    ? "bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                    : "bg-secondary/10 border border-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-secondary-foreground"
                 )}>
                   <solution.icon size={24} />
                 </div>
 
-                <h3 className="text-headline-md italic font-black text-white mb-3 uppercase tracking-wide">
+                <h3 className="text-headline-md italic font-black text-foreground mb-3 uppercase tracking-wide">
                   {solution.title}
                 </h3>
 
-                <p className="text-gray-400 text-body-md mb-6 line-clamp-2">
+                <p className="text-muted-foreground text-body-md mb-6 line-clamp-2 font-sans">
                   {solution.description}
                 </p>
 
                 <div className="space-y-3 mb-8">
                   {solution.features.map((feature, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-3 text-label-sm text-gray-400">
+                    <div key={fIdx} className="flex items-center gap-3 text-label-sm text-muted-foreground">
                       <div className={cn(
                         "w-5 h-5 rounded-full flex items-center justify-center shrink-0",
                         idx % 2 === 0 ? "bg-primary/10" : "bg-secondary/10"
                       )}>
                         <CheckCircle2 size={12} className={idx % 2 === 0 ? "text-primary" : "text-secondary"} />
                       </div>
-                      <span className="uppercase text-xs">{feature}</span>
+                      <span className="uppercase text-xs font-sans font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -168,10 +169,10 @@ export const EmprendedoresHome = () => {
                 <Link
                   href={solution.link}
                   className={cn(
-                    "group/btn w-full py-4 rounded-xl text-center flex items-center justify-center gap-3 transition-all duration-300 uppercase shadow-md active:scale-95 text-label-md font-bold border",
+                    "group/btn w-full py-4 rounded-md text-center flex items-center justify-center gap-3 transition-all duration-300 uppercase shadow-md active:scale-95 text-label-md font-bold border",
                     idx % 2 === 0
-                      ? "bg-primary/10 border-primary/20 text-primary hover:bg-primary hover:text-slate-950"
-                      : "bg-secondary/10 border-secondary/20 text-secondary hover:bg-secondary hover:text-slate-950"
+                      ? "bg-primary/10 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground"
+                      : "bg-secondary/10 border-secondary/20 text-secondary hover:bg-secondary hover:text-secondary-foreground"
                   )}
                 >
                   CONFIGURAR PLAN <ArrowRight size={16} className="group-hover/btn:translate-x-1.5 transition-transform" />
@@ -183,7 +184,7 @@ export const EmprendedoresHome = () => {
       </div>
 
       {/* Dynamic Floor Element */}
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/40 to-transparent opacity-50" />
     </section>
   );
 };

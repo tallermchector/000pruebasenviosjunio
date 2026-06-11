@@ -57,7 +57,7 @@ export default function HeroAnimado() {
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 text-body-lg mb-8 xl:mb-10 max-w-2xl mx-auto lg:mx-0"
+            className="text-muted-foreground text-body-lg mb-8 xl:mb-10 max-w-2xl mx-auto lg:mx-0 font-sans"
           >
             Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Ofrecemos soluciones rápidas, seguras y económicas para todas tus necesidades de envío.
           </motion.p>
@@ -69,7 +69,7 @@ export default function HeroAnimado() {
             <Link
               href="/cotizar/express"
               aria-label="Solicitar Servicio de mensajería desde el héroe"
-              className="group relative px-10 py-4.5 bg-primary hover:bg-blue-600 text-white font-display text-xs font-black rounded-xl border-4 border-blue-900 transition-all shadow-md uppercase overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 active:translate-y-0 active:translate-x-0 active:shadow-md"
+              className="group relative px-8 py-4 bg-primary hover:bg-primary/95 text-primary-foreground font-display text-xs font-bold rounded-md border border-primary/20 transition-all shadow-md uppercase overflow-hidden hover:shadow-lg hover:scale-[1.02] active:scale-100"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Solicitar Servicio <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -80,10 +80,10 @@ export default function HeroAnimado() {
             <Link
               href="/servicios/envios-express"
               aria-label="Ver todos los servicios de envíos"
-              className="flex items-center gap-4 group text-white font-display text-xs font-black hover:text-primary transition-colors py-2 uppercase tracking-wider"
+              className="flex items-center gap-4 group text-foreground font-display text-xs font-bold hover:text-primary transition-colors py-2 uppercase tracking-wider"
             >
-              <div className="w-14 h-14 rounded-xl bg-white/5 border-4 border-white/20 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:-translate-y-1 group-hover:-translate-x-1 hover:shadow-md" aria-hidden="true">
-                <Play className="fill-white text-white ml-1" size={18} />
+              <div className="w-12 h-12 rounded-md bg-muted border border-border flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/30 transition-all hover:shadow-md" aria-hidden="true">
+                <Play className="fill-foreground text-foreground ml-1" size={16} />
               </div>
               <span>Ver Servicios</span>
             </Link>
@@ -93,13 +93,13 @@ export default function HeroAnimado() {
             variants={itemVariants}
             className="mt-10 lg:mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4"
           >
-            <div className="flex items-center gap-2 text-label-sm uppercase text-white/40">
+            <div className="flex items-center gap-2 text-label-sm uppercase text-muted-foreground/60">
               <ShieldCheck size={14} className="text-primary" /> 100% SEGURO
             </div>
-            <div className="flex items-center gap-2 text-label-sm uppercase text-white/40">
+            <div className="flex items-center gap-2 text-label-sm uppercase text-muted-foreground/60">
               <Zap size={14} className="text-secondary" /> ULTRA RÁPIDO
             </div>
-            <div className="flex items-center gap-2 text-label-sm uppercase text-white/40">
+            <div className="flex items-center gap-2 text-label-sm uppercase text-muted-foreground/60">
               <Globe size={14} className="text-blue-400" /> COBERTURA TOTAL
             </div>
           </motion.div>

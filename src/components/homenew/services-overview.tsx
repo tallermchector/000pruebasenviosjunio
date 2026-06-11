@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { Zap, Package, Truck, ChevronRight, Clock, MousePointer2 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from "@/lib/utils";
 import { motionVariants } from '@/components/ui/animations';
 
-// Definición de tipos para la tematización semántica
+// Definición de tipos para la tematización semántica de cada tarjeta
 type ServiceTheme = {
   card: string;
   icon: string;
@@ -16,58 +16,55 @@ type ServiceTheme = {
   desc: string;
   button: string;
   badge?: string;
-  accentColor: string;
-  glowColor: string;
+  glow: string;
 };
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
-    icon: "bg-primary border-4 border-blue-900 text-white rounded-xl",
-    accent: "text-primary",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-primary",
-    badge: "bg-primary text-white border-primary border-2 rounded-xl",
-    accentColor: "blue-400",
-    glowColor: "transparent"
+    card: "bg-blue-950/10 border-blue-500/20 hover:border-blue-400/50 hover:bg-blue-950/20",
+    icon: "bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-md",
+    accent: "text-blue-400",
+    text: "text-foreground",
+    desc: "text-muted-foreground [&>span]:text-foreground",
+    button: "text-muted-foreground hover:text-foreground group-hover:text-blue-400",
+    badge: "bg-blue-500/10 text-blue-400 border-blue-500/30 border",
+    glow: "bg-blue-500"
   },
   lowcost: {
-    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
-    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-xl",
-    accent: "text-secondary",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-secondary",
-    badge: "bg-secondary text-primary border-secondary border-2 rounded-xl",
-    accentColor: "yellow-400",
-    glowColor: "transparent"
+    card: "bg-amber-950/10 border-amber-500/20 hover:border-amber-400/50 hover:bg-amber-950/20",
+    icon: "bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-md",
+    accent: "text-amber-400",
+    text: "text-foreground",
+    desc: "text-muted-foreground [&>span]:text-foreground",
+    button: "text-muted-foreground hover:text-foreground group-hover:text-amber-400",
+    badge: "bg-amber-500/10 text-amber-400 border-amber-500/30 border",
+    glow: "bg-amber-500"
   },
   meli: {
-    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
-    icon: "bg-primary border-4 border-blue-900 text-white rounded-xl",
-    accent: "text-primary",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-primary",
-    badge: "bg-primary text-white border-primary border-2 rounded-xl",
-    accentColor: "blue-400",
-    glowColor: "transparent"
+    card: "bg-emerald-950/10 border-emerald-500/20 hover:border-emerald-400/50 hover:bg-emerald-950/20",
+    icon: "bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-md",
+    accent: "text-emerald-400",
+    text: "text-foreground",
+    desc: "text-muted-foreground [&>span]:text-foreground",
+    button: "text-muted-foreground hover:text-foreground group-hover:text-emerald-400",
+    badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30 border",
+    glow: "bg-emerald-500"
   },
   ecommerce: {
-    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
-    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-xl",
-    accent: "text-secondary",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-secondary",
-    badge: "bg-secondary text-primary border-secondary border-2 rounded-xl",
-    accentColor: "yellow-400",
-    glowColor: "transparent"
+    card: "bg-indigo-950/10 border-indigo-500/20 hover:border-indigo-400/50 hover:bg-indigo-950/20",
+    icon: "bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 rounded-md",
+    accent: "text-indigo-400",
+    text: "text-foreground",
+    desc: "text-muted-foreground [&>span]:text-foreground",
+    button: "text-muted-foreground hover:text-foreground group-hover:text-indigo-400",
+    badge: "bg-indigo-500/10 text-indigo-400 border-indigo-500/30 border",
+    glow: "bg-indigo-500"
   }
 };
 
 export const ServicesOverview = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const services = [
     {
       theme: "express",
@@ -88,6 +85,7 @@ export const ServicesOverview = () => {
       icon: <Clock />,
       href: "/servicios/envios-lowcost",
       buttonText: "Ahorrá con LowCost",
+      badge: "RECOMENDADO",
       className: "md:col-span-2 md:row-span-1"
     },
     {
@@ -98,6 +96,7 @@ export const ServicesOverview = () => {
       icon: <Package />,
       href: "/servicios/enviosflex",
       buttonText: "Activar Envíos Flex",
+      badge: "SLAs COMPLIANT",
       className: "md:col-span-2 md:row-span-1"
     },
     {
@@ -108,6 +107,7 @@ export const ServicesOverview = () => {
       icon: <Truck />,
       href: "/servicios/plan-emprendedores",
       buttonText: "Hablar con un asesor",
+      badge: "CUENTA CORRIENTE",
       className: "md:col-span-2 md:row-span-1"
     }
   ];
@@ -118,34 +118,34 @@ export const ServicesOverview = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[160px] pointer-events-none opacity-50" />
       
       {/* Section Transition Lines */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/10 to-transparent" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-10">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary/10 border-4 border-secondary text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
-              <span className="w-2 h-2 bg-secondary animate-pulse" /> SERVICIOS EXCLUSIVOS
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/40 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
+              <span className="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse" /> SERVICIOS EXCLUSIVOS
             </div>
-            <h2 className="text-5xl md:text-7xl font-display font-black italic uppercase text-white tracking-tighter leading-none">
+            <h2 className="text-5xl md:text-7xl font-display font-black italic uppercase text-foreground tracking-tighter leading-none">
               NUESTRA GAMA DE <br />
-              <span className="text-primary">SOLUCIONES</span>
+              <span className="text-primary font-display">SOLUCIONES</span>
             </h2>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-md lg:border-l lg:border-white/10 lg:pl-10"
+            className="max-w-md lg:border-l lg:border-border lg:pl-10"
           >
-            <p className="text-gray-400 text-body-lg">
+            <p className="text-muted-foreground text-body-lg font-sans">
               Infraestructura moderna para negocios que no se detienen. Inteligencia aplicada a cada kilómetro.
             </p>
           </motion.div>
@@ -153,8 +153,8 @@ export const ServicesOverview = () => {
 
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-4 lg:gap-6 h-auto"
-          variants={motionVariants.bentoGridEntrance}
-          initial="hidden"
+          variants={shouldReduceMotion ? {} : motionVariants.bentoGridEntrance}
+          initial={shouldReduceMotion ? "visible" : "hidden"}
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
@@ -164,17 +164,41 @@ export const ServicesOverview = () => {
               <motion.div
                 key={idx}
                 variants={{
-                  hidden: motionVariants.bentoItemEntrance.hidden,
-                  visible: motionVariants.bentoItemEntrance.visible,
-                  hover: motionVariants.cardHoverDepth.hover,
+                  hidden: shouldReduceMotion ? { opacity: 1 } : motionVariants.bentoItemEntrance.hidden,
+                  visible: shouldReduceMotion ? { opacity: 1 } : motionVariants.bentoItemEntrance.visible,
+                  hover: shouldReduceMotion ? {} : motionVariants.cardHoverDepth.hover,
                 }}
                 whileHover="hover"
                 className={cn(
-                  "group p-6 lg:p-10 flex flex-col justify-between relative overflow-hidden",
+                  "group p-6 lg:p-10 flex flex-col justify-between relative overflow-hidden rounded-xl border backdrop-blur-sm transition-colors duration-300",
                   theme.card,
                   service.className
                 )}
               >
+                {/* Background Ambient Glow for Card hover */}
+                <div className={cn("absolute -right-24 -bottom-24 w-48 h-48 rounded-full blur-[80px] pointer-events-none opacity-10 group-hover:opacity-30 transition-all duration-500", theme.glow)} />
+
+                {/* Elegant Decorative Watermark SVG Icon */}
+                {idx === 0 && (
+                  <div className="absolute -top-6 -right-6 opacity-[0.03] group-hover:opacity-[0.07] transition-all duration-500 pointer-events-none" aria-hidden="true">
+                    <MousePointer2 size={140} className="rotate-12 text-blue-500" />
+                  </div>
+                )}
+                {idx === 1 && (
+                  <div className="absolute -top-6 -right-6 opacity-[0.03] group-hover:opacity-[0.07] transition-all duration-500 pointer-events-none" aria-hidden="true">
+                    <Clock size={140} className="-rotate-12 text-amber-500" />
+                  </div>
+                )}
+                {idx === 2 && (
+                  <div className="absolute -top-6 -right-6 opacity-[0.03] group-hover:opacity-[0.07] transition-all duration-500 pointer-events-none" aria-hidden="true">
+                    <Package size={140} className="rotate-45 text-emerald-500" />
+                  </div>
+                )}
+                {idx === 3 && (
+                  <div className="absolute -top-6 -right-6 opacity-[0.03] group-hover:opacity-[0.07] transition-all duration-500 pointer-events-none" aria-hidden="true">
+                    <Truck size={140} className="-rotate-12 text-indigo-500" />
+                  </div>
+                )}
 
                 <div className="relative z-10">
                   <div className={cn(
@@ -187,10 +211,10 @@ export const ServicesOverview = () => {
                   <h3 className={cn("text-headline-md italic font-black mb-1 uppercase tracking-wide transition-all duration-300 group-hover:tracking-wider", theme.text)}>
                     {service.title}
                   </h3>
-                  <p className={cn("text-label-sm uppercase mb-4 tracking-widest transition-all duration-300 group-hover:text-white", theme.accent)}>
+                  <p className={cn("text-label-sm uppercase mb-4 tracking-widest font-bold transition-all duration-300", theme.accent)}>
                     {service.bajada}
                   </p>
-                  <div className={cn("text-body-md mb-6 max-w-[320px] leading-relaxed transition-colors duration-300 group-hover:text-gray-300", theme.desc)}>
+                  <div className={cn("text-body-md mb-6 max-w-[320px] leading-relaxed transition-colors duration-300", theme.desc)}>
                     {service.desc}
                   </div>
                 </div>
@@ -198,27 +222,20 @@ export const ServicesOverview = () => {
                 <div className="relative z-10 flex items-center justify-between">
                   <Link
                     href={service.href}
-                    className={cn("flex items-center gap-2 text-label-md transition-all duration-300 group-hover:gap-3", theme.button)}
+                    className={cn("flex items-center gap-2 text-label-md transition-all duration-300 group-hover:gap-3 font-bold", theme.button)}
                   >
                     {service.buttonText} <ChevronRight size={16} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
                   </Link>
 
                   {service.badge && (
-                    <div className={cn("hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full font-display text-[9px] font-black tracking-[0.2em] uppercase border", theme.badge)}>
+                    <div className={cn("hidden md:flex items-center gap-2 px-3 py-1 rounded-full font-display text-[9px] font-black tracking-[0.2em] uppercase border", theme.badge)}>
                       {service.badge}
                     </div>
                   )}
                 </div>
 
                 {/* Decorative side border accent */}
-                <div className={cn("absolute top-1/2 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-white/10 to-transparent group-hover:via-current transition-all", theme.accent)} />
-
-                {/* Specific Visual for the first card */}
-                {idx === 0 && (
-                  <div className="absolute top-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity" aria-hidden="true">
-                    <MousePointer2 size={120} className="rotate-12 text-white" />
-                  </div>
-                )}
+                <div className={cn("absolute top-1/4 -right-px w-px h-1/2 bg-gradient-to-b from-transparent via-muted-foreground/20 to-transparent group-hover:via-current transition-all duration-300", theme.accent)} />
               </motion.div>
             );
           })}

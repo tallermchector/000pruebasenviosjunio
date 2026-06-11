@@ -1,6 +1,7 @@
 'use client';
 
 import { HeroSection } from "@/components/ui/HeroSection";
+import RotatingCard from "@/components/homenew/rotating-card";
 
 export function EnviosFlexHero() {
   return (
@@ -9,7 +10,7 @@ export function EnviosFlexHero() {
       title={
         <>
           ENVÍOS FLEX MERCADOLIBRE: <br />
-          <span className="text-secondary">POTENCIÁ TU REPUTACIÓN</span>
+          <span className="text-secondary italic">POTENCIÁ TU REPUTACIÓN</span>
         </>
       }
       description="Somos expertos en la logística de MercadoLibre. Optimizamos tus entregas Same-Day para que tu medidor siempre esté en verde y vos solo te enfoques en vender."
@@ -19,6 +20,16 @@ export function EnviosFlexHero() {
       ]}
       backgroundImageUrl="/bannerenvios.webp"
       backgroundImageAlt="Banner Envíos Flex Envios DosRuedas"
+      layout="split-visual-right"
+      visualElement={
+        <div className="relative w-full max-w-[450px] aspect-[1.6/1]">
+           <RotatingCard 
+             frontImageSrc="/cards/card2.webp" 
+             backImageSrc="/cards/card_mapa.webp" 
+             className="w-full h-full" 
+           />
+        </div>
+      }
     />
   );
 }

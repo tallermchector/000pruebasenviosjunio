@@ -1,6 +1,7 @@
 'use client';
 
 import { HeroSection } from "@/components/ui/HeroSection";
+import RotatingCard from "@/components/homenew/rotating-card";
 
 export function EntrepreneurHero() {
   return (
@@ -9,7 +10,7 @@ export function EntrepreneurHero() {
       title={
         <>
           ALMACENAMIENTO Y <br />
-          <span className="text-secondary">FULFILLMENT PARA PyMEs</span>
+          <span className="text-secondary italic">FULFILLMENT PARA PyMEs</span>
         </>
       }
       description="Solución integral de almacenamiento y fulfillment para PyMEs en Mar del Plata. Contamos con depósitos propios en la ciudad para garantizar el mejor servicio 3PL."
@@ -19,6 +20,16 @@ export function EntrepreneurHero() {
       ]}
       backgroundImageUrl="/bannerenvios.webp"
       backgroundImageAlt="Banner Plan Emprendedor Envios DosRuedas"
+      layout="split-visual-right"
+      visualElement={
+        <div className="relative w-full max-w-[450px] aspect-[1.6/1]">
+           <RotatingCard 
+             frontImageSrc="/cards/card3.webp" 
+             backImageSrc="/cards/card_moto01.webp" 
+             className="w-full h-full" 
+           />
+        </div>
+      }
     />
   );
 }

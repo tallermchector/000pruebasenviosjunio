@@ -79,9 +79,9 @@ export function HeroSection({
   backgroundImageUrl = '/bannerenvios.webp',
   backgroundImageAlt = 'Hero background image',
   backgroundOverlayOpacity = 0.2,
-  textColorClassName = 'text-white',
-  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-display',
-  descriptionClassName = 'text-gray-300 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-sans',
+  textColorClassName = 'text-foreground',
+  titleClassName = 'text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-foreground font-display',
+  descriptionClassName = 'text-muted-foreground text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-sans',
   visualElement,
   layout = 'center-stacked',
   minHeight = 'min-h-screen',
@@ -95,7 +95,7 @@ export function HeroSection({
   let bgClasses = '';
   if (backgroundType === 'color') bgClasses = backgroundColor;
   else if (backgroundType === 'gradient') bgClasses = backgroundGradient;
-  else if (backgroundType === 'image') bgClasses = 'bg-surface-light';
+  else if (backgroundType === 'image') bgClasses = 'bg-background';
 
   const sectionClasses = cn(
     'relative flex items-center overflow-hidden pt-24 pb-12 md:pt-32 md:pb-20 px-6',
@@ -116,8 +116,8 @@ export function HeroSection({
       {preTitle && (
         <div className="mb-8">
           {typeof preTitle === 'string' ? (
-             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-slate-900 text-xs font-bold tracking-widest uppercase">
-                <div className="w-2 h-2 bg-white animate-pulse" />
+             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wider uppercase font-sans">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 {preTitle}
              </div>
           ) : preTitle}
@@ -142,7 +142,7 @@ export function HeroSection({
       {ctaButtons && ctaButtons.length > 0 && (
         <div
           className={cn(
-            'flex flex-col sm:flex-row gap-6 items-center',
+            'flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto',
             textAlignment === 'text-center' ? 'justify-center' :
             (layout === 'split-visual-right' || textAlignment === 'text-left') ? 'justify-start' :
             (layout === 'split-visual-left' || textAlignment === 'text-right') ? 'justify-end' :
@@ -153,26 +153,29 @@ export function HeroSection({
             const IconComponent = button.icon ? iconMap[button.icon] : null;
 
             const isYellowButton = button.variant === 'secondary';
+            const isOutlineButton = button.variant === 'outline';
 
             return (
               <div
                 key={index}
-                className="transition-transform hover:scale-105 active:scale-95 animate-fade-in-up"
+                className="transition-transform hover:scale-[1.02] active:scale-100 animate-fade-in-up w-full sm:w-auto"
                 style={{ animationDelay: `${0.2 + index * 0.1}s` }}
               >
                 <Button
                   variant={button.variant || 'default'}
                   asChild
                   className={cn(
-                    'px-10 py-5 font-sans font-bold rounded-xl transition-all uppercase tracking-tight h-auto',
+                    'w-full sm:w-auto px-8 py-4 font-sans font-bold rounded-md transition-all uppercase tracking-tight h-auto flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
                     isYellowButton
-                      ? "bg-secondary hover:bg-[#d97706] text-black shadow-lg"
-                      : "bg-slate-900 border border-slate-800 text-white hover:bg-slate-800",
+                      ? "bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-md hover:shadow-lg border border-secondary/20"
+                      : (isOutlineButton
+                          ? "bg-primary/10 border border-primary/20 text-foreground hover:bg-primary/20 hover:text-foreground"
+                          : "bg-primary text-primary-foreground hover:bg-primary/95 shadow-md"),
                     button.className
                   )}
                 >
                   <Link href={button.href} target={button.target} rel={button.rel}>
-                    {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
+                    {IconComponent && <IconComponent className="h-5 w-5" />}
                     {button.text}
                   </Link>
                 </Button>
@@ -190,7 +193,7 @@ export function HeroSection({
       {backgroundType === 'shader' && (
         <>
           <MeshGradientBackground />
-          <div className="absolute inset-0 bg-[#030710]/40 backdrop-blur-[1px] pointer-events-none z-0" />
+          <div className="absolute inset-0 bg-background/40 backdrop-blur-[1px] pointer-events-none z-0" />
         </>
       )}
 
@@ -204,7 +207,7 @@ export function HeroSection({
             className="object-cover opacity-10"
             priority={priority}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-surface-light via-transparent to-surface-light" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
         </div>
       )}
 
@@ -212,13 +215,13 @@ export function HeroSection({
         {layout === 'center-stacked' ? textContentWrapper : (
            <>
              {layout === 'split-visual-left' && visualElement && (
-                <div className="relative flex justify-center items-center">
+                <div className="relative flex justify-center items-center w-full">
                   {visualElement}
                 </div>
              )}
              {textContentWrapper}
              {layout === 'split-visual-right' && visualElement && (
-                <div className="relative flex justify-center items-center">
+                <div className="relative flex justify-center items-center w-full">
                   {visualElement}
                 </div>
              )}

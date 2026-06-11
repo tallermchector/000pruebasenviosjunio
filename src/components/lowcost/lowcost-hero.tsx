@@ -1,6 +1,7 @@
 'use client';
 
 import { HeroSection } from "@/components/ui/HeroSection";
+import RotatingCard from "@/components/homenew/rotating-card";
 
 export function LowcostHero() {
   return (
@@ -9,7 +10,7 @@ export function LowcostHero() {
       title={
         <>
           ENVÍOS LOWCOST: <br />
-          <span className="text-secondary">MÁXIMA RENTABILIDAD</span>
+          <span className="text-secondary italic">MÁXIMA RENTABILIDAD</span>
         </>
       }
       description="Variabilizá tus costos logísticos con nuestro servicio de ruteo masivo inteligente. La mejor tarifa de Mar del Plata sin sacrificar seguridad."
@@ -19,6 +20,16 @@ export function LowcostHero() {
       ]}
       backgroundImageUrl="/bannerenvios.webp"
       backgroundImageAlt="Banner Envíos Low Cost Envios DosRuedas"
+      layout="split-visual-right"
+      visualElement={
+        <div className="relative w-full max-w-[450px] aspect-[1.6/1]">
+           <RotatingCard 
+             frontImageSrc="/cards/card1.webp" 
+             backImageSrc="/cards/card_moto02.webp" 
+             className="w-full h-full" 
+           />
+        </div>
+      }
     />
   );
 }

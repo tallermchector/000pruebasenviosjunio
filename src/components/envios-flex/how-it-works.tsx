@@ -40,7 +40,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter leading-none">
+            <h2 className="font-display text-4xl md:text-5xl font-black italic uppercase mb-6 uppercase text-white tracking-tighter leading-none">
               LOGÍSTICA <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">SIN FRICCIONES</span>
             </h2>
             <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
@@ -73,7 +73,7 @@ export function HowItWorks() {
                 )}>
                    <step.icon className="w-7 h-7" />
                 </div>
-                <h3 className="font-display text-xl font-bold mb-4 uppercase text-white tracking-tight">{step.title}</h3>
+                <h3 className="font-display text-xl font-black italic uppercase mb-4 uppercase text-white tracking-tight">{step.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed font-sans">{step.description}</p>
               </div>
             </motion.div>

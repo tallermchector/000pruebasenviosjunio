@@ -125,9 +125,9 @@ export async function quoteShipment(input: QuoteShipmentInput): Promise<QuoteShi
         const destinationCoords = await geocodeNominatim(validatedData.destinationAddress);
         if (!destinationCoords) return { success: false, error: `No se pudo geolocalizar la dirección de destino: ${validatedData.destinationAddress}` };
 
-        let distanceKm: number;
-        let distanceText: string;
-        let durationText: string;
+
+
+
 
         const directionsUrl = `https://router.project-osrm.org/route/v1/driving/${originCoords.lng},${originCoords.lat};${destinationCoords.lng},${destinationCoords.lat}?overview=false`;
 
@@ -146,10 +146,10 @@ export async function quoteShipment(input: QuoteShipmentInput): Promise<QuoteShi
         }
 
         const route = directionsData.routes[0];
-        distanceKm = route.distance / 1000; // Convert meters to km
-        distanceText = `${distanceKm.toFixed(1)} km`;
+        const distanceKm = route.distance / 1000; // Convert meters to km
+        const distanceText = `${distanceKm.toFixed(1)} km`;
         const durationMins = Math.round(route.duration / 60);
-        durationText = `${durationMins} min`;
+        const durationText = `${durationMins} min`;
 
         let price: number | null = null;
 

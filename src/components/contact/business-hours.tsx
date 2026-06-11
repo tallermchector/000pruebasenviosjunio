@@ -43,7 +43,7 @@ export function BusinessHours() {
               className="md:col-span-2 max-w-2xl mx-auto w-full"
             >
               <div className="hover:shadow-2xl rounded-xl bg-card border-l-4 border-l-primary p-6 sm:p-8 hover:border-l-secondary duration-300 transition-all shadow-lg">
-                <h3 className="font-display text-xl font-bold text-white uppercase tracking-tight flex items-center mb-6">
+                <h3 className="font-display text-xl font-black italic uppercase text-white uppercase tracking-tight flex items-center mb-6">
                   <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-primary animate-pulse" />
                   Horarios Regulares
                 </h3>

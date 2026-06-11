@@ -22,46 +22,46 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
-    icon: "bg-primary border-4 border-blue-900 text-white rounded-none",
+    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
+    icon: "bg-primary border-4 border-blue-900 text-white rounded-xl",
     accent: "text-primary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-primary",
-    badge: "bg-primary text-white border-primary border-2 rounded-none",
+    badge: "bg-primary text-white border-primary border-2 rounded-xl",
     accentColor: "blue-400",
     glowColor: "transparent"
   },
   lowcost: {
-    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
-    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-none",
+    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
+    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-xl",
     accent: "text-secondary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-secondary",
-    badge: "bg-secondary text-primary border-secondary border-2 rounded-none",
+    badge: "bg-secondary text-primary border-secondary border-2 rounded-xl",
     accentColor: "yellow-400",
     glowColor: "transparent"
   },
   meli: {
-    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
-    icon: "bg-primary border-4 border-blue-900 text-white rounded-none",
+    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-primary transition-all duration-300",
+    icon: "bg-primary border-4 border-blue-900 text-white rounded-xl",
     accent: "text-primary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-primary",
-    badge: "bg-primary text-white border-primary border-2 rounded-none",
+    badge: "bg-primary text-white border-primary border-2 rounded-xl",
     accentColor: "blue-400",
     glowColor: "transparent"
   },
   ecommerce: {
-    card: "bg-background border-4 border-white/20 rounded-none shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
-    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-none",
+    card: "bg-background border-4 border-white/20 border-l-4 border-l-primary rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:border-secondary transition-all duration-300",
+    icon: "bg-secondary border-4 border-yellow-700 text-primary rounded-xl",
     accent: "text-secondary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
     button: "text-gray-300 hover:text-white group-hover:text-secondary",
-    badge: "bg-secondary text-primary border-secondary border-2 rounded-none",
+    badge: "bg-secondary text-primary border-secondary border-2 rounded-xl",
     accentColor: "yellow-400",
     glowColor: "transparent"
   }
@@ -129,7 +129,7 @@ export const ServicesOverview = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none bg-secondary/10 border-4 border-secondary text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary/10 border-4 border-secondary text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
               <span className="w-2 h-2 bg-secondary animate-pulse" /> SERVICIOS EXCLUSIVOS
             </div>
             <h2 className="text-5xl md:text-7xl font-display font-black italic uppercase text-white tracking-tighter leading-none">
@@ -184,7 +184,7 @@ export const ServicesOverview = () => {
                     {React.cloneElement(service.icon as React.ReactElement<any>, { size: 28 })}
                   </div>
 
-                  <h3 className={cn("text-headline-md mb-1 uppercase tracking-wide transition-all duration-300 group-hover:tracking-wider", theme.text)}>
+                  <h3 className={cn("text-headline-md italic font-black mb-1 uppercase tracking-wide transition-all duration-300 group-hover:tracking-wider", theme.text)}>
                     {service.title}
                   </h3>
                   <p className={cn("text-label-sm uppercase mb-4 tracking-widest transition-all duration-300 group-hover:text-white", theme.accent)}>

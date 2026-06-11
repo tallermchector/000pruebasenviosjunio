@@ -104,7 +104,7 @@ export function ContactForm() {
        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <div className="max-w-2xl mx-auto rounded-xl bg-card border-l-4 border-l-emerald-500 p-8 text-center shadow-lg">
             <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2 font-display uppercase tracking-tight">¡Mensaje Enviado!</h3>
+            <h3 className="text-2xl font-black italic uppercase text-white mb-2 font-display uppercase tracking-tight">¡Mensaje Enviado!</h3>
             <p className="text-gray-400 font-sans">{state.message}</p>
         </div>
       </motion.div>

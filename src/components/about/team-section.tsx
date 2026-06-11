@@ -57,7 +57,7 @@ export function TeamSection() {
                     {role.count}
                   </div>
                 </div>
-                <h3 className="font-display text-xl font-bold text-white mb-4 uppercase tracking-tight">{role.title}</h3>
+                <h3 className="font-display text-xl font-black italic uppercase text-white mb-4 uppercase tracking-tight">{role.title}</h3>
                 <p className="text-gray-400 leading-relaxed font-sans text-sm">{role.description}</p>
               </div>
             )

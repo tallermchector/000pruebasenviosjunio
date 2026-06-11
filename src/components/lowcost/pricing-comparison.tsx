@@ -60,7 +60,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-5xl md:text-7xl font-black italic mb-6 uppercase text-foreground tracking-tighter leading-none">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic uppercase mb-6 uppercase text-foreground tracking-tighter leading-none">
               TARIFAS 2026 <br />
               <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">ENVÍOS LOWCOST</span>
             </h2>
@@ -87,7 +87,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
                   : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
               )}>
                 <span className={cn(
-                  "absolute top-0 right-0 border-b border-l text-[9px] font-black uppercase tracking-widest py-1 px-3 shadow",
+                  "absolute top-0 right-0 border-b border-l-4 border-l-primary text-[9px] font-black uppercase tracking-widest py-1 px-3 shadow",
                   index % 2 === 0
                     ? "bg-primary/10 border-primary/20 text-primary"
                     : "bg-secondary/10 border-secondary/20 text-secondary"

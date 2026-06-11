@@ -8,7 +8,7 @@ export default function CalculatorContact() {
     <section className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="bg-gradient-to-r from-primary to-primary/80 p-6 md:p-10 lg:p-12 rounded-lg shadow-xl text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground mb-3 md:mb-4 font-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black italic uppercase text-primary-foreground mb-3 md:mb-4 font-display">
             ¿Dudas o Envíos Especiales?
           </h2>
           <p className="text-md sm:text-lg md:text-xl text-primary-foreground/90 mb-6 md:mb-8 max-w-lg md:max-w-2xl mx-auto font-sans">

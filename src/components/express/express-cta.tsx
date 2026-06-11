@@ -34,7 +34,7 @@ export function ExpressCta() {
              PRIORIDAD MÁXIMA <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
           </div>
 
-          <h2 className="font-display text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
+          <h2 className="font-display text-4xl md:text-6xl font-black italic uppercase tracking-tighter leading-tight mb-8 uppercase text-white">
             ¿LISTO PARA TU <br />
             ENVÍO <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">EXPRESS?</span>
           </h2>

@@ -65,11 +65,11 @@ const config: Config = {
         lg: "var(--blur-lg)",
       },
       borderRadius: {
-        xl: "0px",
-        lg: "0px",
-        md: "0px",
-        DEFAULT: "0px",
-        sm: "0px",
+        xl: "1.5rem",
+        lg: "1.0rem",
+        md: "0.75rem",
+        DEFAULT: "0.5rem",
+        sm: "0.25rem",
         full: "9999px",
       },
       spacing: {

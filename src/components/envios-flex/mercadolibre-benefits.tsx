@@ -74,7 +74,7 @@ export function MercadoLibreBenefits() {
             viewport={{ once: true }}
           >
             <ReputationThermometer />
-            <h2 className="font-display text-5xl md:text-7xl font-black italic mb-6 uppercase text-foreground tracking-tighter leading-none">
+            <h2 className="font-display text-5xl md:text-7xl font-black italic uppercase mb-6 uppercase text-foreground tracking-tighter leading-none">
               BENEFICIOS <span className="text-secondary drop-shadow-[0_0_20px_rgba(234,179,8,0.4)]">PARA VENDEDORES</span>
             </h2>
             <div className="w-24 h-1.5 bg-secondary mx-auto mb-8 rounded-full" />

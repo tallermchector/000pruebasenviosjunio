@@ -28,10 +28,10 @@ export function NavDropdown({ group }: NavDropdownProps) {
       <DropdownMenuTrigger asChild>
         <motion.div
           className={cn(
-            "flex cursor-pointer items-center space-x-2 rounded-md px-4 py-2 text-sm font-medium transition-all duration-200",
+            "flex cursor-pointer items-center space-x-2 rounded-md px-4 py-2 text-sm font-medium transition-all duration-300 border",
             groupIsActive
-              ? "bg-primary/20 text-primary border border-primary/30"
-              : "text-muted-foreground hover:text-foreground hover:bg-muted/40",
+              ? "bg-primary/10 text-primary border-primary/20 shadow-md shadow-primary/5"
+              : "text-muted-foreground hover:text-foreground hover:bg-muted/20 border-transparent",
           )}
           whileTap={{ scale: 0.95 }}
         >

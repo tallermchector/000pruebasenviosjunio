@@ -33,8 +33,8 @@ export const OptimizedHeader = () => {
       <nav className="hidden lg:flex items-center space-x-2 bg-card/30 backdrop-blur-md border border-border/40 rounded-xl p-1.5 shadow-2xl">
         <ActiveLink
           href="/"
-          className="text-muted-foreground hover:text-foreground hover:bg-muted/40"
-          activeClassName="bg-primary/20 text-primary border border-primary/30 shadow-lg"
+          className="text-muted-foreground hover:text-foreground hover:bg-muted/20 border border-transparent"
+          activeClassName="bg-primary/10 text-primary border border-primary/20 shadow-md shadow-primary/5"
         >
           <Home className="h-4 w-4" />
           <span>Inicio</span>
@@ -46,8 +46,8 @@ export const OptimizedHeader = () => {
 
         <ActiveLink
           href="/contacto"
-          className="text-muted-foreground hover:text-foreground hover:bg-muted/40"
-          activeClassName="bg-primary/20 text-primary border border-primary/30 shadow-lg"
+          className="text-muted-foreground hover:text-foreground hover:bg-muted/20 border border-transparent"
+          activeClassName="bg-primary/10 text-primary border border-primary/20 shadow-md shadow-primary/5"
         >
           <Mail className="h-4 w-4" />
           <span>Contacto</span>
@@ -58,7 +58,7 @@ export const OptimizedHeader = () => {
         <Button
           asChild
           variant="gradient"
-          className="px-6 rounded-md font-display text-orbitron uppercase tracking-tighter hover:scale-[1.02] transition-transform"
+          className="px-6 rounded-md font-display text-orbitron uppercase tracking-tighter shadow-md hover:shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300"
         >
           <Link href="/cotizar/express" aria-label="Cotizar Envío desde la cabecera">
             <CalculatorIcon className="mr-2 h-4 w-4" />
@@ -69,7 +69,11 @@ export const OptimizedHeader = () => {
 
       {/* Right side Hub - RSC & Client Components */}
       <div className="flex items-center gap-4">
-        <a href="tel:+5492236602699" aria-label="Llamar al +54 223 660-2699" className="hidden xl:flex items-center gap-3 px-5 py-2.5 rounded-full border border-border bg-card/50 text-foreground text-xxs font-black tracking-[0.2em] hover:text-primary hover:bg-muted/40 transition-all uppercase">
+        <a 
+          href="tel:+5492236602699" 
+          aria-label="Llamar al +54 223 660-2699" 
+          className="hidden xl:flex items-center gap-3 px-5 py-2.5 rounded-full border border-secondary/20 bg-card/50 text-foreground text-xxs font-black tracking-[0.2em] hover:text-primary hover:border-secondary/40 hover:bg-muted/45 hover:shadow-[0_0_15px_rgba(255,230,0,0.15)] transition-all uppercase"
+        >
           <Phone size={14} className="text-secondary animate-pulse" aria-hidden="true" />2236602699
         </a>
 

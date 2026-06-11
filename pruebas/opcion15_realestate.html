@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envíos DosRuedas - Opción 15: Real Estate Luxury Style</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0b2e24',     /* Deep Forest Green */
+                        secondary: '#115e59',   /* Teal / Accent */
+                        cta: '#ca8a04',         /* Luxury Gold */
+                        estatebg: '#faf9f6',    /* Alabaster Warm White */
+                        darktext: '#0a1e19',    /* Deepest Green */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #faf9f6;
+            font-family: 'Inter', sans-serif;
+            color: #0a1e19;
+            overflow-x: hidden;
+        }
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf9f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4e4e7;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ca8a04;
+        }
+        /* Estate Luxury Card */
+        .estate-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .estate-card:hover {
+            transform: translateY(-4px);
+            border-color: #ca8a04;
+            box-shadow: 0 20px 40px rgba(11, 46, 36, 0.04);
+        }
+        /* Infinite Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="text-darktext antialiased selection:bg-cta/20 selection:text-black">
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-cta z-[60] transition-all duration-100" style="width: 0%;"></div>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-4 left-4 right-4 z-50">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between rounded-xl bg-white/95 border border-slate-100 shadow-sm">
+            <a href="#" class="flex items-center gap-3 font-display font-bold text-xl tracking-wider text-primary uppercase">
+                <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-light text-sm">2R</div>
+                DOSRUEDAS
+            </a>
+            <nav class="hidden lg:flex items-center gap-10 font-sans text-[10px] uppercase font-bold tracking-[0.2em] text-slate-500">
+                <a href="#inicio" class="text-cta hover:text-primary transition-colors">Inicio</a>
+                <a href="#nosotros" class="hover:text-primary transition-colors">Nosotros</a>
+                <a href="#servicios" class="hover:text-primary transition-colors">Servicios</a>
+                <a href="#emprendedores" class="hover:text-primary transition-colors">Emprendedores</a>
+                <a href="#soluciones" class="hover:text-primary transition-colors">Soluciones</a>
+                <a href="#contacto" class="hover:text-primary transition-colors">Contacto</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="tel:+5492236602699" class="hidden sm:flex items-center gap-2 px-6 py-2.5 bg-primary hover:bg-black font-sans text-[10px] uppercase font-bold text-white tracking-widest transition-all rounded-lg">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 animate-pulse"></i> 2236602699
+                </a>
+                <button class="lg:hidden text-primary"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section id="inicio" class="relative min-h-[100dvh] flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden bg-transparent">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cta/30 text-cta font-sans text-[9px] font-bold tracking-[0.2em] mb-8 uppercase">
+                        LOGÍSTICA PRESTIGIOSA // MDP
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-display font-light mb-8 text-primary tracking-tight leading-none">
+                        DISTRIBUCIÓN Y <br><span class="italic font-normal">CUSTODIA DE ALTA GAMA</span> <br>PARA RESIDENCIAS EXCLUSIVAS
+                    </h1>
+                    <p class="text-slate-500 text-base mb-12 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Entregamos con absoluta confidencialidad y presentación refinada en los barrios residenciales más prestigiosos de Mar del Plata. Ruteo dedicado Same-Day y Express.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
+                        <a href="#contacto" class="px-10 py-4.5 bg-primary hover:bg-black text-white font-sans text-[10px] font-bold tracking-widest uppercase transition-all rounded-lg shadow-md">
+                            Reservar Servicio <i data-lucide="arrow-right" class="inline w-3.5 h-3.5 ml-2"></i>
+                        </a>
+                        <a href="#servicios" class="flex items-center gap-4 group text-primary font-sans text-[10px] font-bold tracking-widest hover:text-cta transition-colors py-2 uppercase">
+                            <div class="w-14 h-14 rounded-full bg-white border border-slate-100 flex items-center justify-center group-hover:bg-primary/5 transition-all group-hover:scale-105 shadow-sm">
+                                <i data-lucide="play" class="fill-primary text-primary w-4 h-4 ml-0.5"></i>
+                            </div>
+                            Ver Servicios
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic (Luxury Real Estate Mockup Card) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-[390px] aspect-[1.3/1] rounded-xl p-8 bg-white border border-slate-100 shadow-lg relative overflow-hidden transition-transform duration-500 hover:scale-[1.01] flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+                        <div class="flex justify-between items-start relative z-10">
+                            <div>
+                                <div class="text-[9px] text-slate-500 font-sans uppercase tracking-[0.2em] mb-1">RUTEO RESIDENCIAL</div>
+                                <div class="text-lg font-display font-normal text-primary tracking-wider uppercase">VILLA_VICTORIA-2R</div>
+                            </div>
+                            <div class="w-8 h-8 rounded-lg border border-slate-100 flex items-center justify-center text-cta"><i data-lucide="award" class="w-4 h-4"></i></div>
+                        </div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex justify-between text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                                <span>MODALIDAD DE ENTREGA:</span>
+                                <span class="text-cta">CUSTODIA EXCLUSIVA</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+                                <div class="bg-cta h-full w-[95%] rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision / Values Section -->
+        <section id="nosotros" class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="p-8 rounded-xl bg-white border border-slate-100 hover:border-cta/40 transition-all">
+                    <div class="w-10 h-10 rounded-lg border border-slate-100 text-cta flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-primary text-base uppercase tracking-wider mb-2">CUSTODIA DE ALTA CONFIANZA</h3>
+                    <p class="text-slate-500 text-xs font-light leading-relaxed">Garantizamos seguridad total para traslados y recepciones con protocolos de firma y registro digital.</p>
+                </div>
+                <div class="p-8 rounded-xl bg-white border border-slate-100 hover:border-cta/40 transition-all">
+                    <div class="w-10 h-10 rounded-lg border border-slate-100 text-cta flex items-center justify-center mb-6">
+                        <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-primary text-base uppercase tracking-wider mb-2">PUNTUALIDAD SIN FALLAS</h3>
+                    <p class="text-slate-500 text-xs font-light leading-relaxed">Entregas programadas en rangos estrictos para respetar al máximo el tiempo de los destinatarios.</p>
+                </div>
+                <div class="p-8 rounded-xl bg-white border border-slate-100 hover:border-cta/40 transition-all">
+                    <div class="w-10 h-10 rounded-lg border border-slate-100 text-cta flex items-center justify-center mb-6">
+                        <i data-lucide="map" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-primary text-base uppercase tracking-wider mb-2">RUTEO RESIDENCIAL</h3>
+                    <p class="text-slate-500 text-xs font-light leading-relaxed">Conocimiento absoluto de los accesos y urbanizaciones privadas de la ciudad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid Services Section -->
+        <section id="servicios" class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
+            <div class="text-center lg:text-left mb-16">
+                <div class="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-slate-100 text-cta font-sans text-[9px] font-bold tracking-[0.25em] mb-4 uppercase">
+                    SERVICIOS BOUTIQUE
+                </div>
+                <h2 class="text-3xl md:text-5xl font-display font-light uppercase text-primary">
+                    NUESTRA GAMA DE SOLUCIONES
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Tarjeta 1 -->
+                <div class="md:col-span-2 p-8 lg:p-10 rounded-xl estate-card flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 text-cta flex items-center justify-center mb-6"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                        <h3 class="font-display font-normal text-primary text-xl uppercase tracking-wide mb-1">Envíos Express</h3>
+                        <p class="text-[9px] uppercase font-sans tracking-[0.2em] text-cta mb-4 font-bold">DESPACHO INMEDIATO (2hs)</p>
+                        <p class="text-slate-500 text-xs font-light leading-relaxed">Entregas de alta prioridad programadas. El rango horario exacto para envíos que no pueden esperar.</p>
+                    </div>
+                    <div class="mt-8 flex justify-between items-center">
+                        <a href="#" class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary hover:text-cta transition-colors flex items-center gap-2">Solicitar Express <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="md:col-span-2 p-8 lg:p-10 rounded-xl estate-card flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 text-cta flex items-center justify-center mb-6"><i data-lucide="clock" class="w-5 h-5"></i></div>
+                        <h3 class="font-display font-normal text-primary text-xl uppercase tracking-wide mb-1">Envíos LowCost</h3>
+                        <p class="text-[9px] uppercase font-sans tracking-[0.2em] text-cta mb-4 font-bold">TARIFA COMPROMISO (Same-Day)</p>
+                        <p class="text-slate-500 text-xs font-light leading-relaxed">Despache antes de las 13:00 hs y entregamos en la tarde con tarifas de alta conveniencia.</p>
+                    </div>
+                    <div class="mt-8 flex justify-between items-center">
+                        <a href="#" class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary hover:text-cta transition-colors flex items-center gap-2">Ver Tarifas <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="md:col-span-2 p-8 lg:p-10 rounded-xl estate-card flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 text-cta flex items-center justify-center mb-6"><i data-lucide="package" class="w-5 h-5"></i></div>
+                        <h3 class="font-display font-normal text-primary text-xl uppercase tracking-wide mb-1">Envíos Flex</h3>
+                        <p class="text-[9px] uppercase font-sans tracking-[0.2em] text-cta mb-4 font-bold font-bold">MERCADOLIBRE SAME-DAY SLA</p>
+                        <p class="text-slate-500 text-xs font-light leading-relaxed">Socio logístico oficial MercadoLibre Flex. Aseguramos que sus despachos Same-Day cumplan con los plazos estipulados.</p>
+                    </div>
+                    <div class="mt-8 flex justify-between items-center">
+                        <a href="#" class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary hover:text-cta transition-colors flex items-center gap-2">Integrar Flex <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="md:col-span-2 p-8 lg:p-10 rounded-xl estate-card flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-slate-50 border border-slate-100 text-cta flex items-center justify-center mb-6"><i data-lucide="truck" class="w-5 h-5"></i></div>
+                        <h3 class="font-display font-normal text-primary text-xl uppercase tracking-wide mb-1">E-Commerce & 3PL</h3>
+                        <p class="text-[9px] uppercase font-sans tracking-[0.2em] text-cta mb-4 font-bold">LOGÍSTICA INTEGRAL Y FULFILLMENT</p>
+                        <p class="text-slate-500 text-xs font-light leading-relaxed">Depósito dedicado de preparación de pedidos, almacenamiento y facturación mensual.</p>
+                    </div>
+                    <div class="mt-8 flex justify-between items-center">
+                        <a href="#" class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary hover:text-cta transition-colors flex items-center gap-2">Hablar con Asesor <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="max-w-7xl mx-auto px-6 py-10">
+            <div class="p-12 md:p-20 rounded-xl bg-white border border-slate-100 text-center max-w-5xl mx-auto relative overflow-hidden shadow-sm">
+                <div class="absolute -top-12 -right-12 w-80 h-80 bg-primary/5 rounded-full blur-[100px]"></div>
+                <h2 class="text-3xl md:text-5xl font-display font-light uppercase text-primary mb-6">EL MÁXIMO CUIDADO EN CADA ENTREGA</h2>
+                <p class="text-slate-500 text-base mb-10 max-w-xl mx-auto font-light leading-relaxed">Unite a las marcas líderes que confían sus despachos en Mar del Plata. Calculá tus tarifas de inmediato.</p>
+                <a href="#" class="inline-flex items-center gap-2.5 px-8 py-4 bg-primary hover:bg-black text-white font-sans text-[10px] font-bold tracking-widest uppercase transition-all shadow-md rounded-lg">
+                    COTIZAR AHORA <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Emprendedores Section -->
+        <section id="emprendedores" class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16 items-end">
+                <div>
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-lg border border-slate-100 text-cta font-sans text-[9px] font-bold mb-6 uppercase tracking-wider">
+                        <i data-lucide="building-2" class="w-3.5 h-3.5"></i> GESTIÓN CORPORATIVA
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-display font-light text-primary uppercase leading-tight">
+                        INTEGRACIÓN OPERATIVA PARA DESARROLLOS E INMOBILIARIAS
+                    </h2>
+                </div>
+                <div class="lg:border-l lg:border-slate-200 lg:pl-12">
+                    <p class="text-slate-500 text-sm mb-6 font-light leading-relaxed">
+                        Optimice la distribución y envíos urbanos de su firma con una flota corporativa dedicada y confiable.
+                    </p>
+                    <div class="flex gap-8 font-sans">
+                        <div class="flex flex-col">
+                            <span class="text-cta font-bold text-xl">+500 CORP</span>
+                            <span class="text-[9px] text-slate-500 uppercase tracking-widest">Empresas</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-cta font-bold text-xl">24/7 OPS</span>
+                            <span class="text-[9px] text-slate-500 uppercase tracking-widest">Operativa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Solución 1 -->
+                <div class="group relative rounded-xl border border-slate-100 bg-white p-8 flex flex-col justify-between min-h-[460px] hover:border-cta/40 transition-colors shadow-sm">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-5" style="background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=800');"></div>
+                    <div class="relative z-10">
+                        <span class="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-bold text-primary uppercase tracking-[0.2em]">
+                            CORPORATIVO
+                        </span>
+                        <div class="w-10 h-10 rounded-lg border border-slate-100 flex items-center justify-center text-cta mt-8 mb-6">
+                            <i data-lucide="building-2" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-normal text-lg text-primary mb-2 uppercase">PLAN CORPORATIVO</h3>
+                        <p class="text-slate-500 text-xs font-light mb-6">Cuenta corriente flexible y tarifas competitivas.</p>
+                        <div class="space-y-2.5 font-sans">
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Facturación Simplificada</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Gestión Multi-usuario</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Métricas de Rendimiento</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="relative z-10 w-full py-3 mt-8 rounded-lg border border-primary text-primary font-sans text-[10px] font-bold text-center flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-all uppercase tracking-wider">
+                        Configurar Plan <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Solución 2 -->
+                <div class="group relative rounded-xl border border-slate-100 bg-white p-8 flex flex-col justify-between min-h-[460px] hover:border-cta/40 transition-colors shadow-sm">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-5" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800');"></div>
+                    <div class="relative z-10">
+                        <span class="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-bold text-primary uppercase tracking-[0.2em]">
+                            MercadoLibre
+                        </span>
+                        <div class="w-10 h-10 rounded-lg border border-slate-100 flex items-center justify-center text-cta mt-8 mb-6">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-normal text-lg text-primary mb-2 uppercase">Envíos Flex</h3>
+                        <p class="text-slate-500 text-xs font-light mb-6">Tu aliado estratégico de envíos rápidos.</p>
+                        <div class="space-y-2.5">
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Sincronización de SLAs</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Soporte Flex Dedicado</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Reputación en Verde</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="relative z-10 w-full py-3 mt-8 rounded-lg border border-primary text-primary font-sans text-[10px] font-bold text-center flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-all uppercase tracking-wider">
+                        Configurar Plan <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- Solución 3 -->
+                <div class="group relative rounded-xl border border-slate-100 bg-white p-8 flex flex-col justify-between min-h-[460px] hover:border-cta/40 transition-colors shadow-sm">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-5" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=800');"></div>
+                    <div class="relative z-10">
+                        <span class="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-bold text-primary uppercase tracking-[0.2em]">
+                            PyMEs
+                        </span>
+                        <div class="w-10 h-10 rounded-lg border border-slate-100 flex items-center justify-center text-cta mt-8 mb-6">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-normal text-lg text-primary mb-2 uppercase">Logística E-Commerce</h3>
+                        <p class="text-slate-500 text-xs font-light mb-6">Última milla dedicada para potenciar tu tienda.</p>
+                        <div class="space-y-2.5">
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Rutas Automatizadas</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>Despacho Confiable</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-cta"></i> <span>API Integrable</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="relative z-10 w-full py-3 mt-8 rounded-lg border border-primary text-primary font-sans text-[10px] font-bold text-center flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-all uppercase tracking-wider">
+                        Configurar Plan <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slider Servicios -->
+        <section id="soluciones" class="relative min-h-screen flex items-center py-20 lg:py-32 px-6 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto w-full relative z-10">
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-10">
+                    <div>
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-lg border border-slate-100 text-cta font-sans text-[10px] font-bold tracking-wider uppercase">
+                            <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-cta"></i> SOLUCIONES EXCLUSIVAS
+                        </div>
+                        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-light text-primary uppercase tracking-tighter mb-4">
+                            PROPUESTAS A SU <span class="italic font-normal">MEDIDA</span>
+                        </h2>
+                    </div>
+                    <div class="max-w-md lg:border-l lg:border-slate-200 lg:pl-10">
+                        <p class="text-slate-500 text-sm font-light leading-relaxed">
+                            Logística urbana de prestigio integrada con ruteo inteligente y procesos transparentes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Item 1 -->
+                    <div class="group p-8 rounded-xl bg-white border border-slate-100 hover:border-cta transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[420px] shadow-sm">
+                        <div>
+                            <div class="w-14 h-14 rounded-lg bg-primary text-white flex items-center justify-center mb-8 shadow-sm">
+                                <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-2 block">Alta Prioridad</span>
+                            <h3 class="font-display text-xl font-normal text-primary mb-2 uppercase tracking-tight group-hover:text-cta transition-colors">Envíos Express</h3>
+                            <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-cta mb-4">Certeza Horaria</p>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">Rango de entrega exacto de 2 horas en toda la ciudad.</p>
+                        </div>
+                        <a href="#" class="flex items-center gap-3 text-primary font-sans text-[10px] font-bold uppercase tracking-widest group-hover:text-cta transition-all mt-8">
+                            Solicitar Express <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="group p-8 rounded-xl bg-white border border-slate-100 hover:border-cta transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[420px] shadow-sm">
+                        <div>
+                            <div class="w-14 h-14 rounded-lg bg-primary text-white flex items-center justify-center mb-8 shadow-sm">
+                                <i data-lucide="clock" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-2 block">Rentabilidad</span>
+                            <h3 class="font-display text-xl font-normal text-primary mb-2 uppercase tracking-tight group-hover:text-cta transition-colors">Envíos LowCost</h3>
+                            <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-cta mb-4">Eficiencia en Ruteo</p>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">Carga tus despachos antes de las 13:00 hs y los entregamos en el día.</p>
+                        </div>
+                        <a href="#" class="flex items-center gap-3 text-primary font-sans text-[10px] font-bold uppercase tracking-widest group-hover:text-cta transition-all mt-8">
+                            Ver Tarifas <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="group p-8 rounded-xl bg-white border border-slate-100 hover:border-cta transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[420px] shadow-sm">
+                        <div>
+                            <div class="w-14 h-14 rounded-lg bg-primary text-white flex items-center justify-center mb-8 shadow-sm">
+                                <i data-lucide="package" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-2 block">MercadoLibre</span>
+                            <h3 class="font-display text-xl font-normal text-primary mb-2 uppercase tracking-tight group-hover:text-cta transition-colors">Envíos Flex</h3>
+                            <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-cta mb-4">Same-Day ML SLA</p>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">Experiencia directa de ruteo para MercadoLibre Flex en el día.</p>
+                        </div>
+                        <a href="#" class="flex items-center gap-3 text-primary font-sans text-[10px] font-bold uppercase tracking-widest group-hover:text-cta transition-all mt-8">
+                            Integrar Flex <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="group p-8 rounded-xl bg-white border border-slate-100 hover:border-cta transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[420px] shadow-sm">
+                        <div>
+                            <div class="w-14 h-14 rounded-lg bg-primary text-white flex items-center justify-center mb-8 shadow-sm">
+                                <i data-lucide="truck" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <span class="text-[9px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-2 block">Integral</span>
+                            <h3 class="font-display text-xl font-normal text-primary mb-2 uppercase tracking-tight group-hover:text-cta transition-colors">E-Commerce & 3PL</h3>
+                            <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-cta mb-4">Depósito y Preparación</p>
+                            <p class="text-slate-500 text-xs font-light leading-relaxed">Gestión de stock, ruteo masivo, y cuentas corrientes corporativas.</p>
+                        </div>
+                        <a href="#" class="flex items-center gap-3 text-primary font-sans text-[10px] font-bold uppercase tracking-widest group-hover:text-cta transition-all mt-8">
+                            Hablar con Asesor <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carrusel Redes Section -->
+        <section class="py-24 bg-white overflow-hidden relative border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg border border-slate-100 text-cta text-[10px] font-bold tracking-widest mb-6 uppercase">
+                            <i data-lucide="heart" class="w-3.5 h-3.5 text-cta animate-pulse animate-pulse"></i> COMUNIDAD EN REDES
+                        </div>
+                        <h2 class="font-display text-3xl md:text-5xl font-light text-primary uppercase tracking-tighter">
+                            ACOMPAÑE NUESTRO CAMINO
+                        </h2>
+                        <p class="text-slate-500 text-sm mt-3 font-light max-w-xl leading-relaxed">
+                            Únete a nuestra comunidad digital para recibir novedades sobre transporte y logística urbana.
+                        </p>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com/enviosdosruedas" target="_blank" class="group flex items-center gap-4 p-4 rounded-lg border border-slate-100 hover:border-cta transition-all bg-[#faf9f6]">
+                            <div class="w-10 h-10 rounded-lg bg-yellow-500/10 text-yellow-500 flex items-center justify-center"><i data-lucide="camera" class="w-5 h-5"></i></div>
+                            <div class="hidden lg:block text-left">
+                                <div class="text-[10px] font-bold text-primary uppercase tracking-wider">Instagram</div>
+                                <div class="text-[9px] text-slate-400 uppercase tracking-widest">Novedades Diarias</div>
+                            </div>
+                        </a>
+                        <a href="https://facebook.com/enviosdosruedas" target="_blank" class="group flex items-center gap-4 p-4 rounded-lg border border-slate-100 hover:border-cta transition-all bg-[#faf9f6]">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center"><i data-lucide="facebook" class="w-5 h-5"></i></div>
+                            <div class="hidden lg:block text-left">
+                                <div class="text-[10px] font-bold text-primary uppercase tracking-wider">Facebook</div>
+                                <div class="text-[9px] text-slate-400 uppercase tracking-widest">Comunidad Activa</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scrolling Marquee Feed -->
+                <div class="relative w-full overflow-hidden py-4">
+                    <div class="animate-marquee flex gap-6">
+                        <!-- Feed Items -->
+                        <div class="flex gap-6">
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="camera" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Instagram</span>
+                                </div>
+                            </div>
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="facebook" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Facebook</span>
+                                </div>
+                            </div>
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1501183007986-d0d080b147f9?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="camera" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Instagram</span>
+                                </div>
+                            </div>
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="facebook" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Facebook</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeated items for marquee loop -->
+                        <div class="flex gap-6">
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="camera" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Instagram</span>
+                                </div>
+                            </div>
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="facebook" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Facebook</span>
+                                </div>
+                            </div>
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1501183007986-d0d080b147f9?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="camera" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Instagram</span>
+                                </div>
+                            </div>
+                            <div class="w-64 h-64 shrink-0 rounded-lg overflow-hidden border border-slate-100 relative group bg-[#faf9f6]">
+                                <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?auto=format&fit=crop&q=80&w=400" alt="Post" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-[#ffffff]/95 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-center p-4">
+                                    <i data-lucide="facebook" class="w-6 h-6 text-cta mb-2"></i>
+                                    <span class="text-[10px] font-sans font-bold uppercase tracking-wider text-primary">Ver en Facebook</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cotizar / Contact Form Section -->
+        <section id="contacto" class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-display font-light uppercase text-primary mb-6">SIMULAR TARIFA RESIDENCIAL</h2>
+                    <p class="text-slate-500 text-sm font-light mb-8 max-w-md leading-relaxed">Conozca la tarifa estimada para sus despachos habituales en Mar del Plata.</p>
+                    <div class="space-y-4 font-sans text-xs font-bold tracking-widest text-primary uppercase">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg border border-slate-100 flex items-center justify-center text-cta"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
+                            <span>Área Cobertura Completa: Mar del Plata</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg border border-slate-100 flex items-center justify-center text-cta"><i data-lucide="check" class="w-4 h-4"></i></div>
+                            <span>Atención Especializada y Custodia Dedicada</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-xl bg-white border border-slate-100 shadow-sm">
+                    <form id="cotizador-form" class="space-y-6">
+                        <div>
+                            <label class="block text-[9px] uppercase font-bold tracking-[0.2em] text-slate-500 mb-2">Despachos Estimados Mensuales</label>
+                            <input type="number" id="envios-qty" value="150" class="w-full bg-[#faf9f6] border border-slate-200 rounded-lg px-4 py-3 text-primary font-bold focus:outline-none focus:border-cta">
+                        </div>
+                        <div>
+                            <label class="block text-[9px] uppercase font-bold tracking-[0.2em] text-slate-500 mb-2">Modalidad de Envío</label>
+                            <select id="tipo-envio" class="w-full bg-[#faf9f6] border border-slate-200 rounded-lg px-4 py-3 text-primary font-bold focus:outline-none focus:border-cta">
+                                <option value="express">Express - Servicio Preferencial (2hs)</option>
+                                <option value="lowcost" selected>LowCost - Despacho Planificado</option>
+                                <option value="flex">Flex - Same-Day SLA</option>
+                            </select>
+                        </div>
+                        <div class="p-4 rounded-lg bg-[#faf9f6] border border-slate-100">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[9px] text-slate-500 uppercase tracking-[0.2em]">Tarifa Unitaria Proyectada</span>
+                                <span class="text-base font-display font-light text-primary" id="costo-unitario">$1900 ARS</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-[9px] text-slate-500 uppercase tracking-[0.2em]">Liquidación Mensual Estimada</span>
+                                <span class="text-lg font-display font-light text-cta" id="costo-total">$285,000 ARS</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-primary hover:bg-black text-white font-sans text-[10px] font-bold tracking-widest rounded-lg uppercase transition-all shadow-md">
+                            Registrar Cuenta Corriente
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200 bg-[#ffffff] text-center text-xs text-slate-500 font-sans">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-primary text-white font-light flex items-center justify-center text-xs">2R</div>
+                <span class="font-bold text-[#0a1e19] tracking-widest uppercase">DOSRUEDAS SIGNATURE ESTATES</span>
+            </div>
+            <p class="font-light text-[10px] tracking-wider uppercase">© 2026 Envíos DosRuedas MDP. Real Estate Luxury Mockup.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Scroll Progress Bar logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        // Dynamic calculator logic
+        const enviosQtyInput = document.getElementById('envios-qty');
+        const tipoEnvioSelect = document.getElementById('tipo-envio');
+        const unitarioSpan = document.getElementById('costo-unitario');
+        const totalSpan = document.getElementById('costo-total');
+
+        const rates = {
+            express: 2900,
+            lowcost: 1900,
+            flex: 2300
+        };
+
+        function calculateRates() {
+            const qty = parseInt(enviosQtyInput.value) || 0;
+            const type = tipoEnvioSelect.value;
+            let unitPrice = rates[type];
+
+            // Bulk discount
+            if (qty > 500) {
+                unitPrice = Math.round(unitPrice * 0.85); // 15% discount
+            } else if (qty > 200) {
+                unitPrice = Math.round(unitPrice * 0.90); // 10% discount
+            }
+
+            const total = qty * unitPrice;
+
+            unitarioSpan.textContent = `$${unitPrice.toLocaleString('es-AR')} ARS`;
+            totalSpan.textContent = `$${total.toLocaleString('es-AR')} ARS`;
+        }
+
+        enviosQtyInput.addEventListener('input', calculateRates);
+        tipoEnvioSelect.addEventListener('change', calculateRates);
+
+        document.getElementById('cotizador-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('¡Lienzo de Contrato Premium Registrado! Su asesor residencial se pondrá en contacto.');
+        });
+    </script>
+</body>
+</html>

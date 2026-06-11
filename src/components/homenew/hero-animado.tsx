@@ -37,20 +37,22 @@ export default function HeroAnimado() {
           {/* Badge - Animation with Framer Motion */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-glass backdrop-blur-md border border-border-glass text-blue-400 text-xxs font-black tracking-[0.3em] mb-8 uppercase shadow-elevation"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-display text-xs font-black tracking-widest mb-8 uppercase"
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Tu Solución Confiable
+            LOGÍSTICA EXTREMA // MAR DEL PLATA
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-headline-lg-mobile md:text-display-lg italic mb-4 xl:mb-6 uppercase text-white"
+            className="text-5xl md:text-7xl font-display font-black italic mb-6 uppercase text-white tracking-tighter leading-none"
           >
-            Mensajería y <span className="text-blue-400 drop-shadow-[0_0_25px_rgba(96,165,250,0.4)]">Logística E-Commerce</span> en <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]">Mar del Plata</span>
+            Mensajería y <br />
+            <span className="text-primary drop-shadow-[0_0_25px_rgba(59,130,246,0.4)]">Logística E-Commerce</span> <br />
+            en <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]">Mar del Plata</span>
           </motion.h1>
 
           <motion.p
@@ -67,10 +69,10 @@ export default function HeroAnimado() {
             <Link
               href="/cotizar/express"
               aria-label="Solicitar Servicio de mensajería desde el héroe"
-              className="group relative px-10 py-5 bg-secondary hover:bg-yellow-400 text-black text-label-md rounded-2xl transition-all shadow-[0_10px_40px_-10px_rgba(234,179,8,0.4)] uppercase overflow-hidden active:scale-95"
+              className="group relative px-10 py-4.5 bg-primary hover:bg-blue-600 text-white font-display text-xs font-black rounded-lg transition-all shadow-[0_10px_30px_rgba(59,130,246,0.3)] uppercase overflow-hidden hover:scale-[1.02] active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Solicitar Servicio <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Solicitar Servicio <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </Link>
@@ -78,12 +80,12 @@ export default function HeroAnimado() {
             <Link
               href="/servicios/envios-express"
               aria-label="Ver todos los servicios de envíos"
-              className="flex items-center gap-4 group text-white text-label-md hover:text-primary transition-colors py-2"
+              className="flex items-center gap-4 group text-white font-display text-xs font-black hover:text-primary transition-colors py-2 uppercase tracking-wider"
             >
-              <div className="w-14 h-14 rounded-full bg-surface-glass border border-border-glass flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:scale-110 shadow-lg backdrop-blur-md" aria-hidden="true">
+              <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:scale-110 shadow-xl backdrop-blur-sm" aria-hidden="true">
                 <Play className="fill-white text-white ml-1" size={18} />
               </div>
-              <span className="text-xs uppercase">Ver Servicios</span>
+              <span>Ver Servicios</span>
             </Link>
           </motion.div>
 

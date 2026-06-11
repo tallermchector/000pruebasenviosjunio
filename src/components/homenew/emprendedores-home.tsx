@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Rocket, CheckCircle2, ArrowRight, ShieldCheck, Zap, Globe, Package, Building2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from "@/lib/utils";
 
 export const EmprendedoresHome = () => {
   const solutions = [
@@ -58,18 +59,18 @@ export const EmprendedoresHome = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.4em] mb-10 uppercase backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase"
             >
-              <Building2 size={16} className="animate-pulse" /> Soluciones Corporativas y PyME
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> Soluciones Corporativas y PyME
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-headline-lg-mobile md:text-display-lg italic text-white uppercase"
+              className="text-5xl md:text-7xl font-display font-black italic text-white uppercase tracking-tighter leading-none"
             >
-              Potencia tu <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span> <br />
+              Potencia tu <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">Logística</span> <br />
               con <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">DosRuedas</span>
             </motion.h2>
           </div>
@@ -85,18 +86,18 @@ export const EmprendedoresHome = () => {
             </p>
             <div className="flex gap-8">
               <div className="flex flex-col gap-1">
-                <span className="text-secondary text-headline-md italic uppercase">500+</span>
+                <span className="text-secondary text-3xl font-display font-black italic uppercase">500+</span>
                 <span className="text-label-sm text-gray-500 uppercase">Empresas</span>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="text-secondary text-headline-md italic uppercase">24/7</span>
+                <span className="text-secondary text-3xl font-display font-black italic uppercase">24/7</span>
                 <span className="text-label-sm text-gray-500 uppercase">Operativa</span>
               </div>
             </div>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-auto lg:h-[650px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-auto lg:h-[620px]">
           {solutions.map((solution, idx) => (
             <motion.div
               key={idx}
@@ -104,53 +105,76 @@ export const EmprendedoresHome = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -15, scale: 1.02 }}
-              className="group relative h-full rounded-[48px] overflow-hidden border border-white/5 bg-[#0a0d16] hover:border-primary/40 transition-all duration-700 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]"
+              whileHover={{ y: -10, scale: 1.01 }}
+              className={cn(
+                "group relative h-full rounded-xl overflow-hidden bg-card border-l-4 transition-all duration-300",
+                idx % 2 === 0
+                  ? "border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+                  : "border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
+              )}
             >
               <Image
                 src={solution.image}
                 alt={solution.title}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover opacity-15 grayscale group-hover:grayscale-0 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000"
+                className="object-cover opacity-10 grayscale group-hover:grayscale-0 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d16] via-[#0a0d16]/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d16] via-[#0a0d16]/90 to-transparent" />
 
-              <div className="absolute inset-0 p-12 flex flex-col justify-end">
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="flex justify-between items-start mb-auto">
-                  <span className="px-4 py-1.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-[9px] font-black text-primary uppercase tracking-[0.3em] shadow-lg">
+                  <span className={cn(
+                    "px-3 py-1 rounded border text-[9px] font-black uppercase tracking-[0.2em] shadow-lg",
+                    idx % 2 === 0
+                      ? "bg-primary/10 border-primary/20 text-primary"
+                      : "bg-secondary/10 border-secondary/20 text-secondary"
+                  )}>
                     {solution.badge}
                   </span>
                 </div>
 
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white mb-10 group-hover:bg-primary group-hover:text-slate-900 transition-all duration-500 group-hover:rotate-6 shadow-2xl backdrop-blur-sm">
-                  <solution.icon size={32} />
+                <div className={cn(
+                  "w-12 h-12 rounded-lg flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
+                  idx % 2 === 0
+                    ? "bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-slate-950"
+                    : "bg-secondary/10 border border-secondary/20 text-secondary group-hover:bg-secondary group-hover:text-slate-950"
+                )}>
+                  <solution.icon size={24} />
                 </div>
 
-                <h3 className="text-headline-md text-white mb-6 uppercase">
+                <h3 className="text-headline-md text-white mb-3 uppercase tracking-wide">
                   {solution.title}
                 </h3>
 
-                <p className="text-gray-400 text-body-md mb-10">
+                <p className="text-gray-400 text-body-md mb-6 line-clamp-2">
                   {solution.description}
                 </p>
 
-                <div className="space-y-4 mb-12">
+                <div className="space-y-3 mb-8">
                   {solution.features.map((feature, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-4 text-label-sm text-gray-400">
-                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                        <CheckCircle2 size={12} className="text-primary" />
+                    <div key={fIdx} className="flex items-center gap-3 text-label-sm text-gray-400">
+                      <div className={cn(
+                        "w-5 h-5 rounded-full flex items-center justify-center shrink-0",
+                        idx % 2 === 0 ? "bg-primary/10" : "bg-secondary/10"
+                      )}>
+                        <CheckCircle2 size={12} className={idx % 2 === 0 ? "text-primary" : "text-secondary"} />
                       </div>
-                      <span className="uppercase">{feature}</span>
+                      <span className="uppercase text-xs">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <Link
                   href={solution.link}
-                  className="group/btn w-full py-6 rounded-2xl bg-white/5 border border-white/10 text-white text-label-md text-center flex items-center justify-center gap-4 hover:bg-white/10 hover:text-white transition-all duration-500 uppercase shadow-xl backdrop-blur-sm active:scale-95"
+                  className={cn(
+                    "group/btn w-full py-4 rounded-xl text-center flex items-center justify-center gap-3 transition-all duration-300 uppercase shadow-md active:scale-95 text-label-md font-bold border",
+                    idx % 2 === 0
+                      ? "bg-primary/10 border-primary/20 text-primary hover:bg-primary hover:text-slate-950"
+                      : "bg-secondary/10 border-secondary/20 text-secondary hover:bg-secondary hover:text-slate-950"
+                  )}
                 >
-                  CONFIGURAR PLAN <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
+                  CONFIGURAR PLAN <ArrowRight size={16} className="group-hover/btn:translate-x-1.5 transition-transform" />
                 </Link>
               </div>
             </motion.div>

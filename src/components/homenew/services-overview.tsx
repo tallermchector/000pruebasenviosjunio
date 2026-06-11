@@ -22,48 +22,48 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-surface-glass border-red-500/20 hover:border-red-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(239,68,68,0.15)] transition-all duration-300",
-    icon: "bg-red-500/10 border border-red-500/20 text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.4)]",
-    accent: "text-red-400",
+    card: "bg-card border-l-4 border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
+    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.4)]",
+    accent: "text-primary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-red-400",
-    badge: "bg-red-500/10 text-red-400 border-red-500/20",
-    accentColor: "red-400",
-    glowColor: "rgba(239,68,68,0.12)"
+    button: "text-gray-300 hover:text-white group-hover:text-primary",
+    badge: "bg-primary/10 text-primary border-primary/20",
+    accentColor: "blue-400",
+    glowColor: "rgba(59,130,246,0.12)"
   },
   lowcost: {
-    card: "bg-surface-glass border-cyan-500/20 hover:border-cyan-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] transition-all duration-300",
-    icon: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
-    accent: "text-cyan-400",
+    card: "bg-card border-l-4 border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
+    icon: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.4)]",
+    accent: "text-secondary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-cyan-400",
-    badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-    accentColor: "cyan-400",
-    glowColor: "rgba(6,182,212,0.12)"
-  },
-  meli: {
-    card: "bg-surface-glass border-yellow-500/20 hover:border-yellow-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all duration-300",
-    icon: "bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]",
-    accent: "text-yellow-400",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-yellow-400",
-    button: "text-gray-300 hover:text-white group-hover:text-yellow-400",
-    badge: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+    button: "text-gray-300 hover:text-white group-hover:text-secondary",
+    badge: "bg-secondary/10 text-secondary border-secondary/20",
     accentColor: "yellow-400",
     glowColor: "rgba(234,179,8,0.12)"
   },
-  ecommerce: {
-    card: "bg-surface-glass border-emerald-500/20 hover:border-emerald-500/50 shadow-elevation hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] transition-all duration-300",
-    icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]",
-    accent: "text-emerald-400",
+  meli: {
+    card: "bg-card border-l-4 border-l-primary hover:border-l-secondary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
+    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(59,130,246,0.4)]",
+    accent: "text-primary",
     text: "text-white",
-    desc: "text-gray-400 [&>span]:text-emerald-400",
-    button: "text-gray-300 hover:text-white group-hover:text-emerald-400",
-    badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    accentColor: "emerald-500",
-    glowColor: "rgba(16,185,129,0.12)"
+    desc: "text-gray-400 [&>span]:text-white",
+    button: "text-gray-300 hover:text-white group-hover:text-primary",
+    badge: "bg-primary/10 text-primary border-primary/20",
+    accentColor: "blue-400",
+    glowColor: "rgba(59,130,246,0.12)"
+  },
+  ecommerce: {
+    card: "bg-card border-l-4 border-l-secondary hover:border-l-primary hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition-all duration-300",
+    icon: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.4)]",
+    accent: "text-secondary",
+    text: "text-white",
+    desc: "text-gray-400 [&>span]:text-white",
+    button: "text-gray-300 hover:text-white group-hover:text-secondary",
+    badge: "bg-secondary/10 text-secondary border-secondary/20",
+    accentColor: "yellow-400",
+    glowColor: "rgba(234,179,8,0.12)"
   }
 };
 
@@ -129,12 +129,12 @@ export const ServicesOverview = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-surface-glass backdrop-blur-md border border-border-glass text-blue-400 text-xxs font-black tracking-[0.2em] mb-8 uppercase shadow-elevation">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" /> SERVICIOS EXCLUSIVOS
             </div>
-            <h2 className="text-headline-lg-mobile md:text-display-lg italic uppercase text-white">
-              Soluciones <br />
-              <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logísticas</span>
+            <h2 className="text-5xl md:text-7xl font-display font-black italic uppercase text-white tracking-tighter leading-none">
+              NUESTRA GAMA DE <br />
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(59,130,246,0.4)]">SOLUCIONES</span>
             </h2>
           </motion.div>
 
@@ -170,7 +170,7 @@ export const ServicesOverview = () => {
                 }}
                 whileHover="hover"
                 className={cn(
-                  "group p-6 lg:p-10 rounded-xl glass-card flex flex-col justify-between relative overflow-hidden",
+                  "group p-6 lg:p-10 rounded-xl flex flex-col justify-between relative overflow-hidden",
                   theme.card,
                   service.className
                 )}

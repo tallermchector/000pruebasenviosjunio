@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetas de Diseño - Envíos DosRuedas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #04060a;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-portal {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+        .portal-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+    </style>
+</head>
+<body class="text-slate-300 min-h-screen flex flex-col justify-between py-12 px-6">
+    <div class="max-w-6xl mx-auto w-full my-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-black tracking-widest uppercase mb-6">
+                MÓDULO DE MAQUETAS VISUALES
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-tight text-white mb-4 font-sans">
+                Envíos DosRuedas MDP
+            </h1>
+            <p class="text-slate-500 text-base max-w-2xl mx-auto font-light">
+                Seleccioná una de las 15 propuestas de diseño generadas con la skill de diseño <code class="text-blue-400 font-mono">ui-ux-pro-max</code> para visualizar el prototipo correspondiente en formato HTML único.
+            </p>
+        </div>
+
+        <!-- Grid de Opciones -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Opción 1 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-blue-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="moon"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 1: Oscura Mejorada</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px] uppercase font-bold tracking-wider">OLED Dark</span>
+                        <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-500 text-[10px] uppercase font-bold tracking-wider">Brand Palette</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Orbitron + Roboto</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo oscuro principal del sitio con refinamientos estéticos. Contrastes mejorados, elevación de tarjetas glassmorphic, y animaciones de entrada fluidas conservando la identidad del servicio en Mar del Plata.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion1_oscura.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Oscura <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 2 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-cyan-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="sun"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 2: Clara Invertida</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[10px] uppercase font-bold tracking-wider">Light Theme</span>
+                        <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-500 text-[10px] uppercase font-bold tracking-wider">Brand Palette</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Orbitron + Roboto</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        El esquema de colores de la Opción 1 invertido para crear una interfaz clara. Mantiene la misma estructura, tipografías y acentos azules y amarillos corporativos, pero en un fondo claro de alta legibilidad diurna.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion2_clara.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Clara <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 3 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-purple-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="orbit"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 3: Spatial Brand</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 text-[10px] uppercase font-bold tracking-wider">Spatial Glass</span>
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px] uppercase font-bold tracking-wider">Creative Hybrid</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Inter + Orbitron</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Propuesta creativa híbrida. Combina la marca azul y amarilla con tipografía Inter (Orbitron para métricas), paneles con alto blur que simulan computación espacial y sutiles nodos de brillo dinámico en el fondo.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion3_creativa.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Creativa <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 4 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-yellow-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-yellow-550 bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="layout"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 4: Neo-Brutalista</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-yellow-550/10 text-yellow-500 bg-yellow-500/15 text-[10px] uppercase font-bold tracking-wider">High Contrast</span>
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px] uppercase font-bold tracking-wider">Bold borders</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Space Grotesk</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo crudo, de alto impacto y bordes gruesos. Utiliza tipografía Space Grotesk, sombras planas sin desenfoque (offset shadows) y elementos de color sólido que resaltan al instante las llamadas a la acción.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion4_neobrutalista.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Brutalista <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 5 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-emerald-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="terminal"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 5: Cyberpunk HUD</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px] uppercase font-bold tracking-wider">Neon glow</span>
+                        <span class="px-2 py-0.5 rounded bg-red-500/10 text-red-400 text-[10px] uppercase font-bold tracking-wider">Scanlines</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">JetBrains Mono</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Inspirado en consolas del desarrollador y HUDs de control táctico. Colores neón azul y amarillo brillante sobre fondo negro absoluto, líneas de escaneo CRT y tipografía monoespaciada para rastreos de última milla.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion5_cyberpunk.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-blue-550 bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Cyberpunk <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 6 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-white/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-white/10 border border-white/20 text-white flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="align-justify"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 6: Swiss Modernism</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-800 text-[10px] uppercase font-bold tracking-wider">Flat 2D</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] uppercase font-bold tracking-wider">Whitespace</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Inter / Helvetica</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Look ultra-limpio y matemático basado en la escuela suiza. Alineación rigurosa sobre grillas, abundante espacio en blanco, cero sombras (plano absoluto) y uso del color de marca azul de forma funcional.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion6_swiss.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-white hover:bg-slate-100 text-black border border-black font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Suiza <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 7 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-blue-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="activity"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 7: Brand Athletic</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px] uppercase font-bold tracking-wider">Athletic Dark</span>
+                        <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-500 text-[10px] uppercase font-bold tracking-wider">Brand Accents</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Orbitron + Roboto</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo enérgico de alto rendimiento adaptado a la marca. Estructura e inclinaciones atléticas pero utilizando la paleta oficial (azul y amarillo de marca) sobre el fondo oscuro profundo (#040710).
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion7_fitness.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Atletic <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 8 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-orange-600/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-orange-100/60 border border-orange-200 text-orange-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="heart"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 8: Pet Adoption</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-orange-100 text-orange-600 text-[10px] uppercase font-bold tracking-wider">Claymorphism</span>
+                        <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-700 text-[10px] uppercase font-bold tracking-wider">Warm Cream</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Varela / Nunito</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo amigable, cálido e infantil. Inspirado en plataformas de adopción de mascotas. Utiliza fondos crema (#FFF7ED), tarjetas con bordes redondeados y sombreado tridimensional suave (claymorphism) con acentos naranja y terracota.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion8_mascotas.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Mascotas <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 9 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-blue-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="credit-card"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 9: Brand Banking</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px] uppercase font-bold tracking-wider">Fintech Glass</span>
+                        <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-500 text-[10px] uppercase font-bold tracking-wider">Brand Accents</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Orbitron + Roboto</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo fintech corporativo de alta confianza adaptado a la marca. Tarjetas con efecto de vidrio esmerilado claro sobre el fondo claro (#f8fafc), con tipografías y colores de marca para legibilidad y profesionalidad máximas.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion9_banca.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Bancaria <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 10 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-emerald-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="trending-up"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 10: Investment Platform</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] uppercase font-bold tracking-wider">Wealth Tech</span>
+                        <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 text-[10px] uppercase font-bold tracking-wider">Gold Accents</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Lexend / Source Sans 3</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo sofisticado de banca de inversión y gestión de carteras. Estilo oscuro premium con fondos azul marino profundo (#0A0F1D) y acentos en verde esmeralda y oro para transmitir crecimiento y máxima confianza.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion10_inversion.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Inversión <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 11 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-violet-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="wallet"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 11: Crypto Wallet</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-violet-500/10 text-violet-400 text-[10px] uppercase font-bold tracking-wider">DeFi / Web3</span>
+                        <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-500 text-[10px] uppercase font-bold tracking-wider">Amber Gold</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Space Grotesk / DM Sans</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Look futurista descentralizado inspirado en billeteras Web3. Utiliza una interfaz oscura de alto contraste con resplandores en púrpura y detalles en oro ámbar para reflejar agilidad técnica y trazabilidad cifrada.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion11_cripto.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Cripto <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 12 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-pink-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="sparkles"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 12: Generative Art</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-pink-500/10 text-pink-400 text-[10px] uppercase font-bold tracking-wider">Avant-Garde</span>
+                        <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[10px] uppercase font-bold tracking-wider">Creative Neon</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Syne / Manrope</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo artístico, atrevido y vanguardista. Configurado como un lienzo creativo de fondo negro absoluto (#09090B), tipografías Syne/Manrope y acentos vibrantes de color rosa magenta y cian neón.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion12_arte.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Arte <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 13 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-yellow-600/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="award"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 13: Luxury E-commerce</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-500 text-[10px] uppercase font-bold tracking-wider">Premium Retail</span>
+                        <span class="px-2 py-0.5 rounded bg-stone-700 text-stone-300 text-[10px] uppercase font-bold tracking-wider">Gold Accent</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Libre Bodoni / Public Sans</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo editorial sofisticado y de alta costura. Combina tipografía elegante Libre Bodoni con una paleta de color yeso natural (#FAFAF9), detalles en carbón oscuro y llamadas a la acción doradas.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion13_luxury.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Retail <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 14 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-pink-500/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="sparkles"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 14: Creative Agency</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-pink-500/10 text-pink-400 text-[10px] uppercase font-bold tracking-wider">Bold Agency</span>
+                        <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[10px] uppercase font-bold tracking-wider">Electric Cyan</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Space Grotesk / Archivo</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo atrevido, dinámico y moderno de agencia de diseño. Configurado con fondos rosa suave (#FDF2F8), acentos magenta vibrantes y cian eléctrico con tipografía Space Grotesk.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion14_agencia.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Agencia <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Opción 15 -->
+            <div class="portal-card p-8 rounded-2xl hover:border-emerald-700/30 hover:bg-white/[0.02] flex flex-col justify-between min-h-[385px] group">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-450 text-emerald-400 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform"><i data-lucide="home"></i></div>
+                    <h3 class="font-bold text-white text-xl uppercase mb-2 tracking-wide">Opción 15: Real Estate Luxury</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-0.5 rounded bg-emerald-900 text-emerald-100 text-[10px] uppercase font-bold tracking-wider">Luxury Estate</span>
+                        <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-500 text-[10px] uppercase font-bold tracking-wider">Premium Gold</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">Cormorant Garamond / Inter</span>
+                    </div>
+                    <p class="text-slate-500 text-sm font-light leading-relaxed">
+                        Estilo aristocrático de propiedades de lujo. Utiliza tipografías elegantes Cormorant Garamond, fondo blanco cálido de alabastro (#FAF9F6) y acentos en verde bosque profundo y oro.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="opcion15_realestate.html" class="inline-flex w-full justify-center items-center gap-2 px-6 py-3 bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
+                        Abrir Maqueta Inmobiliaria <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center text-[10px] text-slate-600 tracking-widest uppercase mt-12 font-mono">
+        Desarrollado con Antigravity & UI-UX Pro Max
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

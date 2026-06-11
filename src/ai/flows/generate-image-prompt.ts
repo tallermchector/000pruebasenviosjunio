@@ -10,6 +10,7 @@ import { z } from 'genkit';
 import companyProfile from '@/lib/empresa.json';
 import imageProfiles from '@/lib/imagenes.json';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const GenerateImagePromptInputSchema = z.object({
   sectionType: z.string().describe("El tipo de sección de la página donde se usará la imagen (ej: Hero, Card, Banner)."),
   serviceName: z.string().describe("El nombre del servicio para el cual es la imagen (ej: Envíos Express, Plan Emprendedores)."),
@@ -23,6 +24,7 @@ const GenerateImagePromptInputSchema = z.object({
 });
 type GenerateImagePromptInput = z.infer<typeof GenerateImagePromptInputSchema>;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const GenerateImagePromptOutputSchema = z.object({
   prompt: z.string().describe("El prompt detallado y optimizado para ser usado en un modelo de generación de imágenes como Imagen o Nano Banana."),
 });

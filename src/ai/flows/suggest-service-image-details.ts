@@ -11,11 +11,13 @@ import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import companyProfile from '@/lib/empresa.json';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SuggestServiceImageDetailsInputSchema = z.object({
   serviceContext: z.any().describe("The detailed JSON context of the service."),
 });
-export type SuggestServiceImageDetailsInput = z.infer<typeof SuggestServiceImageDetailsInputSchema>;
+type SuggestServiceImageDetailsInput = z.infer<typeof SuggestServiceImageDetailsInputSchema>;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SuggestServiceImageDetailsOutputSchema = z.object({
     backgroundDetails: z.string().describe("A creative and contextually relevant suggestion for the image background."),
     contentDetails: z.string().describe("A creative and detailed suggestion for the main subject and action of the image."),

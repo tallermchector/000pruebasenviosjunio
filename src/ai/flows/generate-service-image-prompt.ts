@@ -9,6 +9,7 @@ import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import companyProfile from '@/lib/empresa.json';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const GenerateServiceImagePromptInputSchema = z.object({
   serviceName: z.string().describe("The name of the service for which the image is being created."),
   serviceContext: z.string().describe("The full JSON context of the service."),
@@ -22,6 +23,7 @@ const GenerateServiceImagePromptInputSchema = z.object({
 });
 type GenerateServiceImagePromptInput = z.infer<typeof GenerateServiceImagePromptInputSchema>;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const GenerateServiceImagePromptOutputSchema = z.object({
   prompt: z.string().describe("The final, detailed prompt for the image generation model."),
 });

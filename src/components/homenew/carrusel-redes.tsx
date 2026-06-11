@@ -1,8 +1,9 @@
 'use client';
 
+import Image from "next/image";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera as Instagram, Share2 as Facebook, MessageCircle as Twitter, ExternalLink, Phone, Heart } from "lucide-react";
+import { Camera as Instagram, Share2 as Facebook,  ExternalLink, Phone, Heart } from "lucide-react";
 
 const socialNetworks = [
   {
@@ -128,7 +129,7 @@ export const CarruselRedes = () => {
                   className="w-72 h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-white/10 border-l-4 border-l-primary shadow-2xl transition-all hover:border-primary/50 block"
                   aria-label={`Ver publicación ${item.id} en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
                 >
-                  <img src={item.image} alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
+                  <Image src={item.image} width={288} height={288} alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-surface-light/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">
                     <div className="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-md border border-primary/30 border-l-4 border-l-secondary flex items-center justify-center text-slate-900">
                       {item.type === 'ig' && <Instagram size={32} />}

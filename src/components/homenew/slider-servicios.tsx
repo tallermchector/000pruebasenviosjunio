@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Package, Truck, Clock, ShieldCheck, ChevronRight, LayoutGrid, Zap, Globe, MousePointer2 } from 'lucide-react';
 import Link from 'next/link';
-import { cn } from "@/lib/utils";
+
 
 const services = [
   {

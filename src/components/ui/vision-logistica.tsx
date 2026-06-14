@@ -38,7 +38,7 @@ export function VisionLogistica() {
   const { theme } = useTheme();
 
   return (
-    <section className="min-h-screen w-full overflow-hidden bg-background relative flex flex-col justify-between py-24 border-t border-white/5">
+    <section className="min-h-screen w-full overflow-hidden bg-background relative flex flex-col justify-between py-24 border-t border-border">
       <div className="mx-auto w-full max-w-6xl px-4 z-20 flex-grow flex flex-col justify-center">
         <div className="text-center">
           <motion.h2
@@ -46,7 +46,7 @@ export function VisionLogistica() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-300 dark:via-purple-300 dark:to-pink-300 font-display uppercase italic"
+            className="text-4xl md:text-6xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground font-display uppercase italic"
           >
             Nuestra Visión Logística
           </motion.h2>
@@ -72,15 +72,15 @@ export function VisionLogistica() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="backdrop-blur-[12px] bg-white/5 border border-white/10 dark:bg-black/20 dark:border-zinc-800 rounded-3xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(131,80,232,0.15)] group"
+                className="backdrop-blur-[12px] bg-card/40 border border-border rounded-xl p-6 flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-purple-500/20">
+                <div className="w-12 h-12 rounded-md bg-primary/10 border border-primary/20 text-primary flex items-center justify-center transition-all group-hover:scale-110 group-hover:bg-primary/20">
                   <IconComponent size={24} />
                 </div>
-                <h3 className="text-white font-bold text-lg mt-5 font-display tracking-tight uppercase group-hover:text-purple-300 transition-colors">
+                <h3 className="text-foreground font-bold text-lg mt-5 font-display tracking-tight uppercase group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-zinc-400 text-sm mt-3 font-sans leading-normal">
+                <p className="text-muted-foreground text-sm mt-3 font-sans leading-normal">
                   {item.description}
                 </p>
               </motion.div>
@@ -90,12 +90,12 @@ export function VisionLogistica() {
       </div>
 
       <div className="relative h-72 w-full overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] z-0 mt-8">
-        <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#8350e8,transparent_70%)] before:opacity-40" />
-        <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-zinc-900/20 dark:border-white/20 bg-white dark:bg-zinc-900" />
+        <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,hsl(var(--primary)),transparent_70%)] before:opacity-40" />
+        <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-border bg-white dark:bg-zinc-950" />
         <Sparkles
           density={1200}
           className="absolute inset-x-0 bottom-0 h-full w-full [mask-image:radial-gradient(50%_50%,white,transparent_85%)]"
-          color={theme === "dark" ? "#ffffff" : "#8350e8"}
+          color={theme === "dark" ? "#ffffff" : "hsl(var(--primary))"}
         />
       </div>
     </section>

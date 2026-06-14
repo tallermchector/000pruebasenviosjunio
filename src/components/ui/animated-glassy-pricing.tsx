@@ -170,12 +170,12 @@ export const PricingCard = ({
     backdrop-blur-[14px] bg-gradient-to-br rounded-2xl shadow-xl flex-1 min-w-[250px] max-w-xs px-7 py-8 flex flex-col justify-between transition-all duration-300
     from-black/5 to-black/0 border border-black/10 h-full
     dark:from-white/10 dark:to-white/5 dark:border-white/10 dark:backdrop-brightness-[0.91]
-    ${isPopular ? 'scale-105 relative ring-2 ring-cyan-400/20 dark:from-white/20 dark:to-white/10 dark:border-cyan-400/30 shadow-2xl z-10' : 'z-0'}
+    ${isPopular ? 'scale-105 relative ring-2 ring-primary/20 dark:from-white/20 dark:to-white/10 dark:border-primary/30 shadow-2xl z-10' : 'z-0'}
   `;
   const buttonClasses = `
-    mt-auto w-full py-2.5 rounded-xl font-semibold text-[14px] transition font-sans select-none
+    mt-auto w-full py-2.5 rounded-md font-semibold text-[14px] transition font-sans select-none
     ${buttonVariant === 'primary' 
-      ? 'bg-cyan-400 hover:bg-cyan-300 text-slate-950 shadow-md' 
+      ? 'bg-primary hover:opacity-90 text-primary-foreground shadow-md' 
       : 'bg-black/10 hover:bg-black/20 text-foreground border border-black/20 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20'
     }
   `;
@@ -183,14 +183,14 @@ export const PricingCard = ({
   return (
     <div className={cardClasses.trim()}>
       {isPopular && (
-        <div className="absolute -top-4 right-4 px-3 py-1 text-[12px] font-semibold rounded-full bg-cyan-400 text-slate-950 font-bold tracking-tight">
+        <div className="absolute -top-4 right-4 px-3 py-1 text-[12px] font-semibold rounded-full bg-secondary text-secondary-foreground font-bold tracking-tight">
           Más Elegido
         </div>
       )}
       <div>
         <div className="mb-3">
           <h2 className="text-[36px] font-bold tracking-tight text-foreground font-display mb-1">{planName}</h2>
-          {subName && <p className="text-[12px] font-semibold text-cyan-400 uppercase tracking-widest">{subName}</p>}
+          {subName && <p className="text-[12px] font-semibold text-secondary uppercase tracking-widest">{subName}</p>}
           <p className="text-[14px] text-foreground/70 mt-2 font-sans min-h-[40px]">{description}</p>
         </div>
         <div className="my-6 flex items-baseline gap-2">
@@ -201,7 +201,7 @@ export const PricingCard = ({
         <ul className="flex flex-col gap-3 text-[13px] text-foreground/90 mb-6 font-sans">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center gap-2">
-              <CheckIcon className="text-cyan-400 w-4 h-4 flex-shrink-0" /> {feature}
+              <CheckIcon className="text-primary w-4 h-4 flex-shrink-0" /> {feature}
             </li>
           ))}
         </ul>
@@ -290,7 +290,7 @@ export const ModernPricingPage = ({
       {showAnimatedBackground && <ShaderCanvas />}
       <main className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 py-20 z-10">
         <div className="w-full max-w-5xl mx-auto text-center mb-16">
-          <h1 className="text-[48px] md:text-[64px] font-extralight leading-tight tracking-[-0.03em] bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-cyan-500 to-blue-600 dark:from-white dark:via-cyan-300 dark:to-blue-400 font-display">
+          <h1 className="text-[48px] md:text-[64px] font-extralight leading-tight tracking-[-0.03em] bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground font-display">
             {title}
           </h1>
           <p className="mt-3 text-[16px] md:text-[20px] text-foreground/85 max-w-2xl mx-auto font-sans">

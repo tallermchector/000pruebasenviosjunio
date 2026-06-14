@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import prisma from "@/lib/prisma";
 import { ServiceTypeEnum } from "../../../generated/prisma/client";
 import AnimatedHeroDemo from "@/components/ui/demo";
+import { PhotoGallery } from "@/components/ui/gallery";
 import { VisionLogistica } from "@/components/ui/vision-logistica";
 import ModernPricingPage from "@/components/ui/animated-glassy-pricing";
 import { Navbar1 } from "@/components/ui/shadcnblocks-com-navbar1";
@@ -47,6 +48,9 @@ export default async function NuevaPage() {
       <Navbar1 />
       <div className="relative z-10">
         <AnimatedHeroDemo />
+      </div>
+      <div className="relative z-10">
+        <PhotoGallery />
       </div>
       <div className="relative z-10">
         <VisionLogistica />

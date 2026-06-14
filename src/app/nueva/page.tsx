@@ -4,6 +4,7 @@ import { ServiceTypeEnum } from "../../../generated/prisma/client";
 import AnimatedHeroDemo from "@/components/ui/demo";
 import { VisionLogistica } from "@/components/ui/vision-logistica";
 import ModernPricingPage from "@/components/ui/animated-glassy-pricing";
+import { Navbar1 } from "@/components/ui/shadcnblocks-com-navbar1";
 import type { PriceRangeClient } from "@/components/express/express-pricing-ranges";
 
 export const metadata: Metadata = {
@@ -43,6 +44,7 @@ export default async function NuevaPage() {
 
   return (
     <main className="min-h-screen w-full bg-background flex flex-col relative">
+      <Navbar1 />
       <div className="relative z-10">
         <AnimatedHeroDemo />
       </div>

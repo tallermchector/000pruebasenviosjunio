@@ -1,68 +1,64 @@
-# Manual de Integración de Inteligencia Artificial (Google Genkit & Gemini)
+# Google Genkit & Gemini Integration Guidelines
 
-La plataforma utiliza **Google Genkit** como framework principal para la orquestación, gestión de prompts y ejecución de flujos de Inteligencia Artificial. Genkit proporciona un entorno tipado y robusto para interactuar con los modelos fundacionales de Google Gemini.
-
----
-
-## Configuración Centralizada
-
-La configuración e inicialización de Genkit reside en [genkit.ts](file:///e:/proyectos/000pruebasenviosjunio/src/ai/genkit.ts).
-
-### Validación de API Key
-El sistema requiere obligatoriamente la variable de entorno `GEMINIENLACE` para autenticarse con el SDK de Google AI. Se valida de manera estricta durante el arranque:
-
-```typescript
-const apiKey = process.env.GEMINIENLACE;
-if (!apiKey) {
-  throw new Error("❌ ERROR CRÍTICO: La variable de entorno GEMINIENLACE no está definida.");
-}
-```
-
-### Configuración del Plugin
-Genkit se inicializa con el plugin oficial de Google AI Studio (`googleAI`):
-```typescript
-export const ai = genkit({
-  plugins: [googleAI({ apiKey })],
-  model: "googleai/gemini-2.5-flash", // Modelo por defecto equilibrado y de baja latencia
-});
-```
+This project utilizes **Google Genkit** to orchestrate and manage AI workflows powered by Google Gemini foundation models. This document outlines the technical standards for maintaining and extending AI capabilities within the codebase.
 
 ---
 
-## Modelos y Estrategia de Asignación (Tiering)
+## ⚙️ 1. Core Configuration & Authentication
 
-Se definen dos alias de modelos en el módulo centralizado para segmentar las tareas según su complejidad y requerimientos de rendimiento:
+### 1.1 Centralized Initialization
+- Genkit is centrally configured in `src/ai/genkit.ts`.
+- **Strict Requirement:** The `GEMINIENLACE` environment variable is mandatory for authenticating with the Google AI SDK. The application must throw a critical error during initialization if this variable is missing.
 
-1.  **`googleai/gemini-2.5-flash` (Velocidad y Latencia):**
-    *   **Uso:** Síntesis rápidas, recomendaciones de parámetros creativos de imágenes, sugerencia de detalles a partir de textos.
-    *   **Propósito:** Optimizar los tiempos de respuesta del usuario y reducir el consumo de cuota de API.
-2.  **`googleai/gemini-2.5-pro` (Capacidad de Razonamiento):**
-    *   **Uso:** Análisis de código fuente completo de componentes, generación de prompts estructurados de replicación de código de software (meta-prompting).
-    *   **Propósito:** Ofrecer el razonamiento profundo requerido para generar instrucciones complejas sin pérdidas de contexto.
-
----
-
-## Gestión de Prompts Estructurados
-
-Para garantizar la estabilidad del tipado y la estructura del backend, todos los prompts que alimentan a los flujos se definen mediante la API `ai.definePrompt` de Genkit.
-
-### Características Clave:
-*   **Zod Schema Constraints:** Tanto la entrada (`input`) como la salida (`output`) se restringen mediante esquemas Zod estrictos. Esto fuerza al modelo Gemini a responder en formato JSON estructurado que encaja exactamente en el tipado de TypeScript.
-*   **Handlebars Templates:** Los prompts se definen como plantillas Handlebars, lo que permite inyectar variables complejas de forma limpia (ej. bucles `{{#each}}` para recorrer componentes de código o condicionales `{{#if}}` para adaptar el modo de generación).
-*   **Separación de Responsabilidades:** Al estar definidos en archivos independientes dentro de `src/ai/flows/`, se facilita el mantenimiento, testeo en la interfaz de desarrollador de Genkit y control de versiones.
+### 1.2 Plugin Setup
+- Use the official Google AI Studio plugin (`googleAI`).
+- The default model should be set to `"googleai/gemini-2.5-flash"` for optimal latency and cost balance.
 
 ---
 
-## Resiliencia y Manejo de Límites de Tasa (Rate Limiting)
+## 🧠 2. Model Tiering Strategy
 
-Para evitar caídas del servicio provocadas por el límite de solicitudes por minuto (rate limits) de la API de Google Studio, el sistema cuenta con un wrapper de reintentos con retraso exponencial en [retry.ts](file:///e:/proyectos/000pruebasenviosjunio/src/ai/utils/retry.ts).
+Select the appropriate Gemini model based on the complexity and performance requirements of the specific task:
 
-### Lógica de Reintento (`withExponentialBackoff`):
-*   **Detección Automática:** Captura errores correspondientes a los códigos HTTP `429`, mensajes `RESOURCE_EXHAUSTED` o "Too Many Requests".
-*   **Retraso Dinámico:** Intenta recuperar la propiedad `retryDelay` que proporciona Google AI Studio de manera nativa (especificando los segundos de espera). Si no está presente, aplica una fórmula exponencial clásica (`initialDelayMs * 2^(attempt - 1)`).
-*   **Límite de Intentos:** Permite configurar el máximo de reintentos antes de elevar la excepción final al cliente.
+### Tier 1: `googleai/gemini-2.5-flash` (Speed & Efficiency)
+- **Primary Use Cases:** Fast synthesis, creative parameter suggestions, generating short text snippets, and low-latency user interactions.
+- **Goal:** Optimize response times and minimize API quota usage.
 
-Ejemplo conceptual de uso:
+### Tier 2: `googleai/gemini-2.5-pro` (Deep Reasoning)
+- **Primary Use Cases:** Complex logic generation, full source code analysis, meta-prompting, and tasks requiring extensive context retention.
+- **Goal:** Provide deep analytical reasoning for complex architectural or coding challenges.
+
+---
+
+## 📝 3. Structured Prompt Engineering
+
+All prompts driving AI flows must be defined using Genkit's `ai.definePrompt` API to ensure type safety and backend stability.
+
+### 3.1 Zod Schema Enforcement
+- **Strict Validation:** Both `input` and `output` properties of the prompt definition must be strictly constrained using Zod schemas.
+- **JSON Output:** This forces the Gemini model to return structured JSON data that perfectly aligns with TypeScript types.
+
+### 3.2 Handlebars Templating
+- Define prompts using Handlebars templates.
+- Utilize Handlebars features like `{{#each}}` for iterating over lists and `{{#if}}` for conditional logic to inject complex variables cleanly into the prompt context.
+
+### 3.3 Separation of Concerns
+- Store all prompt definitions in isolated files within the `src/ai/flows/` directory.
+- This separation facilitates easier maintenance, version control, and testing via the Genkit Developer UI.
+
+---
+
+## 🛡️ 4. Resiliency & Rate Limiting
+
+To prevent service disruptions due to Google AI Studio API rate limits (e.g., HTTP 429), implement robust retry mechanisms.
+
+### 4.1 Exponential Backoff
+- Utilize the retry wrapper located at `src/ai/utils/retry.ts` (`withExponentialBackoff`).
+- **Error Detection:** Automatically intercept `429` status codes, `RESOURCE_EXHAUSTED` errors, or "Too Many Requests" messages.
+- **Dynamic Delay:** Attempt to use the `retryDelay` provided natively by Google AI Studio. If unavailable, fallback to a standard exponential formula (e.g., `initialDelayMs * 2^(attempt - 1)`).
+- **Max Retries:** Configure a sensible maximum number of retries before throwing a final exception to the client.
+
+**Example Usage:**
 ```typescript
 const result = await withExponentialBackoff(async () => {
   return await prompt(flowInput);

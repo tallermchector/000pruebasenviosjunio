@@ -1,7 +1,7 @@
-# /.aiexclude - Gemini Code Assist Exclusion Rules
-# Optimización de ventana de contexto: Ignorar ruido técnico sin bloquear el core.
+# .aiexclude - Google Jules & Gemini Context Optimization Rules
+# Optimize the context window by ignoring redundant, build, and heavy data files.
 
-# 1. Bloqueo de Artefactos de Compilación y Runtime
+# 1. Build Artifacts & Runtime Cache
 node_modules/
 .next/
 dist/
@@ -12,27 +12,40 @@ out/
 *.log
 *.lockb
 pnpm-lock.yaml
+yarn.lock
+package-lock.json
 
-# 2. Archivos de Configuración de Herramientas (Meta-data redundante para lógica)
+# 2. Configuration & Meta-data (Redundant for logic reasoning)
 .vscode/
 .idx/
 .git/
 .modified
+.husky/
+.github/
 apphosting.yaml
 components.json
 postcss.config.mjs
 tailwind.config.ts
+tailwind.config.js
 tsconfig.json
+eslint.config.mjs
+next.config.mjs
+next.config.js
+next-env.d.ts
+prettier.config.js
 
-# 3. Datos Generados y Prisma (Evitar inundación de esquemas/datos pesados)
+# 3. Generated Data & Heavy Schemas
 prisma/migrations/
 prisma/datos/*.json
+prisma/*.db
+prisma/*.db-journal
 generated/
 .agent/skills/ui-ux-pro-max/data/
 .agent/skills/ui-ux-pro-max/scripts/
 scripts/respuestas/
+coverage/
 
-# 4. Binarios y Media
+# 4. Binaries, Media & Static Assets
 public/fonts/
 public/images/
 *.png
@@ -41,9 +54,13 @@ public/images/
 *.svg
 *.webp
 *.ico
+*.gif
+*.mp4
+*.webm
+*.pdf
 
-# 5. Documentación de Soporte (Mantener solo AGENTS.md y GEMINI.md)
+# 5. Support Documentation (Except core AI instructions)
 docs/
-README.md
 BUILD_ERRORS.md
 jules_agente.md
+audit_report.md

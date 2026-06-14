@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import prisma from "@/lib/prisma";
 import { ServiceTypeEnum } from "../../../generated/prisma/client";
 import AnimatedHeroDemo from "@/components/ui/demo";
+import { VisionLogistica } from "@/components/ui/vision-logistica";
 import ModernPricingPage from "@/components/ui/animated-glassy-pricing";
 import type { PriceRangeClient } from "@/components/express/express-pricing-ranges";
 
 export const metadata: Metadata = {
   title: "Nueva Demo - Envíos DosRuedas",
-  description: "Página de demostración integrada con el nuevo Hero animado y la sección de tarifas interactivas.",
+  description: "Página de demostración integrada con el nuevo Hero animado, visión logística y sección de tarifas interactivas.",
 };
 
 // Disable prerendering since it relies on Prisma DB
@@ -44,6 +45,9 @@ export default async function NuevaPage() {
     <main className="min-h-screen w-full bg-background flex flex-col relative">
       <div className="relative z-10">
         <AnimatedHeroDemo />
+      </div>
+      <div className="relative z-10">
+        <VisionLogistica />
       </div>
       <ModernPricingPage
         title={

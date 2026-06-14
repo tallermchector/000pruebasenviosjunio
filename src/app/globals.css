@@ -39,6 +39,9 @@
     --shadow-lg: 6px 6px 0px 0 rgba(0, 0, 0, 1);
     --surface-glass: 0 0% 100%;
     --border-glass: 214.3 31.8% 91.4%;
+    --gradient-color: #8350e8;
+    --sparkles-color: #8350e8;
+    --button-ripple-color: oklch(0.145 0 0 / 0.3);
   }
 
   .dark {
@@ -71,6 +74,9 @@
     --shadow-lg: 6px 6px 0px 0 rgba(255, 255, 255, 0.1);
     --surface-glass: 225 57% 3.9%;
     --border-glass: 217.2 32.6% 17.5%;
+    --gradient-color: #8350e8;
+    --sparkles-color: #ffffff;
+    --button-ripple-color: oklch(0.985 0 0 / 0.5);
   }
 
   body {

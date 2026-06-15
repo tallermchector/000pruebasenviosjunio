@@ -1,3 +1,111 @@
+---
+version: alpha
+name: Dos Ruedas Pro
+colors:
+  background-light: "#ffffff"
+  background-dark: "#040710"
+  foreground-light: "#020817"
+  foreground-dark: "#f8fafc"
+  primary-light: "#2563eb"
+  primary-dark: "#3b82f6"
+  primary-foreground-light: "#f8fafc"
+  primary-foreground-dark: "#0f172a"
+  secondary-light: "#e7b008"
+  secondary-dark: "#e7b008"
+  secondary-foreground-light: "#412006"
+  secondary-foreground-dark: "#412006"
+  muted-light: "#f1f5f9"
+  muted-dark: "#1e293b"
+  muted-foreground-light: "#64748b"
+  muted-foreground-dark: "#94a3b8"
+  accent-light: "#f1f5f9"
+  accent-dark: "#1e293b"
+  accent-foreground-light: "#0f172a"
+  accent-foreground-dark: "#f8fafc"
+  destructive-light: "#ef4444"
+  destructive-dark: "#7f1d1d"
+  destructive-foreground-light: "#f8fafc"
+  destructive-foreground-dark: "#f8fafc"
+  border-light: "#e2e8f0"
+  border-dark: "#1e293b"
+  input-light: "#e2e8f0"
+  input-dark: "#1e293b"
+  ring-light: "#020817"
+  ring-dark: "#3b82f6"
+typography:
+  display-lg:
+    fontFamily: Orbitron
+    fontSize: 48px
+    fontWeight: 900
+    lineHeight: 1.1
+    letterSpacing: -0.02em
+  display-md:
+    fontFamily: Orbitron
+    fontSize: 32px
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: -0.01em
+  headline-lg:
+    fontFamily: Orbitron
+    fontSize: 24px
+    fontWeight: 700
+    lineHeight: 1.3
+    letterSpacing: 0.02em
+  headline-lg-mobile:
+    fontFamily: Orbitron
+    fontSize: 20px
+    fontWeight: 700
+    lineHeight: 1.3
+  headline-md:
+    fontFamily: Orbitron
+    fontSize: 24px
+    fontWeight: 600
+    lineHeight: 1.3
+  body-lg:
+    fontFamily: Roboto
+    fontSize: 18px
+    fontWeight: 400
+    lineHeight: 1.6
+  body-md:
+    fontFamily: Roboto
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.5
+  label-md:
+    fontFamily: Roboto
+    fontSize: 14px
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: 0.05em
+  label-sm:
+    fontFamily: Roboto
+    fontSize: 12px
+    fontWeight: 400
+    lineHeight: 1.2
+    letterSpacing: 0.1em
+  code-tracking:
+    fontFamily: Orbitron
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.0
+    letterSpacing: 0.1em
+spacing:
+  xs: 4px
+  base: 4px
+  sm: 8px
+  md: 16px
+  gutter: 16px
+  lg: 32px
+  margin-desktop: 32px
+  xl: 64px
+rounded:
+  sm: 4px
+  base: 8px
+  md: 12px
+  lg: 16px
+  xl: 24px
+  full: 9999px
+---
 # Dos Ruedas Pro - Sistema de Diseño Visual
 
 ## Overview
